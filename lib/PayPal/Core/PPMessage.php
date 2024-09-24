@@ -75,6 +75,7 @@
 				}
 				error_log($property);
 				$type = PPUtils::propertyType($this, $property);
+				error_log($type);
 				if(!$this->isBuiltInType($type) && !class_exists($type)) {
 					trigger_error("Class $type not found.");
 					continue; // just ignore
