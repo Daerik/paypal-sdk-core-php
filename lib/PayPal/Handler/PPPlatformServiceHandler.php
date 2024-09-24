@@ -47,14 +47,10 @@ class PPPlatformServiceHandler
 	public function handle(PPHttpConfig $httpConfig, PPRequest $request, $options): void {
 
         parent::handle($httpConfig, $request, $options);
-
-        if (TRUE) {
-            // $apiUsername is optional, if null the default account in config file is taken
-            $credMgr = PPCredentialManager::getInstance($options['config']);
-            $request->setCredential(clone($credMgr->getCredentialObject($this->apiUsername)));
-        } else {
-            $request->setCredential($this->apiUsername);
-        }
+		
+        // $apiUsername is optional, if null the default account in config file is taken
+        $credMgr = PPCredentialManager::getInstance($options['config']);
+        $request->setCredential(clone($credMgr->getCredentialObject($this->apiUsername)));
 
         $config     = $options['config'];
         $credential = $request->getCredential();
