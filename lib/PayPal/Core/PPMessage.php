@@ -121,7 +121,7 @@
 		 * @return bool
 		 */
 		private function isBuiltInType($typeName): bool {
-			static $types = array(
+			return in_array(strtolower($typeName), array(
 				'string',
 				'int',
 				'integer',
@@ -132,7 +132,6 @@
 				'long',
 				'datetime',
 				'double'
-			);
-			return in_array(strtolower($typeName), $types);
+			));
 		}
 	}
