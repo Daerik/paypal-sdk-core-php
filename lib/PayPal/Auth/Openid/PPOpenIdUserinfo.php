@@ -336,7 +336,7 @@ class PPOpenIdUserinfo
     /**
      * End-User's preferred address.
      *
-     * @param \PayPal\Auth\Openid\PPOpenIdAddress $address
+     * @param PPOpenIdAddress $address
      */
     public function setAddress($address)
     {
@@ -346,7 +346,8 @@ class PPOpenIdUserinfo
 
     /**
      * End-User's preferred address.
-     * @return \PayPal\Auth\Openid\PPOpenIdAddress
+     *
+     * @return PPOpenIdAddress
      */
     public function getAddress()
     {
