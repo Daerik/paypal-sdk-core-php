@@ -235,10 +235,10 @@ class PPHttpConfig
             $this->curlOptions[CURLOPT_PROXYUSERPWD] = $urlParts["user"] . ":" . $urlParts["pass"];
         }
     }
-
-    /**
-     * @param int $retry
-     */
+	
+	/**
+	 * @param $retryCount
+	 */
     public function setHttpRetryCount($retryCount)
     {
         $this->retryCount = $retryCount;

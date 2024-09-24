@@ -14,10 +14,8 @@ abstract class PPXmlFaultMessage
   extends Exception
 {
 	/**
-	 * @param array  $map
-	 * @param string $isRoot
+	 * @param array $data
 	 *
-	 * @throws \ReflectionException
 	 * @throws \ReflectionException
 	 */
     public function init(array $data = array())
