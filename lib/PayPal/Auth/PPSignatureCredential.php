@@ -50,7 +50,7 @@ class PPSignatureCredential
 	/**
 	 * @throws PPMissingCredentialException
 	 */
-	public function validate(): void {
+	public function validate(): null {
 
         if (empty($this->userName)) {
             throw new PPMissingCredentialException("username cannot be empty");
@@ -58,6 +58,7 @@ class PPSignatureCredential
         if (empty($this->password)) {
             throw new PPMissingCredentialException("password cannot be empty");
         }
+		return null;
         // Signature can be empty if using 3-rd party auth tokens from permissions API
     }
 	

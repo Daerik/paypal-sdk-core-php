@@ -66,7 +66,7 @@ class PPCertificateCredential
 	/**
 	 * @throws PPMissingCredentialException
 	 */
-	public function validate(): void {
+	public function validate(): null {
 
         if (empty($this->userName)) {
             throw new PPMissingCredentialException("username cannot be empty");
@@ -77,6 +77,7 @@ class PPCertificateCredential
         if (empty($this->certificatePath)) {
             throw new PPMissingCredentialException("certificate cannot be empty");
         }
+		return null;
     }
 	
 	/**
