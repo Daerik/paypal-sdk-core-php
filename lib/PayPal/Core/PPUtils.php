@@ -240,10 +240,10 @@ class PPUtils
 	 * @param string $class
 	 * @param string $propertyName
 	 *
-	 * @return string
+	 * @return bool
 	 * @throws ReflectionException
 	 */
-    public static function isAttributeProperty(string $class, string $propertyName): false|string {
+    public static function isAttributeProperty(string $class, string $propertyName): bool {
         if (($annotations = self::propertyAnnotations($class, $propertyName))) {
             return array_key_exists('attribute', $annotations);
         }

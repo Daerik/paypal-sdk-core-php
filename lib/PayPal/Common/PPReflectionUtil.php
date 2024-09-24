@@ -46,11 +46,10 @@ class PPReflectionUtil
 	 * @param string $class
 	 * @param string $propertyName
 	 *
-	 * @return string
+	 * @return null|array
 	 * @throws ReflectionException
 	 */
-    public static function propertyAnnotations(string $class, string $propertyName): ?string {
-        $class = $class;
+    public static function propertyAnnotations(string $class, string $propertyName): ?array {
         if (!class_exists('ReflectionProperty')) {
             throw new RuntimeException("Property type of " . $class . "::$propertyName cannot be resolved");
         }
