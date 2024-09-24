@@ -236,9 +236,8 @@
 			}
 			
 			// todo: smarter regexp
-			if(!preg_match_all('~\@([^\s@\(]+)[\t ]*(?:\(?([^\n@]+)\)?)?~i', $refl->getDocComment(), $annots,
-				PREG_PATTERN_ORDER)
-			) {
+			if(!preg_match_all('~\@([^\s@\(]+)[\t ]*(?:\(?([^\n@]+)\)?)?~i', $refl->getDocComment(), $annots, PREG_PATTERN_ORDER)) {
+				error_log('No match');
 				return NULL;
 			}
 			foreach($annots[1] as $i => $annot) {
