@@ -3,6 +3,7 @@ namespace PayPal\Handler;
 
 use PayPal\Core\PPConstants;
 use PayPal\Core\PPCredentialManager;
+use PayPal\Exception\OAuthException;
 use PayPal\Exception\PPConfigurationException;
 use PayPal\Exception\PPInvalidCredentialException;
 use PayPal\Exception\PPMissingCredentialException;
@@ -39,6 +40,7 @@ class PPPlatformServiceHandler
 	 * @throws PPConfigurationException
 	 * @throws PPInvalidCredentialException
 	 * @throws PPMissingCredentialException
+	 * @throws OAuthException
 	 */
 	public function handle($httpConfig, $request, $options)
     {

@@ -6,12 +6,13 @@ namespace PayPal\Core;
  */
 abstract class PPMessage
 {
-
-    /**
-     * @param string $prefix
-     *
-     * @return string
-     */
+	
+	/**
+	 * @param string $prefix
+	 *
+	 * @return string
+	 * @throws \ReflectionException
+	 */
     public function toNVPString($prefix = '')
     {
         $nvp = array();

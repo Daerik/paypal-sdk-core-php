@@ -238,16 +238,17 @@ class PPUtils
 
         return $annotations;
     }
-
-    /**
-     * Determine if a property in a given class is a
-     * attribute type.
-     *
-     * @param string $class
-     * @param string $propertyName
-     *
-     * @return string
-     */
+	
+	/**
+	 * Determine if a property in a given class is a
+	 * attribute type.
+	 *
+	 * @param string $class
+	 * @param string $propertyName
+	 *
+	 * @return string
+	 * @throws \ReflectionException
+	 */
     public static function isAttributeProperty($class, $propertyName)
     {
         if (($annotations = self::propertyAnnotations($class, $propertyName))) {
@@ -255,16 +256,17 @@ class PPUtils
         }
         return false;
     }
-
-    /**
-     * Determine if a property in a given class is a
-     * collection type.
-     *
-     * @param string $class
-     * @param string $propertyName
-     *
-     * @return string
-     */
+	
+	/**
+	 * Determine if a property in a given class is a
+	 * collection type.
+	 *
+	 * @param string $class
+	 * @param string $propertyName
+	 *
+	 * @return string
+	 * @throws \ReflectionException
+	 */
     public static function isPropertyArray($class, $propertyName)
     {
         if (($annotations = self::propertyAnnotations($class, $propertyName))) {
@@ -277,16 +279,16 @@ class PPUtils
 
         return false;
     }
-
-    /**
-     * Get data type of a property in a given class
-     *
-     * @param string $class
-     * @param string $propertyName
-     *
-     * @throws RuntimeException
-     * @return string
-     */
+	
+	/**
+	 * Get data type of a property in a given class
+	 *
+	 * @param string $class
+	 * @param string $propertyName
+	 *
+	 * @return string
+	 * @throws \ReflectionException
+	 */
     public static function propertyType($class, $propertyName)
     {
         if (($annotations = self::propertyAnnotations($class, $propertyName)) && isset($annotations['var'])) {
@@ -299,13 +301,14 @@ class PPUtils
 
         return 'string';
     }
-
-    /**
-     *
-     * @param object $object
-     *
-     * @return array
-     */
+	
+	/**
+	 *
+	 * @param object $object
+	 *
+	 * @return array
+	 * @throws \ReflectionException
+	 */
     public static function objectProperties($object)
     {
         $props = array();

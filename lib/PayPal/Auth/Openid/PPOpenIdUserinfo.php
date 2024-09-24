@@ -3,6 +3,8 @@ namespace PayPal\Auth\Openid;
 
 use PayPal\Common\PPApiContext;
 use PayPal\Common\PPModel;
+use PayPal\Exception\PPConfigurationException;
+use PayPal\Exception\PPConnectionException;
 use PayPal\Handler\PPOpenIdHandler;
 use PayPal\Transport\PPRestCall;
 
@@ -433,19 +435,21 @@ class PPOpenIdUserinfo
     {
         return $this->payer_id;
     }
-
-    /**
-     * returns user details
-     *
-     * @path /v1/identity/openidconnect/userinfo
-     * @method GET
-     *
-     * @param array        $params     (allowed values are access_token)
-     *                                 access_token - access token from the createFromAuthorizationCode / createFromRefreshToken calls
-     * @param PPApiContext $apiContext Optional API Context
-     *
-     * @return PPOpenIdUserinfo
-     */
+	
+	/**
+	 * returns user details
+	 *
+	 * @path /v1/identity/openidconnect/userinfo
+	 * @method GET
+	 *
+	 * @param array $params            (allowed values are access_token)
+	 *                                 access_token - access token from the createFromAuthorizationCode / createFromRefreshToken calls
+	 * @param null  $apiContext        Optional API Context
+	 *
+	 * @return PPOpenIdUserinfo
+	 * @throws PPConfigurationException
+	 * @throws PPConnectionException
+	 */
     public static function getUserinfo($params, $apiContext = null)
     {
         static $allowedParams = array('schema' => 1);

@@ -3,6 +3,8 @@ namespace PayPal\Auth\Openid;
 
 use PayPal\Common\PPApiContext;
 use PayPal\Common\PPModel;
+use PayPal\Exception\PPConfigurationException;
+use PayPal\Exception\PPConnectionException;
 use PayPal\Handler\PPOpenIdHandler;
 use PayPal\Transport\PPRestCall;
 
@@ -132,24 +134,28 @@ class PPOpenIdTokeninfo
     {
         return $this->expires_in;
     }
-
-    /**
-     * Creates an Access Token from an Authorization Code.
-     *
-     * @path /v1/identity/openidconnect/tokenservice
-     * @method POST
-     *
-     * @param array        $params     (allowed values are client_id, client_secret, grant_type, code and redirect_uri)
-     *                                 (required) client_id from developer portal
-     *                                 (required) client_secret from developer portal
-     *                                 (required) code is Authorization code previously received from the authorization server
-     *                                 (required) redirect_uri Redirection endpoint that must match the one provided during the
-     *                                 authorization request that ended in receiving the authorization code.
-     *                                 (optional) grant_type is the Token grant type. Defaults to authorization_code
-     * @param PPApiContext $apiContext Optional API Context
-     *
-     * @return PPOpenIdTokeninfo
-     */
+	
+	/**
+	 * Creates an Access Token from an Authorization Code.
+	 *
+	 * @path /v1/identity/openidconnect/tokenservice
+	 * @method POST
+	 *
+	 * @param array $params            (allowed values are client_id, client_secret, grant_type, code and redirect_uri)
+	 *                                 (required) client_id from developer portal
+	 *                                 (required) client_secret from developer portal
+	 *                                 (required) code is Authorization code previously received from the authorization server
+	 *                                 (required) redirect_uri Redirection endpoint that must match the one provided during the
+	 *                                 authorization request that ended in receiving the authorization code.
+	 *                                 (optional) grant_type is the Token grant type. Defaults to authorization_code
+	 * @param       $clientId
+	 * @param       $clientSecret
+	 * @param null  $apiContext        Optional API Context
+	 *
+	 * @return PPOpenIdTokeninfo
+	 * @throws PPConfigurationException
+	 * @throws PPConnectionException
+	 */
     public static function createFromAuthorizationCode($params, $clientId, $clientSecret, $apiContext = null)
     {
         static $allowedParams = array('grant_type' => 1, 'code' => 1, 'redirect_uri' => 1);
@@ -183,23 +189,25 @@ class PPOpenIdTokeninfo
           ));
         return $token;
     }
-
-    /**
-     * Creates an Access Token from an Refresh Token.
-     *
-     * @path /v1/identity/openidconnect/tokenservice
-     * @method POST
-     *
-     * @param array      $params     (allowed values are grant_type and scope)
-     *                               (required) client_id from developer portal
-     *                               (required) client_secret from developer portal
-     *                               (optional) refresh_token refresh token. If one is not passed, refresh token from the current object is used.
-     *                               (optional) grant_type is the Token grant type. Defaults to refresh_token
-     *                               (optional) scope is an array that either the same or a subset of the scope passed to the authorization request
-     * @param APIContext $apiContext Optional API Context
-     *
-     * @return PPOpenIdTokeninfo
-     */
+	
+	/**
+	 * Creates an Access Token from an Refresh Token.
+	 *
+	 * @path /v1/identity/openidconnect/tokenservice
+	 * @method POST
+	 *
+	 * @param array $params          (allowed values are grant_type and scope)
+	 *                               (required) client_id from developer portal
+	 *                               (required) client_secret from developer portal
+	 *                               (optional) refresh_token refresh token. If one is not passed, refresh token from the current object is used.
+	 *                               (optional) grant_type is the Token grant type. Defaults to refresh_token
+	 *                               (optional) scope is an array that either the same or a subset of the scope passed to the authorization request
+	 * @param null  $apiContext      Optional API Context
+	 *
+	 * @return PPOpenIdTokeninfo
+	 * @throws PPConfigurationException
+	 * @throws PPConnectionException
+	 */
     public function createFromRefreshToken($params, $apiContext = null)
     {
 

@@ -15,12 +15,15 @@ class PPReflectionUtil
      * @var array|string[]
      */
     private static $propertiesType = array();
-
-    /**
-     *
-     * @param string $class
-     * @param string $propertyName
-     */
+	
+	/**
+	 *
+	 * @param string $class
+	 * @param string $propertyName
+	 *
+	 * @return mixed|string
+	 * @throws \ReflectionException
+	 */
     public static function getPropertyClass($class, $propertyName)
     {
 

@@ -2,6 +2,7 @@
 namespace PayPal\Core;
 
 use PayPal\Common\PPApiContext;
+use PayPal\Exception\PPConnectionException;
 
 class PPBaseService
 {
@@ -51,16 +52,18 @@ class PPBaseService
         $this->config         = $config;
         $this->handlers       = $handlers;
     }
-
-    /**
-     *
-     * @param string     $method        - API method to call
-     * @param object     $requestObject Request object
-     * @param apiContext $apiContext    object containing credential and SOAP headers
-     * @param array      $handlers      Array of Handlers
-     * @param mixed      $apiUserName   - Optional API credential - can either be
-     *                                  a username configured in sdk_config.ini or a ICredential object created dynamically
-     */
+	
+	/**
+	 *
+	 * @param            $port
+	 * @param string     $method        - API method to call
+	 * @param object     $requestObject Request object
+	 * @param apiContext $apiContext    object containing credential and SOAP headers
+	 * @param array      $handlers      Array of Handlers
+	 *
+	 * @return mixed
+	 * @throws PPConnectionException
+	 */
     public function call($port, $method, $requestObject, $apiContext, $handlers = array())
     {
 

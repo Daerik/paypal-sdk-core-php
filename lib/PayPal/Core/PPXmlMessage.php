@@ -16,10 +16,11 @@ abstract class PPXmlMessage
     {
         return $this->toXMLString();
     }
-
-    /**
-     * @return string
-     */
+	
+	/**
+	 * @return string
+	 * @throws \ReflectionException
+	 */
     public function toXMLString()
     {
         $attributes = array();
@@ -63,14 +64,15 @@ abstract class PPXmlMessage
 
         return $attrs . implode($xml);
     }
-
-    /**
-     * @param string              $property
-     * @param PPXmlMessage|string $value
-     * @param string              $namespace
-     *
-     * @return string
-     */
+	
+	/**
+	 * @param string              $property
+	 * @param PPXmlMessage|string $value
+	 * @param string              $namespace
+	 *
+	 * @return string
+	 * @throws \ReflectionException
+	 */
     private function buildProperty($property, $value, $namespace = 'ebl')
     {
         $annotations = PPUtils::propertyAnnotations($this, $property);
