@@ -101,11 +101,11 @@ class OAuthRequest {
 	/**
 	 * @param $name
 	 * @param $value
-	 * @param true $allow_duplicates
+	 * @param bool $allow_duplicates
 	 *
 	 * @return void
 	 */
-	public function set_parameter($name, $value, true $allow_duplicates = TRUE): void {
+	public function set_parameter($name, $value, bool $allow_duplicates = TRUE): void {
 		if($allow_duplicates && isset($this->parameters[$name])) {
 			// We have already added parameter(s) with this name, so add to the list
 			if(is_scalar($this->parameters[$name])) {

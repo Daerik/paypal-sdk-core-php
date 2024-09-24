@@ -113,9 +113,9 @@ class PPUtils
      * Convert a DOM node to an intermediate nested array
      * representation that can be iterated
      *
-     * @param DOMNode $node DOM node to convert
+     * @param \DOMElement|\DOMNameSpaceNode|\DOMNode|null $node DOM node to convert
      */
-    private static function xmlNodeToArray(DOMNode $node): array {
+    private static function xmlNodeToArray(\DOMElement|\DOMNameSpaceNode|\DOMNode|null $node): array {
         $result = array();
 
         $children = $node->childNodes;
@@ -198,13 +198,13 @@ class PPUtils
 	/**
 	 * Get property annotations for a certain property in a class
 	 *
-	 * @param string $class
+	 * @param object|string $class
 	 * @param string $propertyName
 	 *
-	 * @return string
+	 * @return mixed
 	 * @throws \ReflectionException
 	 */
-    public static function propertyAnnotations(string $class, string $propertyName): ?string {
+    public static function propertyAnnotations(object|string $class, string $propertyName): mixed {
         $class = is_object($class) ? get_class($class) : $class;
         if (!class_exists('ReflectionProperty')) {
             throw new RuntimeException("Property type of " . $class . "::$propertyName cannot be resolved");
@@ -252,13 +252,13 @@ class PPUtils
 	 * Determine if a property in a given class is a
 	 * collection type.
 	 *
-	 * @param string $class
+	 * @param object|string $class
 	 * @param string $propertyName
 	 *
-	 * @return string
+	 * @return bool
 	 * @throws \ReflectionException
 	 */
-    public static function isPropertyArray(string $class, string $propertyName): bool|string {
+    public static function isPropertyArray(object|string $class, string $propertyName): bool {
         if (($annotations = self::propertyAnnotations($class, $propertyName))) {
             if (isset($annotations['var']) && str_ends_with($annotations['var'], '[]')) {
                 return true;
@@ -273,13 +273,13 @@ class PPUtils
 	/**
 	 * Get data type of a property in a given class
 	 *
-	 * @param string $class
+	 * @param object|string $class
 	 * @param string $propertyName
 	 *
 	 * @return string
 	 * @throws \ReflectionException
 	 */
-    public static function propertyType(string $class, string $propertyName): string {
+    public static function propertyType(object|string $class, string $propertyName): string {
         if (($annotations = self::propertyAnnotations($class, $propertyName)) && isset($annotations['var'])) {
             if (str_ends_with($annotations['var'], '[]')) {
                 return substr($annotations['var'], 0, -2);
