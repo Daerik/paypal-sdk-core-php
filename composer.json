@@ -1,29 +1,33 @@
 {
-	"name"        : "skuola/paypal-sdk-core-php",
-	"description" : "PayPal Core SDK for PHP",
-	"keywords"    : [
+	"name": "skuola/paypal-sdk-core-php",
+	"description": "PayPal Core SDK for PHP",
+	"keywords": [
 		"paypal",
 		"php",
 		"sdk"
 	],
-	"type"        : "library",
-	"homepage"    : "https://gitlab.com/skuola/paypal-sdk-core-php",
-	"license"     : "Apache-2.0",
-	"authors"     : [
+	"type": "library",
+	"homepage": "https://gitlab.com/skuola/paypal-sdk-core-php",
+	"license": "Apache-2.0",
+	"authors": [
 		{
-			"name"     : "PayPal",
-			"homepage" : "https://github.com/skuola/paypal-sdk-core-php/contributors"
+			"name": "PayPal",
+			"homepage": "https://github.com/skuola/paypal-sdk-core-php/contributors"
+		},
+		{
+			"name": "Daerik",
+			"homepage": "https://www.daerik.com"
 		}
 	],
-	"require"     : {
-		"php" : "^8.3"
+	"require": {
+		"php": "^8.3"
 	},
-	"require-dev" : {
-		"phpunit/phpunit" : "3.7.*"
+	"require-dev": {
+		"phpunit/phpunit": "3.7.*"
 	},
-	"autoload"    : {
-		"psr-0" : {
-			"PayPal" : "lib/"
+	"autoload": {
+		"psr-0": {
+			"PayPal": "lib/"
 		}
 	}
 }
