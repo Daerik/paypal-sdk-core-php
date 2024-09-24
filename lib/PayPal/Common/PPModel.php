@@ -113,6 +113,8 @@ class PPModel
 	 * @param $json
 	 *
 	 * @return void
+	 * @throws \ReflectionException
+	 * @throws \ReflectionException
 	 */
 	public function fromJson($json)
     {
