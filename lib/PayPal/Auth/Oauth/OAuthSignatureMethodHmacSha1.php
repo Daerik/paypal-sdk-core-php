@@ -32,7 +32,7 @@ class OAuthSignatureMethodHmacSha1
 		
 		$key_parts = array(
 			$consumer->secret,
-			($token) ? $token->secret : ""
+			$token->secret
 		);
 		
 		$key_parts = OAuthUtil::urlencode_rfc3986($key_parts);

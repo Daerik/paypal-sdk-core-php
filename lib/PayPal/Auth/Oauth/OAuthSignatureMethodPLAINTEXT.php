@@ -28,7 +28,7 @@ class OAuthSignatureMethodPLAINTEXT
     public function build_signature(OAuthRequest $request, OAuthConsumer $consumer, OAuthToken $token): string {
         $key_parts = array(
           $consumer->secret,
-          ($token) ? $token->secret : ""
+          $token->secret
         );
 
         $key_parts            = OAuthUtil::urlencode_rfc3986($key_parts);

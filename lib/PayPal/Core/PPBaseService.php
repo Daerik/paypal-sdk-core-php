@@ -66,15 +66,10 @@ class PPBaseService
         if (!is_array($handlers)) {
             $handlers = array();
         }
-
-        if (is_array($this->handlers)) {
-            $handlers = array_merge($this->handlers, $handlers);
-        }
-
-        if ($apiContext == null) {
-            $apiContext = new PPApiContext(PPConfigManager::getConfigWithDefaults($this->config));
-        }
-        if ($apiContext->getConfig() == null) {
+	    
+	    $handlers = array_merge($this->handlers, $handlers);
+	    
+	    if ($apiContext->getConfig() == null) {
             $apiContext->setConfig(PPConfigManager::getConfigWithDefaults($this->config));
         }
 

@@ -21,12 +21,8 @@ class PPCertificateAuthHandler
 	public function handle(PPHttpConfig $httpConfig, PPRequest $request, $options): void {
         /** @var PPCertificateCredential $credential */
         $credential = $request->getCredential();
-
-        if (!isset($credential)) {
-            return;
-        }
-
-        $httpConfig->setSSLCert($credential->getCertificatePath(), $credential->getCertificatePassPhrase());
+		
+		$httpConfig->setSSLCert($credential->getCertificatePath(), $credential->getCertificatePassPhrase());
         $thirdPartyAuth = $credential->getThirdPartyAuthorization();
 
         switch ($request->getBindingType()) {
@@ -34,9 +30,7 @@ class PPCertificateAuthHandler
                 if (!$thirdPartyAuth instanceof PPTokenAuthorization) {
                     $httpConfig->addHeader('X-PAYPAL-SECURITY-USERID', $credential->getUserName());
                     $httpConfig->addHeader('X-PAYPAL-SECURITY-PASSWORD', $credential->getPassword());
-                    if ($thirdPartyAuth) {
-                        $httpConfig->addHeader('X-PAYPAL-SECURITY-SUBJECT', $thirdPartyAuth->getSubject());
-                    }
+	                $httpConfig->addHeader('X-PAYPAL-SECURITY-SUBJECT', $thirdPartyAuth->getSubject());
                 }
                 break;
             case 'SOAP':

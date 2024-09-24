@@ -32,28 +32,26 @@ class PPAuthenticationHandler
 	 */
 	public function handle(PPHttpConfig $httpConfig, PPRequest $request, $options): void {
         $credential = $request->getCredential();
-        if (isset($credential)) {
-            $thirdPartyAuth = $credential->getThirdPartyAuthorization();
-            if ($thirdPartyAuth instanceof PPTokenAuthorization) {
-                $authSignature = AuthSignature::generateFullAuthString($credential->getUsername(),
-                  $credential->getPassword(), $thirdPartyAuth->getAccessToken(), $thirdPartyAuth->getTokenSecret(),
-                  $httpConfig->getMethod(), $httpConfig->getUrl());
-                if (isset($options['port']) &&
-                  ($options['port'] == 'PayPalAPI' || $options['port'] == 'PayPalAPIAA')
-                ) {
-                    $httpConfig->addHeader('X-PP-AUTHORIZATION', $authSignature);
-                } else {
-                    $httpConfig->addHeader('X-PAYPAL-AUTHORIZATION', $authSignature);
-                }
-            }
-            if ($credential instanceof PPSignatureCredential) {
-                $handler = new PPSignatureAuthHandler();
-            } elseif ($credential instanceof PPCertificateCredential) {
-                $handler = new PPCertificateAuthHandler();
-            } else {
-                throw new PPInvalidCredentialException();
-            }
-            $handler->handle($httpConfig, $request, $options);
-        }
-    }
+		$thirdPartyAuth = $credential->getThirdPartyAuthorization();
+		if ($thirdPartyAuth instanceof PPTokenAuthorization) {
+		    $authSignature = AuthSignature::generateFullAuthString($credential->getUsername(),
+		      $credential->getPassword(), $thirdPartyAuth->getAccessToken(), $thirdPartyAuth->getTokenSecret(),
+		      $httpConfig->getMethod(), $httpConfig->getUrl());
+		    if (isset($options['port']) &&
+		      ($options['port'] == 'PayPalAPI' || $options['port'] == 'PayPalAPIAA')
+		    ) {
+		        $httpConfig->addHeader('X-PP-AUTHORIZATION', $authSignature);
+		    } else {
+		        $httpConfig->addHeader('X-PAYPAL-AUTHORIZATION', $authSignature);
+		    }
+		}
+		if ($credential instanceof PPSignatureCredential) {
+		    $handler = new PPSignatureAuthHandler();
+		} elseif ($credential instanceof PPCertificateCredential) {
+		    $handler = new PPCertificateAuthHandler();
+		} else {
+		    throw new PPInvalidCredentialException();
+		}
+		$handler->handle($httpConfig, $request, $options);
+	}
 }

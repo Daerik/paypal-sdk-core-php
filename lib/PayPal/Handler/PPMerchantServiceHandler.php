@@ -50,7 +50,7 @@ class PPMerchantServiceHandler
         parent::handle($httpConfig, $request, $options);
         $config = $options['config'];
 
-        if (is_string($this->apiUsername) || is_null($this->apiUsername)) {
+        if (TRUE) {
             // $apiUsername is optional, if null the default account in config file is taken
             $credMgr = PPCredentialManager::getInstance($options['config']);
             $request->setCredential(clone($credMgr->getCredentialObject($this->apiUsername)));

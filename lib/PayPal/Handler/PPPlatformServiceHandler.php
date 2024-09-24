@@ -48,7 +48,7 @@ class PPPlatformServiceHandler
 
         parent::handle($httpConfig, $request, $options);
 
-        if (is_string($this->apiUsername) || is_null($this->apiUsername)) {
+        if (TRUE) {
             // $apiUsername is optional, if null the default account in config file is taken
             $credMgr = PPCredentialManager::getInstance($options['config']);
             $request->setCredential(clone($credMgr->getCredentialObject($this->apiUsername)));
@@ -59,7 +59,7 @@ class PPPlatformServiceHandler
         $config     = $options['config'];
         $credential = $request->getCredential();
         //TODO: Assuming existence of getApplicationId
-        if ($credential && $credential->getApplicationId() != null) {
+        if ($credential->getApplicationId() != null) {
             $httpConfig->addHeader('X-PAYPAL-APPLICATION-ID', $credential->getApplicationId());
         }
         if (isset($config['port']) && isset($config['service.EndPoint.' . $options['port']])) {

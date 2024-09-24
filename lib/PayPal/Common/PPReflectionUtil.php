@@ -50,7 +50,7 @@ class PPReflectionUtil
 	 * @throws ReflectionException
 	 */
     public static function propertyAnnotations(string $class, string $propertyName): ?string {
-        $class = is_object($class) ? get_class($class) : $class;
+        $class = $class;
         if (!class_exists('ReflectionProperty')) {
             throw new RuntimeException("Property type of " . $class . "::$propertyName cannot be resolved");
         }
