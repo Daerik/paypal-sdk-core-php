@@ -173,7 +173,7 @@ class PPHttpConfig
     public function setHttpProxy($proxy)
     {
         $urlParts = parse_url($proxy);
-        if ($urlParts == false || !array_key_exists("host", $urlParts)) {
+        if (!$urlParts || !array_key_exists("host", $urlParts)) {
             throw new PPConfigurationException("Invalid proxy configuration " . $proxy);
         }
 
