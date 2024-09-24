@@ -43,15 +43,17 @@ class PPCertificateCredential
      * @var string
      */
     protected $applicationId;
-
-    /**
-     * Constructs a new certificate credential object
-     *
-     * @param string $userName              API username
-     * @param string $password              API password
-     * @param string $certPath              Path to PEM encoded client certificate file
-     * @param string $certificatePassPhrase password need to use the certificate
-     */
+	
+	/**
+	 * Constructs a new certificate credential object
+	 *
+	 * @param string $userName              API username
+	 * @param string $password              API password
+	 * @param string $certPath              Path to PEM encoded client certificate file
+	 * @param null   $certificatePassPhrase password need to use the certificate
+	 *
+	 * @throws PPMissingCredentialException
+	 */
     public function __construct($userName, $password, $certPath, $certificatePassPhrase = null)
     {
         $this->userName              = trim($userName);

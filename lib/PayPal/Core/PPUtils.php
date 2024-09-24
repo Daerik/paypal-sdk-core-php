@@ -88,13 +88,16 @@ class PPUtils
     {
         return filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4);
     }
-
-    /**
-     * Convert xml string to an intermediate nested array
-     * representation that can be iterated
-     *
-     * @param string $xmlInput XML string to convert
-     */
+	
+	/**
+	 * Convert xml string to an intermediate nested array
+	 * representation that can be iterated
+	 *
+	 * @param string $xmlInput XML string to convert
+	 *
+	 * @return array
+	 * @throws Exception
+	 */
     public static function xmlToArray($xmlInput)
     {
         $doc                     = new DOMDocument();
@@ -198,16 +201,16 @@ class PPUtils
      * @var array|string[]
      */
     private static $propertiesType = array();
-
-    /**
-     * Get property annotations for a certain property in a class
-     *
-     * @param string $class
-     * @param string $propertyName
-     *
-     * @throws RuntimeException
-     * @return string
-     */
+	
+	/**
+	 * Get property annotations for a certain property in a class
+	 *
+	 * @param string $class
+	 * @param string $propertyName
+	 *
+	 * @return string
+	 * @throws \ReflectionException
+	 */
     public static function propertyAnnotations($class, $propertyName)
     {
         $class = is_object($class) ? get_class($class) : $class;

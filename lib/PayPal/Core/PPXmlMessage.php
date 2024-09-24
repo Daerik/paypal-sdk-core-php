@@ -99,11 +99,13 @@ abstract class PPXmlMessage
             return $el . '</' . $namespace . ':' . $property . '>';
         }
     }
-
-    /**
-     * @param array  $map    intermediate array representation of XML message to deserialize
-     * @param string $isRoot true if this is a root class for SOAP deserialization
-     */
+	
+	/**
+	 * @param array $map    intermediate array representation of XML message to deserialize
+	 * @param bool  $isRoot true if this is a root class for SOAP deserialization
+	 *
+	 * @throws PPTransformerException
+	 */
     public function init(array $map = array(), $isRoot = true)
     {
         if ($isRoot) {

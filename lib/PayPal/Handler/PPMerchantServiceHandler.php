@@ -5,8 +5,10 @@ use PayPal\Auth\PPCertificateCredential;
 use PayPal\Auth\PPSignatureCredential;
 use PayPal\Core\PPConstants;
 use PayPal\Core\PPCredentialManager;
+use PayPal\Exception\OAuthException;
 use PayPal\Exception\PPConfigurationException;
 use PayPal\Exception\PPInvalidCredentialException;
+use PayPal\Exception\PPMissingCredentialException;
 
 /**
  *
@@ -33,8 +35,14 @@ class PPMerchantServiceHandler
     }
 	
 	/**
+	 * @param $httpConfig
+	 * @param $request
+	 * @param $options
+	 *
 	 * @throws PPConfigurationException
 	 * @throws PPInvalidCredentialException
+	 * @throws OAuthException
+	 * @throws PPMissingCredentialException
 	 */
 	public function handle($httpConfig, $request, $options)
     {

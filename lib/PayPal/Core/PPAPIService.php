@@ -1,6 +1,7 @@
 <?php
 namespace PayPal\Core;
 
+use PayPal\Exception\PPConnectionException;
 use PayPal\Formatter\FormatterFactory;
 
 class PPAPIService
@@ -53,15 +54,16 @@ class PPAPIService
     {
         $this->handlers[] = $handler;
     }
-
-    /**
-     * Execute an api call
-     *
-     * @param string    $apiMethod Name of the API operation (such as 'Pay')
-     * @param PPRequest $params    Request object
-     *
-     * @return array containing request and response
-     */
+	
+	/**
+	 * Execute an api call
+	 *
+	 * @param string $apiMethod Name of the API operation (such as 'Pay')
+	 * @param        $request
+	 *
+	 * @return array containing request and response
+	 * @throws PPConnectionException
+	 */
     public function makeRequest($apiMethod, $request)
     {
 

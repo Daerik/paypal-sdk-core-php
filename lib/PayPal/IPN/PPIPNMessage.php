@@ -6,6 +6,7 @@ use PayPal\Core\PPConnectionManager;
 use PayPal\Core\PPConstants;
 use PayPal\Core\PPHttpConfig;
 use PayPal\Exception\PPConfigurationException;
+use PayPal\Exception\PPConnectionException;
 
 /**
  *
@@ -69,12 +70,14 @@ class PPIPNMessage
     {
         return $this->ipnData;
     }
-
-    /**
-     * Validates a IPN message
-     *
-     * @return bool
-     */
+	
+	/**
+	 * Validates a IPN message
+	 *
+	 * @return bool
+	 * @throws PPConfigurationException
+	 * @throws PPConnectionException
+	 */
     public function validate()
     {
         if (isset($this->isIpnVerified)) {

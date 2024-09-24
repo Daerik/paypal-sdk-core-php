@@ -4,6 +4,8 @@ namespace PayPal\Transport;
 use PayPal\Core\PPHttpConfig;
 use PayPal\Core\PPHttpConnection;
 use PayPal\Core\PPLoggingManager;
+use PayPal\Exception\PPConfigurationException;
+use PayPal\Exception\PPConnectionException;
 
 class PPRestCall
 {
@@ -24,14 +26,18 @@ class PPRestCall
         $this->apiContext = $apiContext;
         $this->logger     = new PPLoggingManager(__CLASS__, $apiContext->getConfig());
     }
-
-    /**
-     * @param array  $handlers array of handlers
-     * @param string $path     Resource path relative to base service endpoint
-     * @param string $method   HTTP method - one of GET, POST, PUT, DELETE, PATCH etc
-     * @param string $data     Request payload
-     * @param array  $headers  HTTP headers
-     */
+	
+	/**
+	 * @param array  $handlers array of handlers
+	 * @param string $path     Resource path relative to base service endpoint
+	 * @param string $method   HTTP method - one of GET, POST, PUT, DELETE, PATCH etc
+	 * @param string $data     Request payload
+	 * @param array  $headers  HTTP headers
+	 *
+	 * @return bool|string
+	 * @throws PPConfigurationException
+	 * @throws PPConnectionException
+	 */
     public function execute($handlers, $path, $method, $data = '', $headers = array())
     {
 

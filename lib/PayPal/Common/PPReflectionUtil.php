@@ -38,14 +38,14 @@ class PPReflectionUtil
             return 'string';
         }
     }
-
-    /**
-     * @param string $class
-     * @param string $propertyName
-     *
-     * @throws RuntimeException
-     * @return string
-     */
+	
+	/**
+	 * @param string $class
+	 * @param string $propertyName
+	 *
+	 * @return string
+	 * @throws \ReflectionException
+	 */
     public static function propertyAnnotations($class, $propertyName)
     {
         $class = is_object($class) ? get_class($class) : $class;
