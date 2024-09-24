@@ -62,7 +62,7 @@ class PPReflectionUtil
         if (!($refl =& self::$propertiesRefl[$class][$propertyName])) {
             $getter                                      = method_exists($class,
               "get" . ucfirst($propertyName)) ? "get" . ucfirst($propertyName)
-              : "get" . preg_replace_callback("/([_\-\s]?([a-z0-9]+))/", "self::replace_callback", $propertyName);
+              : "get" . preg_replace_callback("/([_\-\s]?([a-z0-9]+))/", array(self::class, 'replace_callback'), $propertyName);
             $refl                                        = new ReflectionMethod($class, $getter);
             self::$propertiesRefl[$class][$propertyName] = $refl;
         }
