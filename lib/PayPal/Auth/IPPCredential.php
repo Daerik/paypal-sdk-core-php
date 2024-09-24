@@ -5,16 +5,12 @@
 	 * Interface that represents API credentials
 	 */
 	abstract class IPPCredential {
-		/**
-		 *
-		 * @var IPPThirdPartyAuthorization
-		 */
-		protected IPPThirdPartyAuthorization $thirdPartyAuthorization;
+		protected ?IPPThirdPartyAuthorization $thirdPartyAuthorization = NULL;
 		
 		/**
-		 * @return IPPThirdPartyAuthorization
+		 * @return null|IPPThirdPartyAuthorization
 		 */
-		public function getThirdPartyAuthorization(): IPPThirdPartyAuthorization {
+		public function getThirdPartyAuthorization(): ?IPPThirdPartyAuthorization {
 			return $this->thirdPartyAuthorization;
 		}
 		
