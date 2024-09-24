@@ -25,7 +25,7 @@ class AuthSignature
 
         $acc_req = OAuthRequest::from_consumer_and_token($authConsumer, $authToken, $httpMethod, $endpoint, $params);
         $acc_req->sign_request($sig_method, $authConsumer, $authToken);
-        return OAuthutil::parseQueryString($acc_req);
+        return OAuthUtil::parseQueryString($acc_req);
     }
 
     public static function generateFullAuthString($key, $secret, $token, $tokenSecret, $httpMethod, $endpoint)
