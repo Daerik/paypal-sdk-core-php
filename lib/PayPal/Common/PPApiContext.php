@@ -10,19 +10,9 @@
 	 * SDK configuration
 	 */
 	class PPApiContext {
-		
-		/**
-		 *
-		 * @var array Dynamic SDK configuration
-		 */
-		protected array $config;
-		
-		/**
-		 * @var PPXmlMessage custom SOAPHeader
-		 */
+		protected array      $config;
 		private PPXmlMessage $SOAPHeader;
-		
-		private array $httpHeaders;
+		private array        $httpHeaders = array();
 		
 		/**
 		 *
