@@ -14,8 +14,14 @@ use PayPal\Transport\PPRestCall;
 class PPOpenIdTokeninfo
   extends PPModel
 {
-
-    /**
+	private int    $expires_in;
+	private string $id_token;
+	private string $token_type;
+	private string $refresh_token;
+	private string $access_token;
+	private string $scope;
+	
+	/**
      * OPTIONAL, if identical to the scope requested by the client; otherwise, REQUIRED.
      *
      * @param string $scope

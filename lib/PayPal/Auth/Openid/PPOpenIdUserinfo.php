@@ -14,8 +14,29 @@ use PayPal\Transport\PPRestCall;
 class PPOpenIdUserinfo
   extends PPModel
 {
-
-    /**
+	private string          $payer_id;
+	private string          $age_range;
+	private string          $account_type;
+	private bool            $verified_account;
+	private PPOpenIdAddress $address;
+	private string $phone_number;
+	private bool   $verified;
+	private string $language;
+	private string $locale;
+	private string $zoneinfo;
+	private string $birthday;
+	private string $gender;
+	private bool   $email_verified;
+	private string $email;
+	private string $picture;
+	private string $middle_name;
+	private string $family_name;
+	private string $given_name;
+	private string $name;
+	private string $sub;
+	private string $user_id;
+	
+	/**
      * Subject - Identifier for the End-User at the Issuer.
      *
      * @param string $user_id

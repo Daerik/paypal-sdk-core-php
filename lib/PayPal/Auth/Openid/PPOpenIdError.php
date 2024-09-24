@@ -9,8 +9,11 @@ use PayPal\Common\PPModel;
 class PPOpenIdError
   extends PPModel
 {
-
-    /**
+	private string $error_uri;
+	private string $error_description;
+	private string $error;
+	
+	/**
      * A single ASCII error code from the following enum.
      *
      * @param string $error

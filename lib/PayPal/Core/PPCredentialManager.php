@@ -24,6 +24,8 @@ class PPCredentialManager
     /*
      * Constructor initialize credential for multiple accounts specified in property file.
      */
+	private $config;
+	
 	/**
 	 * @throws PPMissingCredentialException
 	 */

@@ -9,8 +9,13 @@ use PayPal\Common\PPModel;
 class PPOpenIdAddress
   extends PPModel
 {
-
-    /**
+	private string $country;
+	private string $postal_code;
+	private string $region;
+	private string $locality;
+	private string $street_address;
+	
+	/**
      * Full street address component, which may include house number, street name.
      *
      * @param string $street_address
