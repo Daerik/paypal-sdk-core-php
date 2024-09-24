@@ -29,7 +29,7 @@
 		)
 	);
 ```
-   4. The access token is valid for a predefined duration and can be used for seamless XO or for retrieving user information
+   1. The access token is valid for a predefined duration and can be used for seamless XO or for retrieving user information
 
 
 ```php
@@ -39,12 +39,12 @@
 		)	
 	);
 ```
-   5. If the access token has expired, you can obtain a new access token using the refresh token from the 3'rd step.
+   1. If the access token has expired, you can obtain a new access token using the refresh token from the 3'rd step.
 
 ```php
    $token->createFromRefreshToken(array('openid', 'address'));
 ```
-   6. Redirect your buyer to `PPOpenIdSession::getLogoutUrl($redirectUri, $idToken);` to log him out of paypal. 
+   1. Redirect your buyer to `PPOpenIdSession::getLogoutUrl($redirectUri, $idToken);` to log him out of paypal. 
 
 
 #### LICENSE and CONTRIBUTIONS
