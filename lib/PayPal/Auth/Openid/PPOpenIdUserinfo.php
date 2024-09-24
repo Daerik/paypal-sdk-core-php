@@ -37,10 +37,12 @@ class PPOpenIdUserinfo
 	private string $user_id;
 	
 	/**
-     * Subject - Identifier for the End-User at the Issuer.
-     *
-     * @param string $user_id
-     */
+	 * Subject - Identifier for the End-User at the Issuer.
+	 *
+	 * @param string $user_id
+	 *
+	 * @return PPOpenIdUserinfo
+	 */
     public function setUserId(string $user_id): static {
         $this->user_id = $user_id;
         return $this;
@@ -53,12 +55,14 @@ class PPOpenIdUserinfo
     public function getUserId(): string {
         return $this->user_id;
     }
-
-    /**
-     * Subject - Identifier for the End-User at the Issuer.
-     *
-     * @param string $sub
-     */
+	
+	/**
+	 * Subject - Identifier for the End-User at the Issuer.
+	 *
+	 * @param string $sub
+	 *
+	 * @return PPOpenIdUserinfo
+	 */
     public function setSub(string $sub): static {
         $this->sub = $sub;
         return $this;
@@ -71,12 +75,14 @@ class PPOpenIdUserinfo
     public function getSub(): string {
         return $this->sub;
     }
-
-    /**
-     * End-User's full name in displayable form including all name parts, possibly including titles and suffixes, ordered according to the End-User's locale and preferences.
-     *
-     * @param string $name
-     */
+	
+	/**
+	 * End-User's full name in displayable form including all name parts, possibly including titles and suffixes, ordered according to the End-User's locale and preferences.
+	 *
+	 * @param string $name
+	 *
+	 * @return PPOpenIdUserinfo
+	 */
     public function setName(string $name): static {
         $this->name = $name;
         return $this;
@@ -89,12 +95,14 @@ class PPOpenIdUserinfo
     public function getName(): string {
         return $this->name;
     }
-
-    /**
-     * Given name(s) or first name(s) of the End-User
-     *
-     * @param string $given_name
-     */
+	
+	/**
+	 * Given name(s) or first name(s) of the End-User
+	 *
+	 * @param string $given_name
+	 *
+	 * @return PPOpenIdUserinfo
+	 */
     public function setGivenName(string $given_name): static {
         $this->given_name = $given_name;
         return $this;
@@ -107,12 +115,14 @@ class PPOpenIdUserinfo
     public function getGivenName(): string {
         return $this->given_name;
     }
-
-    /**
-     * Surname(s) or last name(s) of the End-User.
-     *
-     * @param string $family_name
-     */
+	
+	/**
+	 * Surname(s) or last name(s) of the End-User.
+	 *
+	 * @param string $family_name
+	 *
+	 * @return PPOpenIdUserinfo
+	 */
     public function setFamilyName(string $family_name): static {
         $this->family_name = $family_name;
         return $this;
@@ -125,12 +135,14 @@ class PPOpenIdUserinfo
     public function getFamilyName(): string {
         return $this->family_name;
     }
-
-    /**
-     * Middle name(s) of the End-User.
-     *
-     * @param string $middle_name
-     */
+	
+	/**
+	 * Middle name(s) of the End-User.
+	 *
+	 * @param string $middle_name
+	 *
+	 * @return PPOpenIdUserinfo
+	 */
     public function setMiddleName(string $middle_name): static {
         $this->middle_name = $middle_name;
         return $this;
@@ -143,12 +155,14 @@ class PPOpenIdUserinfo
     public function getMiddleName(): string {
         return $this->middle_name;
     }
-
-    /**
-     * URL of the End-User's profile picture.
-     *
-     * @param string $picture
-     */
+	
+	/**
+	 * URL of the End-User's profile picture.
+	 *
+	 * @param string $picture
+	 *
+	 * @return PPOpenIdUserinfo
+	 */
     public function setPicture(string $picture): static {
         $this->picture = $picture;
         return $this;
@@ -161,12 +175,14 @@ class PPOpenIdUserinfo
     public function getPicture(): string {
         return $this->picture;
     }
-
-    /**
-     * End-User's preferred e-mail address.
-     *
-     * @param string $email
-     */
+	
+	/**
+	 * End-User's preferred e-mail address.
+	 *
+	 * @param string $email
+	 *
+	 * @return PPOpenIdUserinfo
+	 */
     public function setEmail(string $email): static {
         $this->email = $email;
         return $this;
@@ -179,12 +195,14 @@ class PPOpenIdUserinfo
     public function getEmail(): string {
         return $this->email;
     }
-
-    /**
-     * True if the End-User's e-mail address has been verified; otherwise false.
-     *
-     * @param bool $email_verified
-     */
+	
+	/**
+	 * True if the End-User's e-mail address has been verified; otherwise false.
+	 *
+	 * @param bool $email_verified
+	 *
+	 * @return PPOpenIdUserinfo
+	 */
     public function setEmailVerified(bool $email_verified): static {
         $this->email_verified = $email_verified;
         return $this;
@@ -197,12 +215,14 @@ class PPOpenIdUserinfo
     public function getEmailVerified(): bool {
         return $this->email_verified;
     }
-
-    /**
-     * End-User's gender.
-     *
-     * @param string $gender
-     */
+	
+	/**
+	 * End-User's gender.
+	 *
+	 * @param string $gender
+	 *
+	 * @return PPOpenIdUserinfo
+	 */
     public function setGender(string $gender): static {
         $this->gender = $gender;
         return $this;
@@ -215,12 +235,14 @@ class PPOpenIdUserinfo
     public function getGender(): string {
         return $this->gender;
     }
-
-    /**
-     * End-User's birthday, represented as an YYYY-MM-DD format. They year MAY be 0000, indicating it is omited. To represent only the year, YYYY format would be used.
-     *
-     * @param string $birthday
-     */
+	
+	/**
+	 * End-User's birthday, represented as an YYYY-MM-DD format. They year MAY be 0000, indicating it is omited. To represent only the year, YYYY format would be used.
+	 *
+	 * @param string $birthday
+	 *
+	 * @return PPOpenIdUserinfo
+	 */
     public function setBirthday(string $birthday): static {
         $this->birthday = $birthday;
         return $this;
@@ -233,12 +255,14 @@ class PPOpenIdUserinfo
     public function getBirthday(): string {
         return $this->birthday;
     }
-
-    /**
-     * Time zone database representing the End-User's time zone
-     *
-     * @param string $zoneinfo
-     */
+	
+	/**
+	 * Time zone database representing the End-User's time zone
+	 *
+	 * @param string $zoneinfo
+	 *
+	 * @return PPOpenIdUserinfo
+	 */
     public function setZoneinfo(string $zoneinfo): static {
         $this->zoneinfo = $zoneinfo;
         return $this;
@@ -251,12 +275,14 @@ class PPOpenIdUserinfo
     public function getZoneinfo(): string {
         return $this->zoneinfo;
     }
-
-    /**
-     * End-User's locale.
-     *
-     * @param string $locale
-     */
+	
+	/**
+	 * End-User's locale.
+	 *
+	 * @param string $locale
+	 *
+	 * @return PPOpenIdUserinfo
+	 */
     public function setLocale(string $locale): static {
         $this->locale = $locale;
         return $this;
@@ -269,12 +295,14 @@ class PPOpenIdUserinfo
     public function getLocale(): string {
         return $this->locale;
     }
-
-    /**
-     * End-User's language.
-     *
-     * @param string $language
-     */
+	
+	/**
+	 * End-User's language.
+	 *
+	 * @param string $language
+	 *
+	 * @return PPOpenIdUserinfo
+	 */
     public function setLanguage(string $language): static {
         $this->language = $language;
         return $this;
@@ -287,12 +315,14 @@ class PPOpenIdUserinfo
     public function getLanguage(): string {
         return $this->language;
     }
-
-    /**
-     * End-User's verified status.
-     *
-     * @param bool $verified
-     */
+	
+	/**
+	 * End-User's verified status.
+	 *
+	 * @param bool $verified
+	 *
+	 * @return PPOpenIdUserinfo
+	 */
     public function setVerified(bool $verified): static {
         $this->verified = $verified;
         return $this;
@@ -305,12 +335,14 @@ class PPOpenIdUserinfo
     public function getVerified(): bool {
         return $this->verified;
     }
-
-    /**
-     * End-User's preferred telephone number.
-     *
-     * @param string $phone_number
-     */
+	
+	/**
+	 * End-User's preferred telephone number.
+	 *
+	 * @param string $phone_number
+	 *
+	 * @return PPOpenIdUserinfo
+	 */
     public function setPhoneNumber(string $phone_number): static {
         $this->phone_number = $phone_number;
         return $this;
@@ -323,12 +355,14 @@ class PPOpenIdUserinfo
     public function getPhoneNumber(): string {
         return $this->phone_number;
     }
-
-    /**
-     * End-User's preferred address.
-     *
-     * @param PPOpenIdAddress $address
-     */
+	
+	/**
+	 * End-User's preferred address.
+	 *
+	 * @param PPOpenIdAddress $address
+	 *
+	 * @return PPOpenIdUserinfo
+	 */
     public function setAddress(PPOpenIdAddress $address): static {
         $this->address = $address;
         return $this;
@@ -342,12 +376,14 @@ class PPOpenIdUserinfo
     public function getAddress(): PPOpenIdAddress {
         return $this->address;
     }
-
-    /**
-     * Verified account status.
-     *
-     * @param bool $verified_account
-     */
+	
+	/**
+	 * Verified account status.
+	 *
+	 * @param bool $verified_account
+	 *
+	 * @return PPOpenIdUserinfo
+	 */
     public function setVerifiedAccount(bool $verified_account): static {
         $this->verified_account = $verified_account;
         return $this;
@@ -360,12 +396,14 @@ class PPOpenIdUserinfo
     public function getVerifiedAccount(): bool {
         return $this->verified_account;
     }
-
-    /**
-     * Account type.
-     *
-     * @param string $account_type
-     */
+	
+	/**
+	 * Account type.
+	 *
+	 * @param string $account_type
+	 *
+	 * @return PPOpenIdUserinfo
+	 */
     public function setAccountType(string $account_type): static {
         $this->account_type = $account_type;
         return $this;
@@ -378,12 +416,14 @@ class PPOpenIdUserinfo
     public function getAccountType(): string {
         return $this->account_type;
     }
-
-    /**
-     * Account holder age range.
-     *
-     * @param string $age_range
-     */
+	
+	/**
+	 * Account holder age range.
+	 *
+	 * @param string $age_range
+	 *
+	 * @return PPOpenIdUserinfo
+	 */
     public function setAgeRange(string $age_range): static {
         $this->age_range = $age_range;
         return $this;
@@ -396,12 +436,14 @@ class PPOpenIdUserinfo
     public function getAgeRange(): string {
         return $this->age_range;
     }
-
-    /**
-     * Account payer identifier.
-     *
-     * @param string $payer_id
-     */
+	
+	/**
+	 * Account payer identifier.
+	 *
+	 * @param string $payer_id
+	 *
+	 * @return PPOpenIdUserinfo
+	 */
     public function setPayerId(string $payer_id): static {
         $this->payer_id = $payer_id;
         return $this;

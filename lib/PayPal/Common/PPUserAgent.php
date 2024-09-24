@@ -3,14 +3,16 @@ namespace PayPal\Common;
 
 class PPUserAgent
 {
-
-    /**
-     * Returns the value of the User-Agent header
-     * Add environment values and php version numbers
-     *
-     * @param string $sdkName
-     * @param string $sdkVersion
-     */
+	
+	/**
+	 * Returns the value of the User-Agent header
+	 * Add environment values and php version numbers
+	 *
+	 * @param string $sdkName
+	 * @param string $sdkVersion
+	 *
+	 * @return string
+	 */
     public static function getValue(string $sdkName, string $sdkVersion): string {
 
         $featureList = array(

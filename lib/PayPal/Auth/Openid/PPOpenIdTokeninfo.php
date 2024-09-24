@@ -22,10 +22,12 @@ class PPOpenIdTokeninfo
 	private string $scope;
 	
 	/**
-     * OPTIONAL, if identical to the scope requested by the client; otherwise, REQUIRED.
-     *
-     * @param string $scope
-     */
+	 * OPTIONAL, if identical to the scope requested by the client; otherwise, REQUIRED.
+	 *
+	 * @param string $scope
+	 *
+	 * @return PPOpenIdTokeninfo
+	 */
     public function setScope(string $scope): static {
         $this->scope = $scope;
         return $this;
@@ -38,12 +40,14 @@ class PPOpenIdTokeninfo
     public function getScope(): string {
         return $this->scope;
     }
-
-    /**
-     * The access token issued by the authorization server.
-     *
-     * @param string $access_token
-     */
+	
+	/**
+	 * The access token issued by the authorization server.
+	 *
+	 * @param string $access_token
+	 *
+	 * @return PPOpenIdTokeninfo
+	 */
     public function setAccessToken(string $access_token): static {
         $this->access_token = $access_token;
         return $this;
@@ -56,12 +60,14 @@ class PPOpenIdTokeninfo
     public function getAccessToken(): string {
         return $this->access_token;
     }
-
-    /**
-     * The refresh token, which can be used to obtain new access tokens using the same authorization grant as described in OAuth2.0 RFC6749 in Section 6.
-     *
-     * @param string $refresh_token
-     */
+	
+	/**
+	 * The refresh token, which can be used to obtain new access tokens using the same authorization grant as described in OAuth2.0 RFC6749 in Section 6.
+	 *
+	 * @param string $refresh_token
+	 *
+	 * @return PPOpenIdTokeninfo
+	 */
     public function setRefreshToken(string $refresh_token): static {
         $this->refresh_token = $refresh_token;
         return $this;
@@ -74,12 +80,14 @@ class PPOpenIdTokeninfo
     public function getRefreshToken(): string {
         return $this->refresh_token;
     }
-
-    /**
-     * The type of the token issued as described in OAuth2.0 RFC6749 (Section 7.1).  Value is case insensitive.
-     *
-     * @param string $token_type
-     */
+	
+	/**
+	 * The type of the token issued as described in OAuth2.0 RFC6749 (Section 7.1).  Value is case insensitive.
+	 *
+	 * @param string $token_type
+	 *
+	 * @return PPOpenIdTokeninfo
+	 */
     public function setTokenType(string $token_type): static {
         $this->token_type = $token_type;
         return $this;
@@ -92,12 +100,14 @@ class PPOpenIdTokeninfo
     public function getTokenType(): string {
         return $this->token_type;
     }
-
-    /**
-     * The id_token is a session token assertion that denotes the user's authentication status
-     *
-     * @param string $id_token
-     */
+	
+	/**
+	 * The id_token is a session token assertion that denotes the user's authentication status
+	 *
+	 * @param string $id_token
+	 *
+	 * @return PPOpenIdTokeninfo
+	 */
     public function setIdToken(string $id_token): static {
         $this->id_token = $id_token;
         return $this;
@@ -110,12 +120,14 @@ class PPOpenIdTokeninfo
     public function getIdToken(): string {
         return $this->id_token;
     }
-
-    /**
-     * The lifetime in seconds of the access token.
-     *
-     * @param int $expires_in
-     */
+	
+	/**
+	 * The lifetime in seconds of the access token.
+	 *
+	 * @param int $expires_in
+	 *
+	 * @return PPOpenIdTokeninfo
+	 */
     public function setExpiresIn(int $expires_in): static {
         $this->expires_in = $expires_in;
         return $this;

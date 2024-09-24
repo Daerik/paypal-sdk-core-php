@@ -16,10 +16,12 @@ class PPOpenIdAddress
 	private string $street_address;
 	
 	/**
-     * Full street address component, which may include house number, street name.
-     *
-     * @param string $street_address
-     */
+	 * Full street address component, which may include house number, street name.
+	 *
+	 * @param string $street_address
+	 *
+	 * @return PPOpenIdAddress
+	 */
     public function setStreetAddress(string $street_address): static {
         $this->street_address = $street_address;
         return $this;
@@ -32,12 +34,14 @@ class PPOpenIdAddress
     public function getStreetAddress(): string {
         return $this->street_address;
     }
-
-    /**
-     * City or locality component.
-     *
-     * @param string $locality
-     */
+	
+	/**
+	 * City or locality component.
+	 *
+	 * @param string $locality
+	 *
+	 * @return PPOpenIdAddress
+	 */
     public function setLocality(string $locality): static {
         $this->locality = $locality;
         return $this;
@@ -50,12 +54,14 @@ class PPOpenIdAddress
     public function getLocality(): string {
         return $this->locality;
     }
-
-    /**
-     * State, province, prefecture or region component.
-     *
-     * @param string $region
-     */
+	
+	/**
+	 * State, province, prefecture or region component.
+	 *
+	 * @param string $region
+	 *
+	 * @return PPOpenIdAddress
+	 */
     public function setRegion(string $region): static {
         $this->region = $region;
         return $this;
@@ -68,12 +74,14 @@ class PPOpenIdAddress
     public function getRegion(): string {
         return $this->region;
     }
-
-    /**
-     * Zip code or postal code component.
-     *
-     * @param string $postal_code
-     */
+	
+	/**
+	 * Zip code or postal code component.
+	 *
+	 * @param string $postal_code
+	 *
+	 * @return PPOpenIdAddress
+	 */
     public function setPostalCode(string $postal_code): static {
         $this->postal_code = $postal_code;
         return $this;
@@ -86,12 +94,14 @@ class PPOpenIdAddress
     public function getPostalCode(): string {
         return $this->postal_code;
     }
-
-    /**
-     * Country name component.
-     *
-     * @param string $country
-     */
+	
+	/**
+	 * Country name component.
+	 *
+	 * @param string $country
+	 *
+	 * @return PPOpenIdAddress
+	 */
     public function setCountry(string $country): static {
         $this->country = $country;
         return $this;

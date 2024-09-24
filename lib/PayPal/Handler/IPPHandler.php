@@ -6,10 +6,11 @@ use PayPal\Core\PPRequest;
 
 interface IPPHandler
 {
-    /**
-     *
-     * @param PPHttpConfig $httpConfig
-     * @param PPRequest    $request
-     */
+	/**
+	 *
+	 * @param PPHttpConfig $httpConfig
+	 * @param PPRequest    $request
+	 * @param              $options
+	 */
     public function handle(PPHttpConfig $httpConfig, PPRequest $request, $options);
 }
