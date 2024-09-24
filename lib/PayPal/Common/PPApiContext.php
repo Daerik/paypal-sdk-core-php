@@ -27,7 +27,7 @@ class PPApiContext
 
     /**
      *
-     * @param array associative array of HTTP headers to attach to request
+     * @param array $httpHeaders associative array of HTTP headers to attach to request
      */
     public function setHttpHeaders(array $httpHeaders): static {
         $this->httpHeaders = $httpHeaders;
