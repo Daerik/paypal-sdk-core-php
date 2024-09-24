@@ -222,7 +222,7 @@
 		 */
 		public static function propertyAnnotations(object|string $class, string $propertyName): mixed {
 			$class = is_object($class) ? get_class($class) : $class;
-			error_log($class . '::' . $propertyName);
+			
 			if(!class_exists('ReflectionProperty')) {
 				throw new RuntimeException("Property type of " . $class . "::$propertyName cannot be resolved");
 			}
@@ -237,9 +237,9 @@
 			
 			// todo: smarter regexp
 			if(!preg_match_all('~\@([^\s@\(]+)[\t ]*(?:\(?([^\n@]+)\)?)?~i', $refl->getDocComment(), $annots, PREG_PATTERN_ORDER)) {
-				error_log($refl->getType()?->getName() ?? 'No match');
 				return $refl->getType()?->getName();
 			}
+			
 			foreach($annots[1] as $i => $annot) {
 				$annotations[strtolower($annot)] = empty($annots[2][$i]) ? TRUE : rtrim($annots[2][$i], " \t\n\r)");
 			}

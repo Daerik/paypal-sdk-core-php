@@ -63,19 +63,16 @@
 			$map = PPUtils::lowerKeys($map);
 			
 			foreach(get_object_vars($this) as $property => $defaultValue) {
-				if(array_key_exists($propKey = strtolower($prefix . $property), $map) &&
-				   $this->isBuiltInType((PPUtils::propertyType($this, $property)))
-				) {
+				if(array_key_exists($propKey = strtolower($prefix . $property), $map) && $this->isBuiltInType((PPUtils::propertyType($this, $property)))) {
 					PPUtils::propertyType($this, $property);
 					$this->{$property} = urldecode($map[$propKey]);
 					continue; // string
-					
 				} elseif(!$filtered = PPUtils::filterKeyPrefix($map, $propKey)) {
 					continue; // NULL
 				}
-				error_log($property);
+				
 				$type = PPUtils::propertyType($this, $property);
-				error_log($type);
+				
 				if(!$this->isBuiltInType($type) && !class_exists($type)) {
 					trigger_error("Class $type not found.");
 					continue; // just ignore
