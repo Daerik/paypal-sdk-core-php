@@ -14,7 +14,7 @@ use PayPal\Exception\PPConfigurationException;
 class PPIPNMessage
 {
 
-    const IPN_CMD = 'cmd=_notify-validate';
+    const string IPN_CMD = 'cmd=_notify-validate';
 
     /*
      *@var boolean

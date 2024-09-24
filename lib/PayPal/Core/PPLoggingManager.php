@@ -10,7 +10,7 @@ class PPLoggingManager
 {
 
     // Default Logging Level
-    const DEFAULT_LOGGING_LEVEL = 0;
+    const int DEFAULT_LOGGING_LEVEL = 0;
 
     // Logger name
     private $loggerName;
