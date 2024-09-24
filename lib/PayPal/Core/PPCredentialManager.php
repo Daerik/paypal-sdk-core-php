@@ -11,15 +11,15 @@ use PayPal\Exception\PPMissingCredentialException;
 
 class PPCredentialManager
 {
-    private static $instance;
+    private static PPCredentialManager $instance;
     //hashmap to contain credentials for accounts.
-    private $credentialHashmap = array();
+    private array $credentialHashmap = array();
     /**
      * Contains the API username of the default account to use
      * when authenticating API calls.
      * @var string
      */
-    private $defaultAccountName;
+    private string $defaultAccountName;
 
     /*
      * Constructor initialize credential for multiple accounts specified in property file.

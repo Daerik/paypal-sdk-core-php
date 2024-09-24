@@ -11,8 +11,8 @@ class PPOpenIdHandler
   implements IPPHandler
 {
 
-    private static $sdkName = "openid-sdk-php";
-    private static $sdkVersion = "2.5.0";
+    private static string $sdkName    = "openid-sdk-php";
+    private static string $sdkVersion = "2.5.0";
 	
 	/**
 	 * @throws PPConfigurationException

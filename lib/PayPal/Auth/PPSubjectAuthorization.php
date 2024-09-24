@@ -17,7 +17,7 @@ class PPSubjectAuthorization
      * PayPal API request.
      * @var string
      */
-    private $subject;
+    private string $subject;
 	
 	/**
 	 * @param $subject

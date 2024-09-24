@@ -16,13 +16,13 @@ class PPLoggingManager
     private $loggerName;
 
     // Log enabled
-    private $isLoggingEnabled;
+    private bool $isLoggingEnabled;
 
     // Configured logging level
-    private $loggingLevel;
+    private mixed $loggingLevel;
 
     // Configured logging file
-    private $loggerFile;
+    private mixed $loggerFile;
     
     //log message
     private $loggerMessage;

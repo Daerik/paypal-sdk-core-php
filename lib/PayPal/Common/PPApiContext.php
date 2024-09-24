@@ -16,14 +16,14 @@ class PPApiContext
      *
      * @var array Dynamic SDK configuration
      */
-    protected $config;
+    protected array $config;
 
     /**
      * @var PPXmlMessage custom SOAPHeader
      */
-    private $SOAPHeader;
+    private PPXmlMessage $SOAPHeader;
 
-    private $httpHeaders;
+    private array $httpHeaders;
 
     /**
      *

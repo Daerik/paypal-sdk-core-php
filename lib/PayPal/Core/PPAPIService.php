@@ -9,10 +9,10 @@ class PPAPIService
 
     public $serviceName;
     public $apiMethod;
-    public $apiContext;
-    private $logger;
-    private $handlers = array();
-    private $serviceBinding;
+    public                   $apiContext;
+    private PPLoggingManager $logger;
+    private array            $handlers = array();
+    private                  $serviceBinding;
     private $port;
 	
 	/**

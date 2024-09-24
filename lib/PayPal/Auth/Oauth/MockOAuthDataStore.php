@@ -3,10 +3,10 @@ namespace PayPal\Auth\Oauth;
 
 class MockOAuthDataStore
 	extends OAuthDataStore {/*{{{*/
-	private $consumer;
-	private $request_token;
-	private $access_token;
-	private $nonce;
+	private OAuthConsumer $consumer;
+	private OAuthToken    $request_token;
+	private OAuthToken    $access_token;
+	private string        $nonce;
 	
 	public function __construct() {/*{{{*/
 		$this->consumer      = new OAuthConsumer("key", "secret", NULL);

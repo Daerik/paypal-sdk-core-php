@@ -15,25 +15,25 @@ class PPCertificateCredential
      * API username
      * @var string
      */
-    protected $userName;
+    protected string $userName;
 
     /**
      * API password
      * @var string
      */
-    protected $password;
+    protected string $password;
 
     /**
      * Path to PEM encoded API certificate on local filesystem
      * @var string
      */
-    protected $certificatePath;
+    protected string $certificatePath;
 
     /**
      * Password used to protect the API certificate
      * @var string
      */
-    protected $certificatePassPhrase;
+    protected ?string $certificatePassPhrase;
 
     /**
      * Application Id that uniquely identifies an application that uses the
@@ -42,7 +42,7 @@ class PPCertificateCredential
      * Test application Ids are available for the sandbox environment
      * @var string
      */
-    protected $applicationId;
+    protected string $applicationId;
 	
 	/**
 	 * Constructs a new certificate credential object

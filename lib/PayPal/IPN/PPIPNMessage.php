@@ -27,12 +27,12 @@ class PPIPNMessage
      *@var config
     *
     */
-    private $config;
+    private array $config;
     /**
      *
      * @var array
      */
-    private $ipnData = array();
+    private array $ipnData = array();
 
     /**
      *

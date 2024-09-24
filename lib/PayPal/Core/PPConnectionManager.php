@@ -7,7 +7,7 @@ class PPConnectionManager
      * reference to singleton instance
      * @var PPConnectionManager
      */
-    private static $instance;
+    private static PPConnectionManager $instance;
 
     private function __construct()
     {

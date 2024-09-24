@@ -15,28 +15,28 @@ class PPRequest
      *
      * @var object
      */
-    private $requestObject;
+    private object $requestObject;
 
     /**
      * Optional credentials associated with
      * the request
      * @var IPPCredential
      */
-    private $credential;
+    private IPPCredential $credential;
 
     /**
      * Transport binding for this request.
      * Can be NVP, SOAP etc
      * @var string
      */
-    private $bindingType;
+    private string $bindingType;
 
     /**
      *
      * Holder for any binding specific info
      * @var array
      */
-    private $bindingInfo = array();
+    private array $bindingInfo = array();
 	
 	/**
 	 * @param $requestObject

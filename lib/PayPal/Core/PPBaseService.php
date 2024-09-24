@@ -7,13 +7,13 @@ use PayPal\Exception\PPConnectionException;
 class PPBaseService
 {
 
-    private $serviceName;
-    private $serviceBinding;
-    private $handlers;
+    private mixed $serviceName;
+    private       $serviceBinding;
+    private array $handlers;
 
-    protected $config;
-    protected $lastRequest;
-    protected $lastResponse;
+    protected mixed $config;
+    protected mixed $lastRequest;
+    protected mixed $lastResponse;
 	
 	/**
 	 * @return mixed

@@ -16,14 +16,14 @@ class PPTokenAuthorization
      * between the authorizing user and the API caller.
      * @var string
      */
-    private $accessToken;
+    private string $accessToken;
 
     /**
      * The token secret/password that will need to be used when
      * generating the signature.
      * @var string
      */
-    private $tokenSecret;
+    private string $tokenSecret;
 	
 	/**
 	 * @param $accessToken

@@ -10,7 +10,7 @@ class PPHttpConfig
      * Some default options for curl
      * These are typically overridden by PPConnectionManager
      */
-    public static $DEFAULT_CURL_OPTS = array(
+    public static array $DEFAULT_CURL_OPTS = array(
       CURLOPT_SSLVERSION      => 6,
       CURLOPT_CONNECTTIMEOUT  => 10,
       CURLOPT_RETURNTRANSFER  => true,
@@ -26,13 +26,13 @@ class PPHttpConfig
 	public const string HTTP_GET         = 'GET';
 	public const string HTTP_POST = 'POST';
 
-    private $headers = array();
+    private array $headers = array();
 
-    private $curlOptions;
+    private array $curlOptions;
 
-    private $url;
+    private ?string $url;
 
-    private $method;
+    private string $method;
     /***
      * Number of times to retry a failed HTTP call
      */

@@ -14,18 +14,18 @@ class PPSignatureCredential
      * API username
      * @var string
      */
-    protected $userName;
+    protected string $userName;
 
     /**
      * API password
      * @var string
      */
-    protected $password;
+    protected string $password;
     /**
      * API Signature
      * @var string
      */
-    protected $signature;
+    protected string $signature;
 
     /**
      * Application Id that uniquely identifies an application that uses the
@@ -34,7 +34,7 @@ class PPSignatureCredential
      * Test application Ids are available for the sandbox environment
      * @var string
      */
-    protected $applicationId;
+    protected string $applicationId;
 	
 	/**
 	 * @throws PPMissingCredentialException

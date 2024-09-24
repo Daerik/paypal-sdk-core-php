@@ -188,12 +188,12 @@ class PPUtils
     /**
      * @var array|ReflectionProperty[]
      */
-    private static $propertiesRefl = array();
+    private static array $propertiesRefl = array();
 
     /**
      * @var array|string[]
      */
-    private static $propertiesType = array();
+    private static array $propertiesType = array();
 	
 	/**
 	 * Get property annotations for a certain property in a class

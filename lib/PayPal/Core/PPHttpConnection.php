@@ -19,9 +19,9 @@ class PPHttpConnection
      * retry is currently attempted for Request timeout, Bad Gateway,
      * Service Unavailable and Gateway timeout errors.
      */
-    private static $retryCodes = array('408', '502', '503', '504',);
+    private static array $retryCodes = array('408', '502', '503', '504',);
 
-    private $logger;
+    private PPLoggingManager $logger;
 	
 	/**
 	 * @throws PPConfigurationException

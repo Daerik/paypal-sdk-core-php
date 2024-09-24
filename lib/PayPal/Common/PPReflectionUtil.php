@@ -9,12 +9,12 @@ class PPReflectionUtil
     /**
      * @var array|ReflectionMethod[]
      */
-    private static $propertiesRefl = array();
+    private static array $propertiesRefl = array();
 
     /**
      * @var array|string[]
      */
-    private static $propertiesType = array();
+    private static array $propertiesType = array();
 	
 	/**
 	 *

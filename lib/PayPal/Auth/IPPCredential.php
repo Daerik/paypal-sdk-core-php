@@ -10,7 +10,7 @@ abstract class IPPCredential
      *
      * @var IPPThirdPartyAuthorization
      */
-    protected $thirdPartyAuthorization;
+    protected IPPThirdPartyAuthorization $thirdPartyAuthorization;
 	
 	/**
 	 * @param $thirdPartyAuthorization

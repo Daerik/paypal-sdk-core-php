@@ -9,13 +9,13 @@ class PPConnectionException
      * The url that was being connected to when the exception occured
      * @var string
      */
-    private $url;
+    private string $url;
 
     /**
      * Any response data that was returned by the server
      * @var string
      */
-    private $data;
+    private string $data;
 	
 	/**
 	 * @param $url

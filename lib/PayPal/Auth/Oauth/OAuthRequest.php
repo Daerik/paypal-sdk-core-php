@@ -4,13 +4,13 @@ namespace PayPal\Auth\Oauth;
 use PayPal\Exception\OAuthException;
 
 class OAuthRequest {
-	public    $parameters;
-	protected $http_method;
+	public array $parameters;
+	protected    $http_method;
 	protected $http_url;
 	// for debug purposes
-	public        $base_string;
-	public static $version    = '1.0';
-	public static $POST_INPUT = 'php://input';
+	public               $base_string;
+	public static string $version    = '1.0';
+	public static string $POST_INPUT = 'php://input';
 	
 	/**
 	 * @param $http_method

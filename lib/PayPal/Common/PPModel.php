@@ -9,7 +9,7 @@ namespace PayPal\Common;
 class PPModel
 {
 
-    private $_propMap = array();
+    private array $_propMap = array();
 	
 	/**
 	 * @param $key

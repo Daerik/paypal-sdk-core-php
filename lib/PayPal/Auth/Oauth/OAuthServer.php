@@ -2,9 +2,9 @@
 namespace PayPal\Auth\Oauth;
 
 class OAuthServer {
-	protected $timestamp_threshold = 300; // in seconds, five minutes
-	protected $version             = '1.0';             // hi blaine
-	protected $signature_methods   = array();
+	protected int    $timestamp_threshold = 300; // in seconds, five minutes
+	protected string $version             = '1.0';             // hi blaine
+	protected array  $signature_methods   = array();
 	
 	protected $data_store;
 	
