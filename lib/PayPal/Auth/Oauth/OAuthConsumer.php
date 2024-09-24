@@ -24,7 +24,7 @@ class OAuthConsumer {
 		return "OAuthConsumer[key=$this->key,secret=$this->secret]";
 	}
 	
-	public function setCallbackUrl(?string $callback_url): void {
-		$this->callback_url = $callback_url;
+	public function getCallbackUrl(): ?string {
+		return $this->callback_url;
 	}
 }
