@@ -25,7 +25,7 @@ class PPCredentialManager
     /*
      * Constructor initialize credential for multiple accounts specified in property file.
      */
-	private $config;
+	private array $config;
 	
 	/**
 	 * @throws PPMissingCredentialException
@@ -174,5 +174,12 @@ class PPCredentialManager
     {
         trigger_error('Clone is not allowed.', E_USER_ERROR);
     }
-
+	
+	/**
+	 * @param mixed $config
+	 */
+	public function setConfig($config): void {
+		$this->config = $config;
+	}
+	
 }
