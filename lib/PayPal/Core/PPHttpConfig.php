@@ -223,7 +223,7 @@ class PPHttpConfig
         if ($prefix != null && is_array($configs)) {
             foreach ($configs as $k => $v) {
                 // Check if it startsWith
-                if (substr($k, 0, strlen($prefix)) === $prefix) {
+                if (str_starts_with($k, $prefix)) {
                     $newKey = ltrim($k, $prefix);
                     if (defined($newKey)) {
                         $arr[constant($newKey)] = $v;

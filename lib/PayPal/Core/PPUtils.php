@@ -265,7 +265,7 @@ class PPUtils
     public static function isPropertyArray($class, $propertyName)
     {
         if (($annotations = self::propertyAnnotations($class, $propertyName))) {
-            if (isset($annotations['var']) && substr($annotations['var'], -2) === '[]') {
+            if (isset($annotations['var']) && str_ends_with($annotations['var'], '[]')) {
                 return true;
             } elseif (isset($annotations['array'])) {
                 return true;
@@ -287,7 +287,7 @@ class PPUtils
     public static function propertyType($class, $propertyName)
     {
         if (($annotations = self::propertyAnnotations($class, $propertyName)) && isset($annotations['var'])) {
-            if (substr($annotations['var'], -2) === '[]') {
+            if (str_ends_with($annotations['var'], '[]')) {
                 return substr($annotations['var'], 0, -2);
             }
 

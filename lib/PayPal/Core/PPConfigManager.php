@@ -97,7 +97,7 @@ class PPConfigManager
             $arr = array();
             foreach ($this->config as $key => $value) {
                 $pos = strpos($key, '.');
-                if (strstr($key, "acct")) {
+                if (str_contains($key, "acct")) {
                     $arr[] = substr($key, 0, $pos);
                 }
             }

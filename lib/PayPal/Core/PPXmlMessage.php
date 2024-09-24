@@ -88,7 +88,7 @@ abstract class PPXmlMessage
         }
         if (!is_object($value)) {
             $el .= '>' . PPUtils::escapeInvalidXmlCharsRegex($value);
-        } elseif (substr($value = $value->toXMLString(), 0, 1) === '<' || $value == '') {
+        } elseif (str_starts_with($value = $value->toXMLString(), '<') || $value == '') {
             $el .= '>' . $value;
         } else {
             $el .= ' ' . $value;
