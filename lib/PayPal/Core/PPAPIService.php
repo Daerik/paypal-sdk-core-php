@@ -13,8 +13,8 @@ class PPAPIService
     public string $serviceName;
     public string $apiMethod;
     public                   PPApiContext $apiContext;
-    private PPLoggingManager $logger;
-    private array            $handlers = array();
+    private PPLoggingManager        $logger;
+    private array                   $handlers;
     private                  string $serviceBinding;
     private int $port;
 	
