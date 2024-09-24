@@ -285,6 +285,8 @@
 				}
 				
 				return $annotations['var'];
+			} elseif(!is_null($annotations)) {
+				return $annotations;
 			}
 			
 			return 'string';
