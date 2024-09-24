@@ -234,6 +234,8 @@ class OAuthRequest {
 	
 	/**
 	 * builds the Authorization: header
+	 *
+	 * @throws OAuthException
 	 */
 	public function to_header($realm = NULL): string {
 		$first = TRUE;

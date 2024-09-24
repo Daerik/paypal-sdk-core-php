@@ -31,6 +31,10 @@ class OAuthServer {
 	/**
 	 * process a request_token request
 	 * returns the request token on success
+	 *
+	 * @throws OAuthException
+	 * @throws OAuthException
+	 * @throws OAuthException
 	 */
 	public function fetch_request_token($request) {
 		$this->get_version($request);
@@ -50,6 +54,11 @@ class OAuthServer {
 	/**
 	 * process an access_token request
 	 * returns the access token on success
+	 *
+	 * @throws OAuthException
+	 * @throws OAuthException
+	 * @throws OAuthException
+	 * @throws OAuthException
 	 */
 	public function fetch_access_token($request) {
 		$this->get_version($request);
@@ -68,6 +77,11 @@ class OAuthServer {
 	
 	/**
 	 * verify an api call, checks all the parameters
+	 *
+	 * @throws OAuthException
+	 * @throws OAuthException
+	 * @throws OAuthException
+	 * @throws OAuthException
 	 */
 	public function verify_request($request): array {
 		$this->get_version($request);
@@ -81,6 +95,8 @@ class OAuthServer {
 	
 	/**
 	 * version 1
+	 *
+	 * @throws OAuthException
 	 */
 	private function get_version($request): void {
 		$version = $request->get_parameter("oauth_version");
@@ -96,6 +112,9 @@ class OAuthServer {
 	
 	/**
 	 * figure out the signature with some defaults
+	 *
+	 * @throws OAuthException
+	 * @throws OAuthException
 	 */
 	private function get_signature_method($request) {
 		$signature_method = $request instanceof OAuthRequest
@@ -122,6 +141,9 @@ class OAuthServer {
 	
 	/**
 	 * try to find the consumer for the provided request's consumer key
+	 *
+	 * @throws OAuthException
+	 * @throws OAuthException
 	 */
 	private function get_consumer($request) {
 		$consumer_key = $request instanceof OAuthRequest
@@ -142,6 +164,8 @@ class OAuthServer {
 	
 	/**
 	 * try to find the token for the provided request's token key
+	 *
+	 * @throws OAuthException
 	 */
 	private function get_token($request, $consumer, $token_type = "access") {
 		$token_field = $request instanceof OAuthRequest
@@ -160,6 +184,11 @@ class OAuthServer {
 	/**
 	 * all-in-one function to check the signature on a request
 	 * should guess the signature method appropriately
+	 *
+	 * @throws OAuthException
+	 * @throws OAuthException
+	 * @throws OAuthException
+	 * @throws OAuthException
 	 */
 	private function check_signature($request, $consumer, $token): void {
 		// this should probably be in a different method
@@ -190,6 +219,9 @@ class OAuthServer {
 	
 	/**
 	 * check that the timestamp is new enough
+	 *
+	 * @throws OAuthException
+	 * @throws OAuthException
 	 */
 	private function check_timestamp($timestamp): void {
 		if(!$timestamp) {
@@ -209,6 +241,9 @@ class OAuthServer {
 	
 	/**
 	 * check that the nonce is not repeated
+	 *
+	 * @throws OAuthException
+	 * @throws OAuthException
 	 */
 	private function check_nonce($consumer, $token, $nonce, $timestamp): void {
 		if(!$nonce) {

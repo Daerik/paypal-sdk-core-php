@@ -1,6 +1,7 @@
 <?php
 namespace PayPal\Core;
 
+use PayPal\Exception\PPConfigurationException;
 class PPConnectionManager
 {
     /**
@@ -22,10 +23,12 @@ class PPConnectionManager
         }
         return self::$instance;
     }
-
-    /**
-     * This function returns a new PPHttpConnection object
-     */
+	
+	/**
+	 * This function returns a new PPHttpConnection object
+	 *
+	 * @throws PPConfigurationException
+	 */
     public function getConnection($httpConfig, $config): PPHttpConnection {
         if (isset($config["http.ConnectionTimeOut"])) {
             $httpConfig->setHttpConnectionTimeout($config["http.ConnectionTimeOut"]);
