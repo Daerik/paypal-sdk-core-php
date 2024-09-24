@@ -110,7 +110,7 @@ class OAuthRequest {
 	}
 	
 	public function get_parameter($name) {
-		return isset($this->parameters[$name]) ? $this->parameters[$name] : NULL;
+		return $this->parameters[$name] ?? NULL;
 	}
 	
 	public function get_parameters() {

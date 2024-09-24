@@ -83,9 +83,9 @@ class PPCredentialManager
               && $credArr[$key . ".Signature"] != null && $credArr[$key . ".Signature"] != ""
             ) {
 
-                $userName  = isset($credArr[$key . '.UserName']) ? $credArr[$key . '.UserName'] : "";
-                $password  = isset($credArr[$key . '.Password']) ? $credArr[$key . '.Password'] : "";
-                $signature = isset($credArr[$key . '.Signature']) ? $credArr[$key . '.Signature'] : "";
+                $userName  = $credArr[$key . '.UserName'] ?? "";
+                $password  = $credArr[$key . '.Password'] ?? "";
+                $signature = $credArr[$key . '.Signature'] ?? "";
 
                 $this->credentialHashmap[$userName] = new PPSignatureCredential($userName, $password, $signature);
                 if (isset($credArr[$key . '.AppId'])) {
@@ -95,10 +95,10 @@ class PPCredentialManager
               && $credArr[$key . ".CertPath"] != null && $credArr[$key . ".CertPath"] != ""
             ) {
 
-                $userName       = isset($credArr[$key . '.UserName']) ? $credArr[$key . '.UserName'] : "";
-                $password       = isset($credArr[$key . '.Password']) ? $credArr[$key . '.Password'] : "";
-                $certPassPhrase = isset($credArr[$key . '.CertKey']) ? $credArr[$key . '.CertKey'] : "";
-                $certPath       = isset($credArr[$key . '.CertPath']) ? $credArr[$key . '.CertPath'] : "";
+                $userName       = $credArr[$key . '.UserName'] ?? "";
+                $password       = $credArr[$key . '.Password'] ?? "";
+                $certPassPhrase = $credArr[$key . '.CertKey'] ?? "";
+                $certPath       = $credArr[$key . '.CertPath'] ?? "";
 
                 $this->credentialHashmap[$userName] = new PPCertificateCredential($userName, $password, $certPath,
                   $certPassPhrase);

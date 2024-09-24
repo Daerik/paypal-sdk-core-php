@@ -18,7 +18,7 @@ class PPOpenIdHandler
         $config     = $apiContext->getConfig();
         $httpConfig->setUrl(
           rtrim(trim($this->_getEndpoint($config)), '/') .
-          (isset($options['path']) ? $options['path'] : '')
+          ($options['path'] ?? '')
         );
 
         if (!array_key_exists("Authorization", $httpConfig->getHeaders())) {
