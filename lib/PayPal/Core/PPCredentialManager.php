@@ -105,7 +105,7 @@ class PPCredentialManager
                 if (isset($credArr[$key . '.AppId'])) {
                     $this->credentialHashmap[$userName]->setApplicationId($credArr[$key . '.AppId']);
                 }
-            } elseif (isset($credArr[$key . ".ClientId"]) && isset($credArr[$key . ".ClientId"])) {
+            } elseif (isset($credArr[$key . ".ClientId"])) {
                 $userName                           = $key;
                 $this->credentialHashmap[$userName] = array(
                   'clientId'     => $credArr[$key . ".ClientId"],
