@@ -15,7 +15,7 @@
 		private PPLoggingManager $logger;
 		private array            $handlers;
 		private string           $serviceBinding;
-		private int              $port;
+		private string           $port;
 		
 		/**
 		 * @param       $port
