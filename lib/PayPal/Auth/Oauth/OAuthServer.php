@@ -93,7 +93,6 @@ class OAuthServer
         if ($version !== $this->version) {
             throw new OAuthException("OAuth version '$version' not supported");
         }
-        return $version;
     }
 
     /**
