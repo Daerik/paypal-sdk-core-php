@@ -78,7 +78,7 @@ class OAuthServer
     /**
      * version 1
      */
-    private function get_version(&$request)
+    private function get_version($request)
     {
         $version = $request->get_parameter("oauth_version");
         if (!$version) {
