@@ -21,10 +21,10 @@ class PPHttpConfig
       CURLOPT_SSL_VERIFYPEER  => 1,
       CURLOPT_SSL_CIPHER_LIST => 'TLSv1',
     );
-
-    const string HEADER_SEPARATOR = ';';
-    const string HTTP_GET         = 'GET';
-    const string HTTP_POST = 'POST';
+	
+	public const string HEADER_SEPARATOR = ';';
+	public const string HTTP_GET         = 'GET';
+	public const string HTTP_POST = 'POST';
 
     private $headers = array();
 

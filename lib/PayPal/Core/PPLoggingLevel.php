@@ -10,14 +10,14 @@ class PPLoggingLevel
 {
 
     // FINE Logging Level
-    const int FINE = 3;
+	public const int FINE = 3;
 
     // INFO Logging Level
-    const int INFO = 2;
+	public const int INFO = 2;
 
     // WARN Logging Level
-    const int WARN = 1;
+	public const int WARN = 1;
 
     // ERROR Logging Level
-    const int ERROR = 0;
+	public const int ERROR = 0;
 }
