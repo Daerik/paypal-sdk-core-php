@@ -71,7 +71,7 @@ class PPLoggingManager
 
     public function info($message)
     {
-        $this->log($message, PPLoggingLevel::INFO);
+        $this->log($message);
     }
 
     public function fine($message)
