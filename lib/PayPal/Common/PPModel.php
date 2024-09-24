@@ -76,6 +76,8 @@ class PPModel
 	 * @param $arr
 	 *
 	 * @return void
+	 * @throws \ReflectionException
+	 * @throws \ReflectionException
 	 */
 	public function fromArray($arr)
     {

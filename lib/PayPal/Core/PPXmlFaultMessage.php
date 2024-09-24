@@ -13,10 +13,13 @@ use Exception;
 abstract class PPXmlFaultMessage
   extends Exception
 {
-    /**
-     * @param array  $map
-     * @param string $isRoot
-     */
+	/**
+	 * @param array  $map
+	 * @param string $isRoot
+	 *
+	 * @throws \ReflectionException
+	 * @throws \ReflectionException
+	 */
     public function init(array $data = array())
     {
 
@@ -78,11 +81,14 @@ abstract class PPXmlFaultMessage
             }
         }
     }
-
-    /**
-     * @param string $property
-     * @param array  $element
-     */
+	
+	/**
+	 * @param string $property
+	 * @param array  $element
+	 *
+	 * @throws \ReflectionException
+	 * @throws \ReflectionException
+	 */
     private function fillRelation($property, array $element)
     {
         if (!class_exists($type = PPUtils::propertyType($this, $property))) {

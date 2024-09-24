@@ -48,11 +48,14 @@ abstract class PPMessage
 
         return implode('&', $nvp);
     }
-
-    /**
-     * @param array  $map
-     * @param string $prefix
-     */
+	
+	/**
+	 * @param array  $map
+	 * @param string $prefix
+	 *
+	 * @throws \ReflectionException
+	 * @throws \ReflectionException
+	 */
     public function init(array $map = array(), $prefix = '')
     {
         if (empty($map)) {

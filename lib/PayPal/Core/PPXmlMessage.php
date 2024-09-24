@@ -8,10 +8,12 @@ use PayPal\Exception\PPTransformerException;
  */
 abstract class PPXmlMessage
 {
-
-    /**
-     * @return string
-     */
+	
+	/**
+	 * @return string
+	 * @throws \ReflectionException
+	 * @throws \ReflectionException
+	 */
     public function toSOAP()
     {
         return $this->toXMLString();
@@ -107,6 +109,7 @@ abstract class PPXmlMessage
 	 * @param bool  $isRoot true if this is a root class for SOAP deserialization
 	 *
 	 * @throws PPTransformerException
+	 * @throws \ReflectionException
 	 */
     public function init(array $map = array(), $isRoot = true)
     {
@@ -173,11 +176,14 @@ abstract class PPXmlMessage
             }
         }
     }
-
-    /**
-     * @param string $property
-     * @param array  $element
-     */
+	
+	/**
+	 * @param string $property
+	 * @param array  $element
+	 *
+	 * @throws \ReflectionException
+	 * @throws \ReflectionException
+	 */
     private function fillRelation($property, array $element)
     {
         if (!class_exists($type = PPUtils::propertyType($this, $property))) {
