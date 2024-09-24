@@ -26,7 +26,12 @@ class PPLoggingManager
     
     //log message
     private $loggerMessage;
-    public function __construct($loggerName, $config = null)
+	
+	/**
+	 * @param $loggerName
+	 * @param $config
+	 */
+	public function __construct($loggerName, $config = null)
     {
         $this->loggerName = $loggerName;
         $config           = PPConfigManager::getConfigWithDefaults($config);
@@ -39,42 +44,74 @@ class PPLoggingManager
             $this->loggingLevel = (defined(__NAMESPACE__ . "\\PPLoggingLevel::$loggingLevel")) ? constant(__NAMESPACE__ . "\\PPLoggingLevel::$loggingLevel") : PPLoggingManager::DEFAULT_LOGGING_LEVEL;
         }
     }
-
-    public function __destruct()
+	
+	/**
+	 *
+	 */
+	public function __destruct()
     {
         $this->flush();
     }
- 
-    public function flush()
+	
+	/**
+	 * @return void
+	 */
+	public function flush()
     {
         if($this->loggerMessage) {
             error_log($this->loggerMessage, 3, $this->loggerFile);
         }
     }
-
-    private function log($message, $level = PPLoggingLevel::INFO)
+	
+	/**
+	 * @param $message
+	 * @param $level
+	 *
+	 * @return void
+	 */
+	private function log($message, $level = PPLoggingLevel::INFO)
     {
         if ($this->isLoggingEnabled && ($level <= $this->loggingLevel)) {
             $this->loggerMessage .= $this->loggerName . ": $message\n";
         }
     }
-
-    public function error($message)
+	
+	/**
+	 * @param $message
+	 *
+	 * @return void
+	 */
+	public function error($message)
     {
         $this->log($message, PPLoggingLevel::ERROR);
     }
-
-    public function warning($message)
+	
+	/**
+	 * @param $message
+	 *
+	 * @return void
+	 */
+	public function warning($message)
     {
         $this->log($message, PPLoggingLevel::WARN);
     }
-
-    public function info($message)
+	
+	/**
+	 * @param $message
+	 *
+	 * @return void
+	 */
+	public function info($message)
     {
         $this->log($message);
     }
-
-    public function fine($message)
+	
+	/**
+	 * @param $message
+	 *
+	 * @return void
+	 */
+	public function fine($message)
     {
         $this->log($message, PPLoggingLevel::FINE);
     }

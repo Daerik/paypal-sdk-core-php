@@ -12,6 +12,11 @@ class OAuthRequest {
 	public static $version    = '1.0';
 	public static $POST_INPUT = 'php://input';
 	
+	/**
+	 * @param $http_method
+	 * @param $http_url
+	 * @param $parameters
+	 */
 	public function __construct($http_method, $http_url, $parameters = NULL) {
 		$parameters        = ($parameters) ?: array();
 		$parameters        = array_merge(OAuthUtil::parse_parameters(parse_url($http_url, PHP_URL_QUERY)), $parameters);
@@ -93,6 +98,13 @@ class OAuthRequest {
 		return new OAuthRequest($http_method, $http_url, $parameters);
 	}
 	
+	/**
+	 * @param $name
+	 * @param $value
+	 * @param $allow_duplicates
+	 *
+	 * @return void
+	 */
 	public function set_parameter($name, $value, $allow_duplicates = TRUE) {
 		if($allow_duplicates && isset($this->parameters[$name])) {
 			// We have already added parameter(s) with this name, so add to the list
@@ -108,14 +120,27 @@ class OAuthRequest {
 		}
 	}
 	
+	/**
+	 * @param $name
+	 *
+	 * @return null|mixed
+	 */
 	public function get_parameter($name) {
 		return $this->parameters[$name] ?? NULL;
 	}
 	
+	/**
+	 * @return array
+	 */
 	public function get_parameters() {
 		return $this->parameters;
 	}
 	
+	/**
+	 * @param $name
+	 *
+	 * @return void
+	 */
 	public function unset_parameter($name) {
 		unset($this->parameters[$name]);
 	}
@@ -237,6 +262,9 @@ class OAuthRequest {
 		return $out;
 	}
 	
+	/**
+	 * @return string
+	 */
 	public function __toString() {
 		return $this->to_url();
 	}
@@ -282,6 +310,13 @@ class OAuthRequest {
 		$this->set_parameter("oauth_signature", $signature, FALSE);
 	}
 	
+	/**
+	 * @param $signature_method
+	 * @param $consumer
+	 * @param $token
+	 *
+	 * @return mixed
+	 */
 	public function build_signature($signature_method, $consumer, $token) {
 		return $signature_method->build_signature($this, $consumer, $token);
 	}

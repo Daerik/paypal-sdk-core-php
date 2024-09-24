@@ -9,7 +9,10 @@ namespace PayPal\Auth\Oauth;
 class OAuthSignatureMethodPLAINTEXT
   extends OAuthSignatureMethod
 {
-    public function get_name()
+	/**
+	 * @return string
+	 */
+	public function get_name()
     {
         return "PLAINTEXT";
     }

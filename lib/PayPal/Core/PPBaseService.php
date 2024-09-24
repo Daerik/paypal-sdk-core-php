@@ -13,23 +13,38 @@ class PPBaseService
     protected $config;
     protected $lastRequest;
     protected $lastResponse;
-
-    public function getLastRequest()
+	
+	/**
+	 * @return mixed
+	 */
+	public function getLastRequest()
     {
         return $this->lastRequest;
     }
-
-    public function getLastResponse()
+	
+	/**
+	 * @return mixed
+	 */
+	public function getLastResponse()
     {
         return $this->lastResponse;
     }
-
-    public function getServiceName()
+	
+	/**
+	 * @return mixed
+	 */
+	public function getServiceName()
     {
         return $this->serviceName;
     }
-
-    public function __construct($serviceName, $serviceBinding, $config = null, $handlers = array())
+	
+	/**
+	 * @param $serviceName
+	 * @param $serviceBinding
+	 * @param $config
+	 * @param $handlers
+	 */
+	public function __construct($serviceName, $serviceBinding, $config = null, $handlers = array())
     {
         $this->serviceName    = $serviceName;
         $this->serviceBinding = $serviceBinding;

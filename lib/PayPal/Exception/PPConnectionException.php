@@ -16,24 +16,40 @@ class PPConnectionException
      * @var string
      */
     private $data;
-
-    public function __construct($url, $message, $code = 0)
+	
+	/**
+	 * @param $url
+	 * @param $message
+	 * @param $code
+	 */
+	public function __construct($url, $message, $code = 0)
     {
         parent::__construct($message, $code);
         $this->url = $url;
     }
-
-    public function setData($data)
+	
+	/**
+	 * @param $data
+	 *
+	 * @return void
+	 */
+	public function setData($data)
     {
         $this->data = $data;
     }
-
-    public function getData()
+	
+	/**
+	 * @return string
+	 */
+	public function getData()
     {
         return $this->data;
     }
-
-    public function getUrl()
+	
+	/**
+	 * @return string
+	 */
+	public function getUrl()
     {
         return $this->url;
     }

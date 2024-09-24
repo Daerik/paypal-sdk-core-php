@@ -113,8 +113,13 @@ abstract class PPMessage
             }
         }
     }
-
-    private function isBuiltInType($typeName)
+	
+	/**
+	 * @param $typeName
+	 *
+	 * @return bool
+	 */
+	private function isBuiltInType($typeName)
     {
         static $types = array(
           'string',

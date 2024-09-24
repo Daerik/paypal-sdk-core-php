@@ -10,28 +10,54 @@ class PPModel
 {
 
     private $_propMap = array();
-
-    public function __get($key)
+	
+	/**
+	 * @param $key
+	 *
+	 * @return mixed
+	 */
+	public function __get($key)
     {
         return $this->_propMap[$key];
     }
-
-    public function __set($key, $value)
+	
+	/**
+	 * @param $key
+	 * @param $value
+	 *
+	 * @return void
+	 */
+	public function __set($key, $value)
     {
         $this->_propMap[$key] = $value;
     }
-
-    public function __isset($key)
+	
+	/**
+	 * @param $key
+	 *
+	 * @return bool
+	 */
+	public function __isset($key)
     {
         return isset($this->_propMap[$key]);
     }
-
-    public function __unset($key)
+	
+	/**
+	 * @param $key
+	 *
+	 * @return void
+	 */
+	public function __unset($key)
     {
         unset($this->_propMap[$key]);
     }
-
-    private function _convertToArray($param)
+	
+	/**
+	 * @param $param
+	 *
+	 * @return array
+	 */
+	private function _convertToArray($param)
     {
         $ret = array();
         foreach ($param as $k => $v) {
@@ -45,8 +71,13 @@ class PPModel
         }
         return $ret;
     }
-
-    public function fromArray($arr)
+	
+	/**
+	 * @param $arr
+	 *
+	 * @return void
+	 */
+	public function fromArray($arr)
     {
 
         foreach ($arr as $k => $v) {
@@ -75,18 +106,29 @@ class PPModel
             }
         }
     }
-
-    public function fromJson($json)
+	
+	/**
+	 * @param $json
+	 *
+	 * @return void
+	 */
+	public function fromJson($json)
     {
         $this->fromArray(json_decode($json, true));
     }
-
-    public function toArray()
+	
+	/**
+	 * @return array
+	 */
+	public function toArray()
     {
         return $this->_convertToArray($this->_propMap);
     }
-
-    public function toJSON()
+	
+	/**
+	 * @return false|string
+	 */
+	public function toJSON()
     {
         return json_encode($this->toArray());
     }

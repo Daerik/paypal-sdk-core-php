@@ -21,6 +21,12 @@ interface IPPFormatter
      *                           to be passed in
      */
     public function toString($request, $options = array());
-
-    public function toObject($string, $options = array());
+	
+	/**
+	 * @param $string
+	 * @param $options
+	 *
+	 * @return mixed
+	 */
+	public function toObject($string, $options = array());
 }

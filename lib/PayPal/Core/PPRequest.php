@@ -37,24 +37,39 @@ class PPRequest
      * @var array
      */
     private $bindingInfo = array();
-
-    public function __construct($requestObject, $bindingType)
+	
+	/**
+	 * @param $requestObject
+	 * @param $bindingType
+	 */
+	public function __construct($requestObject, $bindingType)
     {
         $this->requestObject = $requestObject;
         $this->bindingType   = $bindingType;
     }
-
-    public function getRequestObject()
+	
+	/**
+	 * @return object
+	 */
+	public function getRequestObject()
     {
         return $this->requestObject;
     }
-
-    public function getBindingType()
+	
+	/**
+	 * @return string
+	 */
+	public function getBindingType()
     {
         return $this->bindingType;
     }
-
-    public function getBindingInfo($name = null)
+	
+	/**
+	 * @param $name
+	 *
+	 * @return null|array|mixed
+	 */
+	public function getBindingInfo($name = null)
     {
         if (isset($name)) {
             return array_key_exists($name, $this->bindingInfo) ? $this->bindingInfo[$name] : null;
@@ -71,13 +86,21 @@ class PPRequest
     {
         $this->bindingInfo[$name] = $value;
     }
-
-    public function setCredential($credential)
+	
+	/**
+	 * @param $credential
+	 *
+	 * @return void
+	 */
+	public function setCredential($credential)
     {
         $this->credential = $credential;
     }
-
-    public function getCredential()
+	
+	/**
+	 * @return IPPCredential
+	 */
+	public function getCredential()
     {
         return $this->credential;
     }

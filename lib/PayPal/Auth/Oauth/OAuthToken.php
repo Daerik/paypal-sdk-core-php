@@ -26,6 +26,9 @@ class OAuthToken {
 		       OAuthUtil::urlencode_rfc3986($this->secret);
 	}
 	
+	/**
+	 * @return string
+	 */
 	public function __toString() {
 		return $this->to_string();
 	}

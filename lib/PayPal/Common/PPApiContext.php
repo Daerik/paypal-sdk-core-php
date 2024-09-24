@@ -96,8 +96,13 @@ class PPApiContext
     {
         return $this->config;
     }
-
-    public function get($searchKey)
+	
+	/**
+	 * @param $searchKey
+	 *
+	 * @return array|false|mixed|string
+	 */
+	public function get($searchKey)
     {
         if (!isset($this->config)) {
             return PPConfigManager::getInstance()->get($searchKey);

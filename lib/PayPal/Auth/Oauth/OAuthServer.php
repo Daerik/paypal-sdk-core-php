@@ -8,10 +8,18 @@ class OAuthServer {
 	
 	protected $data_store;
 	
+	/**
+	 * @param $data_store
+	 */
 	public function __construct($data_store) {
 		$this->data_store = $data_store;
 	}
 	
+	/**
+	 * @param $signature_method
+	 *
+	 * @return void
+	 */
 	public function add_signature_method($signature_method) {
 		$this->signature_methods[$signature_method->get_name()] =
 			$signature_method;

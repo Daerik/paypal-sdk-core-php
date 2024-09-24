@@ -24,19 +24,29 @@ class PPTokenAuthorization
      * @var string
      */
     private $tokenSecret;
-
-    public function __construct($accessToken, $tokenSecret)
+	
+	/**
+	 * @param $accessToken
+	 * @param $tokenSecret
+	 */
+	public function __construct($accessToken, $tokenSecret)
     {
         $this->accessToken = $accessToken;
         $this->tokenSecret = $tokenSecret;
     }
-
-    public function getAccessToken()
+	
+	/**
+	 * @return string
+	 */
+	public function getAccessToken()
     {
         return $this->accessToken;
     }
-
-    public function getTokenSecret()
+	
+	/**
+	 * @return string
+	 */
+	public function getTokenSecret()
     {
         return $this->tokenSecret;
     }

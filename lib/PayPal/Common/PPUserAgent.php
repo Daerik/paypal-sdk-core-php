@@ -31,8 +31,11 @@ class PPUserAgent
         }
         return sprintf("PayPalSDK/%s %s (%s)", $sdkName, $sdkVersion, implode(';', $featureList));
     }
-
-    private static function _getPHPBit()
+	
+	/**
+	 * @return int|string
+	 */
+	private static function _getPHPBit()
     {
 	    return match (PHP_INT_SIZE) {
 		    4       => '32',

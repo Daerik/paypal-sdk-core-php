@@ -12,7 +12,10 @@ namespace PayPal\Auth\Oauth;
 abstract class OAuthSignatureMethodRsaSha1
   extends OAuthSignatureMethod
 {
-    public function get_name()
+	/**
+	 * @return string
+	 */
+	public function get_name()
     {
         return "RSA-SHA1";
     }
@@ -23,15 +26,32 @@ abstract class OAuthSignatureMethodRsaSha1
     // (3) some sort of specific discovery code based on request
     //
     // Either way should return a string representation of the certificate
-    abstract protected function fetch_public_cert(&$request);
+	/**
+	 * @param $request
+	 *
+	 * @return mixed
+	 */
+	abstract protected function fetch_public_cert(&$request);
 
     // Up to the SP to implement this lookup of keys. Possible ideas are:
     // (1) do a lookup in a table of trusted certs keyed off of consumer
     //
     // Either way should return a string representation of the certificate
-    abstract protected function fetch_private_cert(&$request);
-
-    public function build_signature($request, $consumer, $token)
+	/**
+	 * @param $request
+	 *
+	 * @return mixed
+	 */
+	abstract protected function fetch_private_cert(&$request);
+	
+	/**
+	 * @param $request
+	 * @param $consumer
+	 * @param $token
+	 *
+	 * @return string
+	 */
+	public function build_signature($request, $consumer, $token)
     {
         $base_string          = $request->get_signature_base_string();
         $request->base_string = $base_string;
@@ -50,8 +70,16 @@ abstract class OAuthSignatureMethodRsaSha1
 
         return base64_encode($signature);
     }
-
-    public function check_signature($request, $consumer, $token, $signature)
+	
+	/**
+	 * @param $request
+	 * @param $consumer
+	 * @param $token
+	 * @param $signature
+	 *
+	 * @return bool
+	 */
+	public function check_signature($request, $consumer, $token, $signature)
     {
         $decoded_sig = base64_decode($signature);
 

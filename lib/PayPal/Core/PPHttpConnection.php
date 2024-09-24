@@ -34,8 +34,11 @@ class PPHttpConnection
         $this->httpConfig = $httpConfig;
         $this->logger     = new PPLoggingManager(__CLASS__, $config);
     }
-
-    private function getHttpHeaders()
+	
+	/**
+	 * @return array
+	 */
+	private function getHttpHeaders()
     {
 
         $ret = array();

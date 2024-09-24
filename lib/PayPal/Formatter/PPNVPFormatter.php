@@ -5,13 +5,25 @@ use BadMethodCallException;
 class PPNVPFormatter
   implements IPPFormatter
 {
-
-    public function toString($request, $options = array())
+	
+	/**
+	 * @param $request
+	 * @param $options
+	 *
+	 * @return mixed
+	 */
+	public function toString($request, $options = array())
     {
         return $request->getRequestObject()->toNVPString();
     }
-
-    public function toObject($string, $options = array())
+	
+	/**
+	 * @param $string
+	 * @param $options
+	 *
+	 * @return mixed
+	 */
+	public function toObject($string, $options = array())
     {
         throw new BadMethodCallException("Unimplemented");
     }

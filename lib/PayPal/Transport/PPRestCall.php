@@ -15,8 +15,11 @@ class PPRestCall
     private $logger;
 
     private $apiContext;
-
-    public function __construct($apiContext)
+	
+	/**
+	 * @param $apiContext
+	 */
+	public function __construct($apiContext)
     {
         $this->apiContext = $apiContext;
         $this->logger     = new PPLoggingManager(__CLASS__, $apiContext->getConfig());

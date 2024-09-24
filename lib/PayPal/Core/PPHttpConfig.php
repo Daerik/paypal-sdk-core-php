@@ -57,41 +57,72 @@ class PPHttpConfig
             $this->removeCurlOption(CURLOPT_SSL_CIPHER_LIST);
         }
     }
-
-    public function getUrl()
+	
+	/**
+	 * @return null|string
+	 */
+	public function getUrl()
     {
         return $this->url;
     }
-
-    public function getMethod()
+	
+	/**
+	 * @return string
+	 */
+	public function getMethod()
     {
         return $this->method;
     }
-
-    public function getHeaders()
+	
+	/**
+	 * @return array
+	 */
+	public function getHeaders()
     {
         return $this->headers;
     }
-
-    public function getHeader($name)
+	
+	/**
+	 * @param $name
+	 *
+	 * @return null|mixed
+	 */
+	public function getHeader($name)
     {
         if (array_key_exists($name, $this->headers)) {
             return $this->headers[$name];
         }
         return null;
     }
-
-    public function setUrl($url)
+	
+	/**
+	 * @param $url
+	 *
+	 * @return void
+	 */
+	public function setUrl($url)
     {
         $this->url = $url;
     }
-
-    public function setHeaders(array $headers)
+	
+	/**
+	 * @param array $headers
+	 *
+	 * @return void
+	 */
+	public function setHeaders(array $headers)
     {
         $this->headers = $headers;
     }
-
-    public function addHeader($name, $value, $overWrite = true)
+	
+	/**
+	 * @param $name
+	 * @param $value
+	 * @param $overWrite
+	 *
+	 * @return void
+	 */
+	public function addHeader($name, $value, $overWrite = true)
     {
         if (!array_key_exists($name, $this->headers) || $overWrite) {
             $this->headers[$name] = $value;
@@ -99,18 +130,32 @@ class PPHttpConfig
             $this->headers[$name] = $this->headers[$name] . self::HEADER_SEPARATOR . $value;
         }
     }
-
-    public function removeHeader($name)
+	
+	/**
+	 * @param $name
+	 *
+	 * @return void
+	 */
+	public function removeHeader($name)
     {
         unset($this->headers[$name]);
     }
-
-    public function getCurlOptions()
+	
+	/**
+	 * @return array|int[]
+	 */
+	public function getCurlOptions()
     {
         return $this->curlOptions;
     }
-
-    public function addCurlOption($name, $value)
+	
+	/**
+	 * @param $name
+	 * @param $value
+	 *
+	 * @return void
+	 */
+	public function addCurlOption($name, $value)
     {
         $this->curlOptions[$name] = $value;
     }
@@ -124,8 +169,13 @@ class PPHttpConfig
     {
         unset($this->curlOptions[$name]);
     }
-
-    public function setCurlOptions($options)
+	
+	/**
+	 * @param $options
+	 *
+	 * @return void
+	 */
+	public function setCurlOptions($options)
     {
         $this->curlOptions = $options;
     }
@@ -193,8 +243,11 @@ class PPHttpConfig
     {
         $this->retryCount = $retryCount;
     }
-
-    public function getHttpRetryCount()
+	
+	/**
+	 * @return mixed
+	 */
+	public function getHttpRetryCount()
     {
         return $this->retryCount;
     }

@@ -41,7 +41,11 @@ class PPConfigManager
     }
 
     // create singleton object for PPConfigManager
-    public static function getInstance()
+	
+	/**
+	 * @return PPConfigManager
+	 */
+	public static function getInstance()
     {
         if (!isset(self::$instance)) {
             self::$instance = new PPConfigManager();
@@ -50,7 +54,13 @@ class PPConfigManager
     }
 
     //used to load the file
-    private function load($fileName)
+	
+	/**
+	 * @param $fileName
+	 *
+	 * @return void
+	 */
+	private function load($fileName)
     {
         //Gracefully check for ini file
         $parsedConfig = parse_ini_file($fileName);

@@ -40,7 +40,13 @@ class PPCredentialManager
     /*
      * Create singleton instance for this class.
      */
-    public static function getInstance($config)
+	/**
+	 * @param $config
+	 *
+	 * @return PPCredentialManager
+	 * @throws PPMissingCredentialException
+	 */
+	public static function getInstance($config)
     {
 
         return self::$instance = new PPCredentialManager($config);
@@ -159,8 +165,11 @@ class PPCredentialManager
         }
         return $credObj;
     }
-
-    #[NoReturn] public function __clone()
+	
+	/**
+	 * @return void
+	 */
+	#[NoReturn] public function __clone()
     {
         trigger_error('Clone is not allowed.', E_USER_ERROR);
     }

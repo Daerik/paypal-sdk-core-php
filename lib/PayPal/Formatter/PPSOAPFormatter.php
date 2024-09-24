@@ -7,8 +7,14 @@ class PPSOAPFormatter
 {
 
     private static $SOAP_NAMESPACE = 'xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"';
-
-    public function toString($request, $options = array())
+	
+	/**
+	 * @param $request
+	 * @param $options
+	 *
+	 * @return string
+	 */
+	public function toString($request, $options = array())
     {
 
         $customNamespace = ($request->getBindingInfo('namespace') != null) ? $request->getBindingInfo('namespace') : "";
@@ -26,8 +32,14 @@ class PPSOAPFormatter
 
         return $soapEnvelope . $soapHeader . $soapBody . '</soapenv:Envelope>';
     }
-
-    public function toObject($string, $options = array())
+	
+	/**
+	 * @param $string
+	 * @param $options
+	 *
+	 * @return mixed
+	 */
+	public function toObject($string, $options = array())
     {
         throw new BadMethodCallException("Unimplemented");
     }

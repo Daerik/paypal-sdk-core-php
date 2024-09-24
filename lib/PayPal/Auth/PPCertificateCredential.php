@@ -77,18 +77,27 @@ class PPCertificateCredential
             throw new PPMissingCredentialException("certificate cannot be empty");
         }
     }
-
-    public function getUserName()
+	
+	/**
+	 * @return string
+	 */
+	public function getUserName()
     {
         return $this->userName;
     }
-
-    public function getPassword()
+	
+	/**
+	 * @return string
+	 */
+	public function getPassword()
     {
         return $this->password;
     }
-
-    public function getCertificatePath()
+	
+	/**
+	 * @return false|string
+	 */
+	public function getCertificatePath()
     {
         if (realpath($this->certificatePath)) {
             return realpath($this->certificatePath);
@@ -98,18 +107,29 @@ class PPCertificateCredential
             return realpath(dirname(__FILE__) . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "config" . DIRECTORY_SEPARATOR . $this->certificatePath);
         }
     }
-
-    public function getCertificatePassPhrase()
+	
+	/**
+	 * @return null|string
+	 */
+	public function getCertificatePassPhrase()
     {
         return $this->certificatePassPhrase;
     }
-
-    public function setApplicationId($applicationId)
+	
+	/**
+	 * @param $applicationId
+	 *
+	 * @return void
+	 */
+	public function setApplicationId($applicationId)
     {
         $this->applicationId = trim($applicationId);
     }
-
-    public function getApplicationId()
+	
+	/**
+	 * @return string
+	 */
+	public function getApplicationId()
     {
         return $this->applicationId;
     }

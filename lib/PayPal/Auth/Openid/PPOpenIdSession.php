@@ -93,8 +93,13 @@ class PPOpenIdSession
         );
         return sprintf("%s/webapps/auth/protocol/openidconnect/v1/endsession?%s", self::getBaseUrl($config), http_build_query($params));
     }
-
-    private static function getBaseUrl($config)
+	
+	/**
+	 * @param $config
+	 *
+	 * @return mixed|string
+	 */
+	private static function getBaseUrl($config)
     {
 
         if (array_key_exists('openid.RedirectUri', $config)) {

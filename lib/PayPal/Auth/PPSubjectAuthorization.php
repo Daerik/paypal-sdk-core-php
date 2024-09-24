@@ -18,13 +18,19 @@ class PPSubjectAuthorization
      * @var string
      */
     private $subject;
-
-    public function __construct($subject)
+	
+	/**
+	 * @param $subject
+	 */
+	public function __construct($subject)
     {
         $this->subject = $subject;
     }
-
-    public function getSubject()
+	
+	/**
+	 * @return string
+	 */
+	public function getSubject()
     {
         return $this->subject;
     }

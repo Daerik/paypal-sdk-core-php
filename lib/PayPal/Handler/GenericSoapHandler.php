@@ -6,13 +6,23 @@ class GenericSoapHandler
 {
 
     private $namespace;
-
-    public function __construct($namespace)
+	
+	/**
+	 * @param $namespace
+	 */
+	public function __construct($namespace)
     {
         $this->namespace = $namespace;
     }
-
-    public function handle($httpConfig, $request, $options)
+	
+	/**
+	 * @param $httpConfig
+	 * @param $request
+	 * @param $options
+	 *
+	 * @return void
+	 */
+	public function handle($httpConfig, $request, $options)
     {
 
         if (isset($options['apiContext'])) {

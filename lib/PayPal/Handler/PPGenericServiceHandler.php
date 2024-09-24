@@ -15,14 +15,25 @@ class PPGenericServiceHandler
 
     private $sdkName;
     private $sdkVersion;
-
-    public function __construct($sdkName, $sdkVersion)
+	
+	/**
+	 * @param $sdkName
+	 * @param $sdkVersion
+	 */
+	public function __construct($sdkName, $sdkVersion)
     {
         $this->sdkName    = $sdkName;
         $this->sdkVersion = $sdkVersion;
     }
-
-    public function handle($httpConfig, $request, $options)
+	
+	/**
+	 * @param $httpConfig
+	 * @param $request
+	 * @param $options
+	 *
+	 * @return void
+	 */
+	public function handle($httpConfig, $request, $options)
     {
         $httpConfig->addHeader('X-PAYPAL-REQUEST-DATA-FORMAT', $request->getBindingType());
         $httpConfig->addHeader('X-PAYPAL-RESPONSE-DATA-FORMAT', $request->getBindingType());

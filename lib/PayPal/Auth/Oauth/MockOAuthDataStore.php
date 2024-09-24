@@ -15,6 +15,11 @@ class MockOAuthDataStore
 		$this->nonce         = "nonce";
 	}/*}}}*/
 	
+	/**
+	 * @param $consumer_key
+	 *
+	 * @return null|OAuthConsumer
+	 */
 	public function lookup_consumer($consumer_key) {/*{{{*/
 		if($consumer_key == $this->consumer->key) {
 			return $this->consumer;
@@ -22,6 +27,13 @@ class MockOAuthDataStore
 		return NULL;
 	}/*}}}*/
 	
+	/**
+	 * @param $consumer
+	 * @param $token_type
+	 * @param $token
+	 *
+	 * @return null|void
+	 */
 	public function lookup_token($consumer, $token_type, $token) {/*{{{*/
 		$token_attrib = $token_type . "_token";
 		if($consumer->key == $this->consumer->key
@@ -32,6 +44,14 @@ class MockOAuthDataStore
 		return NULL;
 	}/*}}}*/
 	
+	/**
+	 * @param $consumer
+	 * @param $token
+	 * @param $nonce
+	 * @param $timestamp
+	 *
+	 * @return null|string
+	 */
 	public function lookup_nonce($consumer, $token, $nonce, $timestamp) {/*{{{*/
 		if($consumer->key == $this->consumer->key
 		   && (($token && $token->key == $this->request_token->key)
@@ -43,6 +63,12 @@ class MockOAuthDataStore
 		return NULL;
 	}/*}}}*/
 	
+	/**
+	 * @param $consumer
+	 * @param $callback
+	 *
+	 * @return null|OAuthToken
+	 */
 	public function new_request_token($consumer, $callback = NULL) {/*{{{*/
 		if($consumer->key == $this->consumer->key) {
 			return $this->request_token;
@@ -50,6 +76,13 @@ class MockOAuthDataStore
 		return NULL;
 	}/*}}}*/
 	
+	/**
+	 * @param $token
+	 * @param $consumer
+	 * @param $verifier
+	 *
+	 * @return null|OAuthToken
+	 */
 	public function new_access_token($token, $consumer, $verifier = NULL) {/*{{{*/
 		if($consumer->key == $this->consumer->key
 		   && $token->key == $this->request_token->key

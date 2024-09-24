@@ -12,8 +12,11 @@ class PPConnectionManager
     private function __construct()
     {
     }
-
-    public static function getInstance()
+	
+	/**
+	 * @return PPConnectionManager
+	 */
+	public static function getInstance()
     {
         if (self::$instance == null) {
             self::$instance = new PPConnectionManager();

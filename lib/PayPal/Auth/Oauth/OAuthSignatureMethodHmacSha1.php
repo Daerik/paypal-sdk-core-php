@@ -10,10 +10,20 @@ namespace PayPal\Auth\Oauth;
  */
 class OAuthSignatureMethodHmacSha1
 	extends OAuthSignatureMethod {
+	/**
+	 * @return string
+	 */
 	public function get_name() {
 		return "HMAC-SHA1";
 	}
 	
+	/**
+	 * @param $request
+	 * @param $consumer
+	 * @param $token
+	 *
+	 * @return string
+	 */
 	public function build_signature($request, $consumer, $token) {
 		$base_string          = $request->get_signature_base_string();
 		$base_string          = preg_replace_callback("/(%[A-Za-z0-9]{2})/", array($this, "replace_callback"),

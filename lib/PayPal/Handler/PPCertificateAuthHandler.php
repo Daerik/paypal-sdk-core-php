@@ -8,8 +8,15 @@ use PayPal\Auth\PPTokenAuthorization;
 class PPCertificateAuthHandler
   implements IPPHandler
 {
-
-    public function handle($httpConfig, $request, $options)
+	
+	/**
+	 * @param $httpConfig
+	 * @param $request
+	 * @param $options
+	 *
+	 * @return void
+	 */
+	public function handle($httpConfig, $request, $options)
     {
         /** @var PPCertificateCredential $credential */
         $credential = $request->getCredential();

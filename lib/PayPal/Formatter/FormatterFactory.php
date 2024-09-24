@@ -4,7 +4,12 @@ namespace PayPal\Formatter;
 use InvalidArgumentException;
 class FormatterFactory
 {
-    public static function factory($bindingType)
+	/**
+	 * @param $bindingType
+	 *
+	 * @return PPNVPFormatter|PPSOAPFormatter
+	 */
+	public static function factory($bindingType)
     {
 	    return match ($bindingType) {
 		    'NV'    => new PPNVPFormatter(),

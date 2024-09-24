@@ -61,28 +61,45 @@ class PPSignatureCredential
         }
         // Signature can be empty if using 3-rd party auth tokens from permissions API
     }
-
-    public function getUserName()
+	
+	/**
+	 * @return string
+	 */
+	public function getUserName()
     {
         return $this->userName;
     }
-
-    public function getPassword()
+	
+	/**
+	 * @return string
+	 */
+	public function getPassword()
     {
         return $this->password;
     }
-
-    public function getSignature()
+	
+	/**
+	 * @return string
+	 */
+	public function getSignature()
     {
         return $this->signature;
     }
-
-    public function setApplicationId($applicationId)
+	
+	/**
+	 * @param $applicationId
+	 *
+	 * @return void
+	 */
+	public function setApplicationId($applicationId)
     {
         $this->applicationId = trim($applicationId);
     }
-
-    public function getApplicationId()
+	
+	/**
+	 * @return string
+	 */
+	public function getApplicationId()
     {
         return $this->applicationId;
     }

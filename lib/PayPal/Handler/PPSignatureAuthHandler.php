@@ -12,8 +12,15 @@ use PayPal\Auth\PPTokenAuthorization;
 class PPSignatureAuthHandler
   implements IPPHandler
 {
-
-    public function handle($httpConfig, $request, $options)
+	
+	/**
+	 * @param $httpConfig
+	 * @param $request
+	 * @param $options
+	 *
+	 * @return void
+	 */
+	public function handle($httpConfig, $request, $options)
     {
 
         $credential = $request->getCredential();

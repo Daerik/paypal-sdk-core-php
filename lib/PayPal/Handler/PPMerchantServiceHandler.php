@@ -20,8 +20,13 @@ class PPMerchantServiceHandler
 {
 
     private $apiUsername;
-
-    public function __construct($apiUsername, $sdkName, $sdkVersion)
+	
+	/**
+	 * @param $apiUsername
+	 * @param $sdkName
+	 * @param $sdkVersion
+	 */
+	public function __construct($apiUsername, $sdkName, $sdkVersion)
     {
         parent::__construct($sdkName, $sdkVersion);
         $this->apiUsername = $apiUsername;

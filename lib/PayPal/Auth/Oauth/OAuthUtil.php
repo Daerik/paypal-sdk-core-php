@@ -3,7 +3,12 @@ namespace PayPal\Auth\Oauth;
 
 class OAuthUtil
 {
-    public static function urlencode_rfc3986($input)
+	/**
+	 * @param $input
+	 *
+	 * @return array|string|string[]
+	 */
+	public static function urlencode_rfc3986($input)
     {
         if (is_array($input)) {
             return array_map(array('PayPal\Auth\Oauth\OAuthUtil', 'urlencode_rfc3986'), $input);
@@ -22,8 +27,13 @@ class OAuthUtil
             return '';
         }
     }
-
-    public static function parseQueryString($str)
+	
+	/**
+	 * @param $str
+	 *
+	 * @return array
+	 */
+	public static function parseQueryString($str)
     {
         $op    = array();
         $pairs = explode("&", $str);
@@ -38,7 +48,12 @@ class OAuthUtil
     // This decode function isn't taking into consideration the above
     // modifications to the encoding process. However, this method doesn't
     // seem to be used anywhere so leaving it as is.
-    public static function urldecode_rfc3986($string)
+	/**
+	 * @param $string
+	 *
+	 * @return string
+	 */
+	public static function urldecode_rfc3986($string)
     {
         return urldecode($string);
     }
@@ -48,7 +63,13 @@ class OAuthUtil
     // Can filter out any non-oauth parameters if needed (default behaviour)
     // May 28th, 2010 - method updated to tjerk.meesters for a speed improvement.
     //                  see http://code.google.com/p/oauth/issues/detail?id=163
-    public static function split_header($header, $only_allow_oauth_parameters = true)
+	/**
+	 * @param $header
+	 * @param $only_allow_oauth_parameters
+	 *
+	 * @return array
+	 */
+	public static function split_header($header, $only_allow_oauth_parameters = true)
     {
         $params = array();
         if (preg_match_all('/(' . ($only_allow_oauth_parameters ? 'oauth_' : '') . '[a-z_-]*)=(:?"([^"]*)"|([^,]*))/',
@@ -64,7 +85,11 @@ class OAuthUtil
     }
 
     // helper to try to sort out headers for people who aren't running apache
-    public static function get_headers()
+	
+	/**
+	 * @return array
+	 */
+	public static function get_headers()
     {
         if (function_exists('apache_request_headers')) {
             // we need this to get the actual Authorization: header
@@ -115,7 +140,12 @@ class OAuthUtil
     // This function takes a input like a=b&a=c&d=e and returns the parsed
     // parameters like this
     // array('a' => array('b','c'), 'd' => 'e')
-    public static function parse_parameters($input)
+	/**
+	 * @param $input
+	 *
+	 * @return array
+	 */
+	public static function parse_parameters($input)
     {
         if (!isset($input) || !$input) {
             return array();
@@ -146,8 +176,13 @@ class OAuthUtil
         }
         return $parsed_parameters;
     }
-
-    public static function build_http_query($params)
+	
+	/**
+	 * @param $params
+	 *
+	 * @return string
+	 */
+	public static function build_http_query($params)
     {
         if (!$params) {
             return '';
