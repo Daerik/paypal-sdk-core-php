@@ -1,6 +1,7 @@
 <?php
 namespace PayPal\Core;
 
+use Exception;
 use JetBrains\PhpStorm\NoReturn;
 use PayPal\Auth\PPCertificateCredential;
 use PayPal\Auth\PPSignatureCredential;

@@ -3,6 +3,7 @@ namespace PayPal\Core;
 
 use PayPal\Exception\PPConnectionException;
 use PayPal\Formatter\FormatterFactory;
+use PayPal\Handler\IPPHandler;
 
 class PPAPIService
 {

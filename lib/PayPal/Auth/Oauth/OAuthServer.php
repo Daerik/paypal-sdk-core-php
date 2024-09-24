@@ -1,6 +1,7 @@
 <?php
 namespace PayPal\Auth\Oauth;
 
+use PayPal\Exception\OAuthException;
 class OAuthServer {
 	protected int    $timestamp_threshold = 300; // in seconds, five minutes
 	protected string $version             = '1.0';             // hi blaine

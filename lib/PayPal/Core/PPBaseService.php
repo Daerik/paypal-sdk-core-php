@@ -55,13 +55,13 @@ class PPBaseService
 	 * @param            $port
 	 * @param string     $method        - API method to call
 	 * @param object     $requestObject Request object
-	 * @param apiContext $apiContext    object containing credential and SOAP headers
+	 * @param PPApiContext $apiContext    object containing credential and SOAP headers
 	 * @param array      $handlers      Array of Handlers
 	 *
 	 * @return mixed
 	 * @throws PPConnectionException
 	 */
-    public function call($port, string $method, object $requestObject, apiContext $apiContext, array $handlers = array()): mixed {
+    public function call($port, string $method, object $requestObject, PPApiContext $apiContext, array $handlers = array()): mixed {
 
         if (!is_array($handlers)) {
             $handlers = array();
