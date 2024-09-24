@@ -50,7 +50,7 @@ class PPReflectionUtil
     {
         $class = is_object($class) ? get_class($class) : $class;
         if (!class_exists('ReflectionProperty')) {
-            throw new RuntimeException("Property type of " . $class . "::{$propertyName} cannot be resolved");
+            throw new RuntimeException("Property type of " . $class . "::$propertyName cannot be resolved");
         }
 
         if ($annotations =& self::$propertiesType[$class][$propertyName]) {
