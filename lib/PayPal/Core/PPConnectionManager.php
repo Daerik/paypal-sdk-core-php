@@ -2,13 +2,9 @@
 	namespace PayPal\Core;
 	
 	use PayPal\Exception\PPConfigurationException;
+	
 	class PPConnectionManager {
-		/**
-		 * reference to singleton instance
-		 *
-		 * @var PPConnectionManager
-		 */
-		private static PPConnectionManager $instance;
+		private static ?PPConnectionManager $instance = NULL;
 		
 		private function __construct() {}
 		
