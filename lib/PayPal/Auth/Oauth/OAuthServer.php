@@ -26,7 +26,7 @@ class OAuthServer
      * process a request_token request
      * returns the request token on success
      */
-    public function fetch_request_token(&$request)
+    public function fetch_request_token($request)
     {
         $this->get_version($request);
 
@@ -46,7 +46,7 @@ class OAuthServer
      * process an access_token request
      * returns the access token on success
      */
-    public function fetch_access_token(&$request)
+    public function fetch_access_token($request)
     {
         $this->get_version($request);
 
@@ -65,7 +65,7 @@ class OAuthServer
     /**
      * verify an api call, checks all the parameters
      */
-    public function verify_request(&$request)
+    public function verify_request($request)
     {
         $this->get_version($request);
         $consumer = $this->get_consumer($request);
