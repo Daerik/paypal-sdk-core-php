@@ -101,10 +101,8 @@ class PPApiContext
     {
         if (!isset($this->config)) {
             return PPConfigManager::getInstance()->get($searchKey);
-        } else {
-            if (array_key_exists($searchKey, $this->getConfig())) {
+        } elseif (array_key_exists($searchKey, $this->getConfig())) {
                 return $this->config[$searchKey];
-            }
         }
         return false;
     }

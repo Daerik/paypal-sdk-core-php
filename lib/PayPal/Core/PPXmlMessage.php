@@ -88,12 +88,10 @@ abstract class PPXmlMessage
         }
         if (!is_object($value)) {
             $el .= '>' . PPUtils::escapeInvalidXmlCharsRegex($value);
+        } elseif (substr($value = $value->toXMLString(), 0, 1) === '<' || $value == '') {
+            $el .= '>' . $value;
         } else {
-            if (substr($value = $value->toXMLString(), 0, 1) === '<' || $value == '') {
-                $el .= '>' . $value;
-            } else {
-                $el .= ' ' . $value;
-            }
+            $el .= ' ' . $value;
         }
         if ($namespace === true) {
             return $el . '</' . $property . '>';
