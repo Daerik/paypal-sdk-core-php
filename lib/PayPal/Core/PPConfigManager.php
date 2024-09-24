@@ -13,15 +13,14 @@
 			"http.Retry"             => "5",
 		);
 		
-		//default config values
 		/**
 		 * @var PPConfigManager
 		 */
 		private static PPConfigManager $instance;
-		private array $config;
+		private array                  $config = array();
 		
 		/** @noinspection PhpUndefinedConstantInspection */
-
+		
 		private function __construct() {
 			$configFile = NULL;
 			if(defined('PP_CONFIG_PATH')) {
