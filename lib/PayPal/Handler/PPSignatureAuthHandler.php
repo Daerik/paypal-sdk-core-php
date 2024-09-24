@@ -32,7 +32,7 @@
 						$httpConfig->addHeader('X-PAYPAL-SECURITY-USERID', $credential->getUserName());
 						$httpConfig->addHeader('X-PAYPAL-SECURITY-PASSWORD', $credential->getPassword());
 						$httpConfig->addHeader('X-PAYPAL-SECURITY-SIGNATURE', $credential->getSignature());
-						$httpConfig->addHeader('X-PAYPAL-SECURITY-SUBJECT', $thirdPartyAuth->getSubject());
+						$httpConfig->addHeader('X-PAYPAL-SECURITY-SUBJECT', $thirdPartyAuth?->getSubject());
 					}
 					break;
 				case 'SOAP':
