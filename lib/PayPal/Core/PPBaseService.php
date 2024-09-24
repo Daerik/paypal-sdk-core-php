@@ -62,6 +62,7 @@ class PPBaseService
 	 * @return mixed
 	 * @throws PPConnectionException
 	 * @throws PPConfigurationException
+	 * @throws PPConfigurationException
 	 */
     public function call($port, string $method, object $requestObject, PPApiContext $apiContext, array $handlers = array()): mixed {
 
