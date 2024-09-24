@@ -31,7 +31,8 @@ class PPCertificateCredential
 
     /**
      * Password used to protect the API certificate
-     * @var string
+     *
+     * @var null|string
      */
     protected ?string $certificatePassPhrase;
 
