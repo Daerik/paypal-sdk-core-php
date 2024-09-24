@@ -158,7 +158,7 @@ abstract class PPXmlMessage
                 }
 
                 $this->fillRelation($element['name'], $element);
-            } elseif (isset($element['text']) && !is_null($element['text'])) {
+            } elseif (isset($element['text'])) {
                 if (isset($element['num'])) {
                     $this->{$element['name']}[$element['num']] = $element['text'];
                 } else {
