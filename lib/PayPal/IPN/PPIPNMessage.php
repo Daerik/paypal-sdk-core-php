@@ -13,37 +13,22 @@
 	 *
 	 */
 	class PPIPNMessage {
-		
 		public const string IPN_CMD = 'cmd=_notify-validate';
-		
-		/*
-		 *@var boolean
-		*
-		*/
-		private bool $isIpnVerified;
-		
-		/*
-		 *@var config
-		*
-		*/
+		private bool  $isIpnVerified;
 		private array $config;
-		/**
-		 *
-		 * @var array
-		 */
 		private array $ipnData = array();
 		
 		/**
 		 *
-		 * @param string $postData OPTIONAL post data. If null,
-		 *                         the class automatically reads incoming POST data
-		 *                         from the input stream
+		 * @param null|string $postData OPTIONAL post data. If null,
+		 *                              the class automatically reads incoming POST data
+		 *                              from the input stream
 		 */
-		public function __construct(string $postData = '', $config = NULL) {
+		public function __construct(?string $postData = NULL, $config = NULL) {
 			
 			$this->config = PPConfigManager::getConfigWithDefaults($config);
 			
-			if($postData == '') {
+			if(empty($postData)) {
 				// reading posted data from directly from $_POST may causes serialization issues with array data in POST
 				// reading raw POST data from input stream instead.
 				$postData = file_get_contents('php://input');
