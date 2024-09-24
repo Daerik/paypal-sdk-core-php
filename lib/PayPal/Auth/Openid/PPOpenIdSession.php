@@ -99,7 +99,7 @@ class PPOpenIdSession
 
         if (array_key_exists('openid.RedirectUri', $config)) {
             return $config['openid.RedirectUri'];
-        } else if (array_key_exists('mode', $config)) {
+        } elseif (array_key_exists('mode', $config)) {
             switch (strtoupper($config['mode'])) {
                 case 'SANDBOX':
                     return PPConstants::OPENID_REDIRECT_SANDBOX_URL;

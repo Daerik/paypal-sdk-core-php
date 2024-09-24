@@ -105,7 +105,7 @@ class PPHttpConnection
               "Got Http response code $httpStatus when accessing {$this->httpConfig->getUrl()}. Retried $retries times.");
             $ex->setData($result);
             throw $ex;
-        } else if ($httpStatus < 200 || $httpStatus >= 300) {
+        } elseif ($httpStatus < 200 || $httpStatus >= 300) {
             $ex = new PPConnectionException($this->httpConfig->getUrl(),
               "Got Http response code $httpStatus when accessing {$this->httpConfig->getUrl()}.");
             $ex->setData($result);

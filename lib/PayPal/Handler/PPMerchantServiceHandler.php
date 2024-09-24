@@ -44,25 +44,25 @@ class PPMerchantServiceHandler
         if (isset($options['port']) && isset($config['service.EndPoint.' . $options['port']])) {
             $endpoint = $config['service.EndPoint.' . $options['port']];
         } // for backward compatibilty (for those who are using old config files with 'service.EndPoint')
-        else if (isset($config['service.EndPoint'])) {
+        elseif (isset($config['service.EndPoint'])) {
             $endpoint = $config['service.EndPoint'];
-        } else if (isset($config['mode'])) {
+        } elseif (isset($config['mode'])) {
             if (strtoupper($config['mode']) == 'SANDBOX') {
                 if ($credential instanceof PPSignatureCredential) {
                     $endpoint = PPConstants::MERCHANT_SANDBOX_SIGNATURE_ENDPOINT;
-                } else if ($credential instanceof PPCertificateCredential) {
+                } elseif ($credential instanceof PPCertificateCredential) {
                     $endpoint = PPConstants::MERCHANT_SANDBOX_CERT_ENDPOINT;
                 }
-            } else if (strtoupper($config['mode']) == 'LIVE') {
+            } elseif (strtoupper($config['mode']) == 'LIVE') {
                 if ($credential instanceof PPSignatureCredential) {
                     $endpoint = PPConstants::MERCHANT_LIVE_SIGNATURE_ENDPOINT;
-                } else if ($credential instanceof PPCertificateCredential) {
+                } elseif ($credential instanceof PPCertificateCredential) {
                     $endpoint = PPConstants::MERCHANT_LIVE_CERT_ENDPOINT;
                 }
-            } else if (strtoupper($config['mode']) == 'TLS') {
+            } elseif (strtoupper($config['mode']) == 'TLS') {
                 if ($credential instanceof PPSignatureCredential) {
                     $endpoint = PPConstants::MERCHANT_TLS_SIGNATURE_ENDPOINT;
-                } else if ($credential instanceof PPCertificateCredential) {
+                } elseif ($credential instanceof PPCertificateCredential) {
                     $endpoint = PPConstants::MERCHANT_TLS_CERT_ENDPOINT;
                 }
             }

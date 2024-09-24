@@ -46,14 +46,14 @@ class PPPlatformServiceHandler
         if (isset($config['port']) && isset($config['service.EndPoint.' . $options['port']])) {
             $endpoint = $config['service.EndPoint.' . $options['port']];
         } // for backward compatibilty (for those who are using old config files with 'service.EndPoint')
-        else if (isset($config['service.EndPoint'])) {
+        elseif (isset($config['service.EndPoint'])) {
             $endpoint = $config['service.EndPoint'];
-        } else if (isset($config['mode'])) {
+        } elseif (isset($config['mode'])) {
             if (strtoupper($config['mode']) == 'SANDBOX') {
                 $endpoint = PPConstants::PLATFORM_SANDBOX_ENDPOINT;
-            } else if (strtoupper($config['mode']) == 'LIVE') {
+            } elseif (strtoupper($config['mode']) == 'LIVE') {
                 $endpoint = PPConstants::PLATFORM_LIVE_ENDPOINT;
-            } else if (strtoupper($config['mode']) == 'TLS') {
+            } elseif (strtoupper($config['mode']) == 'TLS') {
                 $endpoint = PPConstants::PLATFORM_TLS_ENDPOINT;
             }
         } else {

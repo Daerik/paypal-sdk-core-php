@@ -7,7 +7,7 @@ class OAuthUtil
     {
         if (is_array($input)) {
             return array_map(array('PayPal\Auth\Oauth\OAuthUtil', 'urlencode_rfc3986'), $input);
-        } else if (is_scalar($input)) {
+        } elseif (is_scalar($input)) {
             $tmp1 = str_replace('%7E', '~', rawurlencode($input));
             $tmp2 = str_replace(".", "%2E", $tmp1);
             $tmp3 = str_replace("*", "%2A", $tmp2);

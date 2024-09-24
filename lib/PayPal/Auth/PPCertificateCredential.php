@@ -89,7 +89,7 @@ class PPCertificateCredential
     {
         if (realpath($this->certificatePath)) {
             return realpath($this->certificatePath);
-        } else if (defined('PP_CONFIG_PATH')) {
+        } elseif (defined('PP_CONFIG_PATH')) {
             return constant('PP_CONFIG_PATH') . DIRECTORY_SEPARATOR . $this->certificatePath;
         } else {
             return realpath(dirname(__FILE__) . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "config" . DIRECTORY_SEPARATOR . $this->certificatePath);

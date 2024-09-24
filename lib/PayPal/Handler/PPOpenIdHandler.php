@@ -34,9 +34,9 @@ class PPOpenIdHandler
     {
         if (isset($config['openid.EndPoint'])) {
             return $config['openid.EndPoint'];
-        } else if (isset($config['service.EndPoint'])) {
+        } elseif (isset($config['service.EndPoint'])) {
             return $config['service.EndPoint'];
-        } else if (isset($config['mode'])) {
+        } elseif (isset($config['mode'])) {
             switch (strtoupper($config['mode'])) {
                 case 'SANDBOX':
                     return PPConstants::REST_SANDBOX_ENDPOINT;

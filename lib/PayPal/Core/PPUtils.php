@@ -64,7 +64,7 @@ class PPUtils
         if (array_key_exists("SERVER_ADDR", $_SERVER) && self::isIPv4($_SERVER['SERVER_ADDR'])) {
             // SERVER_ADDR is available only if we are running the CGI SAPI
             return $_SERVER['SERVER_ADDR'];
-        } else if (function_exists("gethostname") && self::isIPv4(gethostbyname(gethostname()))) {
+        } elseif (function_exists("gethostname") && self::isIPv4(gethostbyname(gethostname()))) {
             return gethostbyname(gethostname());
         } else {
             // fallback if nothing works
@@ -130,7 +130,7 @@ class PPUtils
                                 }
                             }
                         }
-                    } else if (!in_array($child->nodeName, $result)) {
+                    } elseif (!in_array($child->nodeName, $result)) {
                         $result[$i]['name']     = $child->nodeName;
                         $result[$i]['children'] = PPUtils::xmlNodeToArray($child);
 

@@ -37,7 +37,7 @@ class PPModel
         foreach ($param as $k => $v) {
             if ($v instanceof PPModel) {
                 $ret[$k] = $v->toArray();
-            } else if (is_array($v)) {
+            } elseif (is_array($v)) {
                 $ret[$k] = $this->_convertToArray($v);
             } else {
                 $ret[$k] = $v;

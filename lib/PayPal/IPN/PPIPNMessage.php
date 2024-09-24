@@ -120,7 +120,7 @@ class PPIPNMessage
     {
         if (isset($this->ipnData['txn_id'])) {
             return $this->ipnData['txn_id'];
-        } else if (isset($this->ipnData['transaction[0].id'])) {
+        } elseif (isset($this->ipnData['transaction[0].id'])) {
             $idx = 0;
             do {
                 $transId[] = $this->ipnData["transaction[$idx].id"];
@@ -150,12 +150,12 @@ class PPIPNMessage
     {
         if (isset($this->config['service.EndPoint.IPN'])) {
             $url = $this->config['service.EndPoint.IPN'];
-        } else if (isset($this->config['mode'])) {
+        } elseif (isset($this->config['mode'])) {
             if (strtoupper($this->config['mode']) == 'SANDBOX') {
                 $url = PPConstants::IPN_SANDBOX_ENDPOINT;
-            } else if (strtoupper($this->config['mode']) == 'LIVE') {
+            } elseif (strtoupper($this->config['mode']) == 'LIVE') {
                 $url = PPConstants::IPN_LIVE_ENDPOINT;
-            } else if (strtoupper($this->config['mode']) == 'TLS') {
+            } elseif (strtoupper($this->config['mode']) == 'TLS') {
                 $url = PPConstants::IPN_TLS_ENDPOINT;
             } else {
                 throw new PPConfigurationException('mode should be LIVE, TLS or SANDBOX');

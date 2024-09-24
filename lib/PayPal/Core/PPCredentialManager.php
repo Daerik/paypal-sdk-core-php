@@ -116,7 +116,7 @@ class PPCredentialManager
             if ($userName && isset($credArr[$key . ".Subject"]) && trim($credArr[$key . ".Subject"]) != "") {
                 $this->credentialHashmap[$userName]->setThirdPartyAuthorization(
                   new PPSubjectAuthorization($credArr[$key . ".Subject"]));
-            } else if ($userName && (isset($credArr[$key . '.accessToken']) && isset($credArr[$key . '.tokenSecret']))) {
+            } elseif ($userName && (isset($credArr[$key . '.accessToken']) && isset($credArr[$key . '.tokenSecret']))) {
                 $this->credentialHashmap[$userName]->setThirdPartyAuthorization(
                   new PPTokenAuthorization($credArr[$key . '.accessToken'], $credArr[$key . '.tokenSecret']));
             }
@@ -141,7 +141,7 @@ class PPCredentialManager
 
         if ($userId == null) {
             $credObj = $this->credentialHashmap[$this->defaultAccountName];
-        } else if (array_key_exists($userId, $this->credentialHashmap)) {
+        } elseif (array_key_exists($userId, $this->credentialHashmap)) {
             $credObj = $this->credentialHashmap[$userId];
         }
 

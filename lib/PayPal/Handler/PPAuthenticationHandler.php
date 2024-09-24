@@ -38,7 +38,7 @@ class PPAuthenticationHandler
             }
             if ($credential instanceof PPSignatureCredential) {
                 $handler = new PPSignatureAuthHandler();
-            } else if ($credential instanceof PPCertificateCredential) {
+            } elseif ($credential instanceof PPCertificateCredential) {
                 $handler = new PPCertificateAuthHandler();
             } else {
                 throw new PPInvalidCredentialException();
