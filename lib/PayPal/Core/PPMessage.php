@@ -99,7 +99,7 @@ abstract class PPMessage
                         if (is_numeric($idx) && (is_null($this->{$property}) || !array_key_exists($idx,
                               $this->{$property}))
                         ) {
-                            $this->{$property}[$idx]        = new $type;
+                            $this->{$property}[$idx]        = new $type();
                             $this->{$property}[$idx]->value = urldecode($value);
                         }
                     }
