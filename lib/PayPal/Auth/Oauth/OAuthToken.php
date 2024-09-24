@@ -3,8 +3,8 @@ namespace PayPal\Auth\Oauth;
 
 class OAuthToken {
 	// access tokens and request tokens
-	public $key;
-	public $secret;
+	public string $key;
+	public string $secret;
 	
 	/**
 	 * key = the token

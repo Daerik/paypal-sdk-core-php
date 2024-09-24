@@ -21,7 +21,7 @@ class PPIPNMessage
      *@var boolean
     *
     */
-    private $isIpnVerified;
+    private bool $isIpnVerified;
 
     /*
      *@var config

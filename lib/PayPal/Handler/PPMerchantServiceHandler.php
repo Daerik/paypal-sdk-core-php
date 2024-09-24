@@ -23,7 +23,7 @@ class PPMerchantServiceHandler
   extends PPGenericServiceHandler
 {
 
-    private $apiUsername;
+    private string $apiUsername;
 	
 	/**
 	 * @param $apiUsername

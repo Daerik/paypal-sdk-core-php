@@ -15,8 +15,8 @@ class PPGenericServiceHandler
   implements IPPHandler
 {
 
-    private $sdkName;
-    private $sdkVersion;
+    private string $sdkName;
+    private string $sdkVersion;
 	
 	/**
 	 * @param $sdkName

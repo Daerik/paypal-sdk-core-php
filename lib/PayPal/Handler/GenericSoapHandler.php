@@ -7,7 +7,7 @@ class GenericSoapHandler
   implements IPPHandler
 {
 
-    private $namespace;
+    private string $namespace;
 	
 	/**
 	 * @param $namespace

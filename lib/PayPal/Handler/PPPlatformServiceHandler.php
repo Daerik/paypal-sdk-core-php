@@ -21,7 +21,7 @@ class PPPlatformServiceHandler
   extends PPGenericServiceHandler
 {
 
-    private $apiUsername;
+    private string $apiUsername;
 	
 	/**
 	 * @param $apiUsername

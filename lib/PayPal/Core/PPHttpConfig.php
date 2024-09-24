@@ -36,7 +36,7 @@ class PPHttpConfig
     /***
      * Number of times to retry a failed HTTP call
      */
-    private $retryCount;
+    private int $retryCount;
 
     /**
      *

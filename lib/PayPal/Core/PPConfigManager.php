@@ -8,7 +8,7 @@ namespace PayPal\Core;
 class PPConfigManager
 {
 
-    private $config;
+    private string $config;
 
     //default config values
     public static array $defaults = array(

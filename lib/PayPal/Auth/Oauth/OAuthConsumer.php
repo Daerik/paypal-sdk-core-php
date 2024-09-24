@@ -2,8 +2,8 @@
 namespace PayPal\Auth\Oauth;
 
 class OAuthConsumer {
-	public $key;
-	public $secret;
+	public string $key;
+	public string $secret;
 	
 	/**
 	 * @param $key

@@ -5,10 +5,10 @@ use PayPal\Exception\OAuthException;
 
 class OAuthRequest {
 	public array $parameters;
-	protected    $http_method;
-	protected $http_url;
+	protected    string $http_method;
+	protected string $http_url;
 	// for debug purposes
-	public               $base_string;
+	public               string $base_string;
 	public static string $version    = '1.0';
 	public static string $POST_INPUT = 'php://input';
 	

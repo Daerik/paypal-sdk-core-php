@@ -7,13 +7,13 @@ use PayPal\Formatter\FormatterFactory;
 class PPAPIService
 {
 
-    public $serviceName;
-    public $apiMethod;
-    public                   $apiContext;
+    public string $serviceName;
+    public string $apiMethod;
+    public                   string $apiContext;
     private PPLoggingManager $logger;
     private array            $handlers = array();
-    private                  $serviceBinding;
-    private $port;
+    private                  string $serviceBinding;
+    private int $port;
 	
 	/**
 	 * @param $port

@@ -8,7 +8,7 @@ class PPBaseService
 {
 
     private mixed $serviceName;
-    private       $serviceBinding;
+    private       string $serviceBinding;
     private array $handlers;
 
     protected mixed $config;

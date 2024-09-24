@@ -16,7 +16,7 @@ class PPRestCall
      */
     private PPLoggingManager $logger;
 
-    private $apiContext;
+    private string $apiContext;
 	
 	/**
 	 * @param $apiContext

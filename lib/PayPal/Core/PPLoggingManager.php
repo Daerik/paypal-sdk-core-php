@@ -13,7 +13,7 @@ class PPLoggingManager
 	public const int DEFAULT_LOGGING_LEVEL = 0;
 
     // Logger name
-    private $loggerName;
+    private string $loggerName;
 
     // Log enabled
     private bool $isLoggingEnabled;
@@ -25,7 +25,7 @@ class PPLoggingManager
     private mixed $loggerFile;
     
     //log message
-    private $loggerMessage;
+    private string $loggerMessage;
 	
 	/**
 	 * @param $loggerName
