@@ -105,12 +105,14 @@
 							}
 						}
 					}
-				} else { // one object
+				} elseif(!$this->isBuiltInType($type)) {
 					$this->{$property} = new $type();
 					$this->{$property}->init(PPUtils::filterKeyPrefix($filtered, '.')); // unprefix
 					if(array_key_exists("", $filtered)) {
 						$this->{$property}->value = urldecode($filtered[""]);
 					}
+				} else {
+					$this->{$property} = PPUtils::filterKeyPrefix($filtered, '.');
 				}
 			}
 		}
