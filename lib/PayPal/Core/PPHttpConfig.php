@@ -228,9 +228,9 @@ class PPHttpConfig
     }
 	
 	/**
-	 * @return mixed
+	 * @return int
 	 */
-	public function getHttpRetryCount(): mixed {
+	public function getHttpRetryCount(): int {
         return $this->retryCount;
     }
 
