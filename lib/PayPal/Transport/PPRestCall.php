@@ -1,6 +1,7 @@
 <?php
 namespace PayPal\Transport;
 
+use PayPal\Common\PPApiContext;
 use PayPal\Core\PPHttpConfig;
 use PayPal\Core\PPHttpConnection;
 use PayPal\Core\PPLoggingManager;
@@ -16,7 +17,7 @@ class PPRestCall
      */
     private PPLoggingManager $logger;
 
-    private string $apiContext;
+    private PPApiContext $apiContext;
 	
 	/**
 	 * @param $apiContext

@@ -1,6 +1,7 @@
 <?php
 namespace PayPal\Core;
 
+use PayPal\Common\PPApiContext;
 use PayPal\Exception\PPConnectionException;
 use PayPal\Formatter\FormatterFactory;
 use PayPal\Handler\IPPHandler;
@@ -10,7 +11,7 @@ class PPAPIService
 
     public string $serviceName;
     public string $apiMethod;
-    public                   string $apiContext;
+    public                   PPApiContext $apiContext;
     private PPLoggingManager $logger;
     private array            $handlers = array();
     private                  string $serviceBinding;

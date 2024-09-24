@@ -7,7 +7,7 @@ class OAuthServer {
 	protected string $version             = '1.0';             // hi blaine
 	protected array  $signature_methods   = array();
 	
-	protected string $data_store;
+	protected OAuthDataStore $data_store;
 	
 	/**
 	 * @param $data_store

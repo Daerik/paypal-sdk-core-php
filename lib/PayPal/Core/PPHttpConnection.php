@@ -12,7 +12,7 @@ use PayPal\Exception\PPConnectionException;
 class PPHttpConnection
 {
 
-    private string $httpConfig;
+    private PPHttpConfig $httpConfig;
 
     /**
      * HTTP status codes for which a retry must be attempted
