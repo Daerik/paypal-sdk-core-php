@@ -21,8 +21,9 @@ class PPConfigManager
      * @var PPConfigManager
      */
     private static PPConfigManager $instance;
-
-    private function __construct()
+	
+	/** @noinspection PhpUndefinedConstantInspection */
+	private function __construct()
     {
         $configFile = null;
         if (defined('PP_CONFIG_PATH')) {
