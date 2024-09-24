@@ -121,8 +121,7 @@ class PPConfigManager
      * returns the config file hashmap
      *
      */
-    private function getConfigHashmap()
-    {
+    private function getConfigHashmap(): array {
         return $this->config;
     }
 

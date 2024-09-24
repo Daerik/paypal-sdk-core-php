@@ -36,7 +36,7 @@ class OAuthServer {
 	 * @throws OAuthException
 	 * @throws OAuthException
 	 */
-	public function fetch_request_token($request) {
+	public function fetch_request_token($request): null {
 		$this->get_version($request);
 		
 		$consumer = $this->get_consumer($request);
@@ -60,7 +60,7 @@ class OAuthServer {
 	 * @throws OAuthException
 	 * @throws OAuthException
 	 */
-	public function fetch_access_token($request) {
+	public function fetch_access_token($request): null {
 		$this->get_version($request);
 		
 		$consumer = $this->get_consumer($request);
