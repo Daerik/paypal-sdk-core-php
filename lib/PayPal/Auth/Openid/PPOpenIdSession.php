@@ -109,6 +109,6 @@ class PPOpenIdSession
                     return PPConstants::OPENID_REDIRECT_TLS_URL;
             }
         }
-        return;
+        return '';
     }
 }

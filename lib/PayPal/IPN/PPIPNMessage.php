@@ -126,8 +126,9 @@ class PPIPNMessage
                 $transId[] = $this->ipnData["transaction[$idx].id"];
                 $idx++;
             } while (isset($this->ipnData["transaction[$idx].id"]));
-            return $transId;
+            return $transId[0];
         }
+		return '';
     }
 
     /**

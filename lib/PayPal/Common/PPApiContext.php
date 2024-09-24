@@ -53,7 +53,7 @@ class PPApiContext
     public function addHttpHeader($name, $value, $force = true)
     {
         if (!$force && array_key_exists($name, $this->httpHeaders)) {
-            return;
+            return $this;
         }
         $this->httpHeaders[$name] = $value;
         return $this;
