@@ -84,7 +84,7 @@ class OAuthRequest {
 		$parameters = ($parameters) ?: array();
 		$defaults   = array(
 			"oauth_version"   => OAuthRequest::$version,
-			// "oauth_nonce" => OAuthRequest::generate_nonce(),
+			"oauth_nonce" => OAuthRequest::generate_nonce(),
 			"oauth_timestamp" => OAuthRequest::generate_timestamp(),
 			
 			"oauth_consumer_key" => $consumer->key
