@@ -22,5 +22,5 @@ abstract class IPPCredential
         return $this->thirdPartyAuthorization;
     }
 
-    public abstract function validate();
+    abstract public function validate();
 }
