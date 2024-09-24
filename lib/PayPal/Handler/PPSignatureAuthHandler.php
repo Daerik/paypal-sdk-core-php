@@ -24,7 +24,7 @@ class PPSignatureAuthHandler
 
         switch ($request->getBindingType()) {
             case 'NV':
-                if (!$thirdPartyAuth || !$thirdPartyAuth instanceof PPTokenAuthorization) {
+                if (!$thirdPartyAuth instanceof PPTokenAuthorization) {
                     $httpConfig->addHeader('X-PAYPAL-SECURITY-USERID', $credential->getUserName());
                     $httpConfig->addHeader('X-PAYPAL-SECURITY-PASSWORD', $credential->getPassword());
                     $httpConfig->addHeader('X-PAYPAL-SECURITY-SIGNATURE', $credential->getSignature());
@@ -34,14 +34,14 @@ class PPSignatureAuthHandler
                 }
                 break;
             case 'SOAP':
-                if ($thirdPartyAuth && $thirdPartyAuth instanceof PPTokenAuthorization) {
+                if ($thirdPartyAuth instanceof PPTokenAuthorization) {
                     $request->addBindingInfo('securityHeader', '<ns:RequesterCredentials/>');
                 } else {
                     $securityHeader = '<ns:RequesterCredentials><ebl:Credentials>';
                     $securityHeader .= '<ebl:Username>' . $credential->getUserName() . '</ebl:Username>';
                     $securityHeader .= '<ebl:Password>' . $credential->getPassword() . '</ebl:Password>';
                     $securityHeader .= '<ebl:Signature>' . $credential->getSignature() . '</ebl:Signature>';
-                    if ($thirdPartyAuth && $thirdPartyAuth instanceof PPSubjectAuthorization) {
+                    if ($thirdPartyAuth instanceof PPSubjectAuthorization) {
                         $securityHeader .= '<ebl:Subject>' . $thirdPartyAuth->getSubject() . '</ebl:Subject>';
                     }
                     $securityHeader .= '</ebl:Credentials></ns:RequesterCredentials>';

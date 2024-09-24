@@ -24,7 +24,7 @@ class PPAuthenticationHandler
         $credential = $request->getCredential();
         if (isset($credential)) {
             $thirdPartyAuth = $credential->getThirdPartyAuthorization();
-            if ($thirdPartyAuth && $thirdPartyAuth instanceof PPTokenAuthorization) {
+            if ($thirdPartyAuth instanceof PPTokenAuthorization) {
                 $authSignature = AuthSignature::generateFullAuthString($credential->getUsername(),
                   $credential->getPassword(), $thirdPartyAuth->getAccessToken(), $thirdPartyAuth->getTokenSecret(),
                   $httpConfig->getMethod(), $httpConfig->getUrl());
