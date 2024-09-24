@@ -1,6 +1,7 @@
 <?php
 namespace PayPal\Core;
 
+use Exception;
 /**
  * Base class for SOAP Fault message
  * Contains redundant code from PPXmlMessage in order
@@ -10,7 +11,7 @@ namespace PayPal\Core;
  * class so it can be made an interface
  */
 abstract class PPXmlFaultMessage
-  extends \Exception
+  extends Exception
 {
     /**
      * @param array  $map

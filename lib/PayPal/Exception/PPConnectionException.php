@@ -1,8 +1,9 @@
 <?php
 namespace PayPal\Exception;
 
+use Exception;
 class PPConnectionException
-  extends \Exception
+  extends Exception
 {
     /**
      * The url that was being connected to when the exception occured

@@ -1,6 +1,7 @@
 <?php
 namespace PayPal\Formatter;
 
+use InvalidArgumentException;
 class FormatterFactory
 {
     public static function factory($bindingType)
@@ -13,7 +14,7 @@ class FormatterFactory
                 return new PPSOAPFormatter();
                 break;
             default:
-                throw new \InvalidArgumentException("Invalid value for bindingType. You passed $bindingType");
+                throw new InvalidArgumentException("Invalid value for bindingType. You passed $bindingType");
         }
     }
 }

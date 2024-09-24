@@ -1,11 +1,13 @@
 <?php
 namespace PayPal\Common;
 
+use ReflectionMethod;
+use RuntimeException;
 class PPReflectionUtil
 {
 
     /**
-     * @var array|\ReflectionMethod[]
+     * @var array|ReflectionMethod[]
      */
     private static $propertiesRefl = array();
 
@@ -41,14 +43,14 @@ class PPReflectionUtil
      * @param string $class
      * @param string $propertyName
      *
-     * @throws \RuntimeException
+     * @throws RuntimeException
      * @return string
      */
     public static function propertyAnnotations($class, $propertyName)
     {
         $class = is_object($class) ? get_class($class) : $class;
         if (!class_exists('ReflectionProperty')) {
-            throw new \RuntimeException("Property type of " . $class . "::{$propertyName} cannot be resolved");
+            throw new RuntimeException("Property type of " . $class . "::{$propertyName} cannot be resolved");
         }
 
         if ($annotations =& self::$propertiesType[$class][$propertyName]) {
@@ -59,7 +61,7 @@ class PPReflectionUtil
             $getter                                      = method_exists($class,
               "get" . ucfirst($propertyName)) ? "get" . ucfirst($propertyName)
               : "get" . preg_replace_callback("/([_\-\s]?([a-z0-9]+))/", "self::replace_callback", $propertyName);
-            $refl                                        = new \ReflectionMethod($class, $getter);
+            $refl                                        = new ReflectionMethod($class, $getter);
             self::$propertiesRefl[$class][$propertyName] = $refl;
         }
 

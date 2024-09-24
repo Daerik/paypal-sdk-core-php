@@ -1,8 +1,9 @@
 <?php
 namespace PayPal\Exception;
 
+use Exception;
 class PPInvalidCredentialException
-  extends \Exception
+  extends Exception
 {
 
     public function __construct($message = null, $code = 0)

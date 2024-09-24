@@ -1,6 +1,7 @@
 <?php
 namespace PayPal\Formatter;
 
+use BadMethodCallException;
 class PPSOAPFormatter
   implements IPPFormatter
 {
@@ -28,6 +29,6 @@ class PPSOAPFormatter
 
     public function toObject($string, $options = array())
     {
-        throw new \BadMethodCallException("Unimplemented");
+        throw new BadMethodCallException("Unimplemented");
     }
 }

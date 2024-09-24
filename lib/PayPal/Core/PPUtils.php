@@ -1,6 +1,11 @@
 <?php
 namespace PayPal\Core;
 
+use DOMDocument;
+use DOMText;
+use Exception;
+use ReflectionProperty;
+use RuntimeException;
 class PPUtils
 {
 
@@ -92,7 +97,7 @@ class PPUtils
      */
     public static function xmlToArray($xmlInput)
     {
-        $doc                     = new \DOMDocument();
+        $doc                     = new DOMDocument();
         $doc->preserveWhiteSpace = false;
         $doc->loadXML($xmlInput);
 
@@ -101,7 +106,7 @@ class PPUtils
             $node = $results->item(0);
             return PPUtils::xmlNodeToArray($node);
         } else {
-            throw new \Exception("Unrecognized response payload ");
+            throw new Exception("Unrecognized response payload ");
         }
     }
 
@@ -120,7 +125,7 @@ class PPUtils
             for ($i = 0; $i < (int)$children->length; $i++) {
                 $child = $children->item($i);
                 if ($child !== null) {
-                    if ($child->childNodes->item(0) instanceof \DOMText) {
+                    if ($child->childNodes->item(0) instanceof DOMText) {
                         $result[$i]['name'] = $child->nodeName;
                         $result[$i]['text'] = $child->childNodes->item(0)->nodeValue;
                         if ($child->hasAttributes()) {
@@ -207,7 +212,7 @@ class PPUtils
     {
         $class = is_object($class) ? get_class($class) : $class;
         if (!class_exists('ReflectionProperty')) {
-            throw new \RuntimeException("Property type of " . $class . "::{$propertyName} cannot be resolved");
+            throw new RuntimeException("Property type of " . $class . "::{$propertyName} cannot be resolved");
         }
 
         if ($annotations =& self::$propertiesType[$class][$propertyName]) {
@@ -215,7 +220,7 @@ class PPUtils
         }
 
         if (!($refl =& self::$propertiesRefl[$class][$propertyName])) {
-            $refl = new \ReflectionProperty($class, $propertyName);
+            $refl = new ReflectionProperty($class, $propertyName);
         }
 
         // todo: smarter regexp
