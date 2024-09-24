@@ -7,24 +7,13 @@
 	 * Potential frameworks to use are PEAR logger, log4php from Apache
 	 */
 	class PPLoggingManager {
-		
 		// Default Logging Level
 		public const int DEFAULT_LOGGING_LEVEL = 0;
-		
-		// Logger name
-		private string $loggerName;
-		
-		// Log enabled
-		private bool $isLoggingEnabled;
-		
-		// Configured logging level
-		private mixed $loggingLevel;
-		
-		// Configured logging file
-		private mixed $loggerFile;
-		
-		//log message
-		private string $loggerMessage;
+		private string  $loggerName;
+		private bool    $isLoggingEnabled;
+		private int     $loggingLevel  = self::DEFAULT_LOGGING_LEVEL;
+		private ?string $loggerFile    = NULL;
+		private ?string $loggerMessage = NULL;
 		
 		/**
 		 * @param $loggerName
