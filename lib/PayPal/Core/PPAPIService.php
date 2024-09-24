@@ -2,6 +2,7 @@
 namespace PayPal\Core;
 
 use PayPal\Common\PPApiContext;
+use PayPal\Exception\PPConfigurationException;
 use PayPal\Exception\PPConnectionException;
 use PayPal\Formatter\FormatterFactory;
 use PayPal\Handler\IPPHandler;
@@ -63,6 +64,7 @@ class PPAPIService
 	 *
 	 * @return array containing request and response
 	 * @throws PPConnectionException
+	 * @throws PPConfigurationException
 	 */
     public function makeRequest(string $apiMethod, $request): array {
 
