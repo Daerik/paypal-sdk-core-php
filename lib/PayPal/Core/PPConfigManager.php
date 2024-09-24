@@ -53,7 +53,7 @@ class PPConfigManager
     private function load($fileName)
     {
         //Gracefully check for ini file
-        $parsedConfig = @parse_ini_file($fileName);
+        $parsedConfig = parse_ini_file($fileName);
         if (!empty($parsedConfig)) {
             $this->config = $parsedConfig;
         } else {
