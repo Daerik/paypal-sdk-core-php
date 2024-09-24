@@ -3,6 +3,8 @@ namespace PayPal\Handler;
 
 use PayPal\Common\PPUserAgent;
 use PayPal\Core\PPConstants;
+use PayPal\Core\PPHttpConfig;
+use PayPal\Core\PPRequest;
 use PayPal\Exception\PPConfigurationException;
 
 class PPOpenIdHandler
@@ -15,7 +17,7 @@ class PPOpenIdHandler
 	/**
 	 * @throws PPConfigurationException
 	 */
-	public function handle($httpConfig, $request, $options)
+	public function handle(PPHttpConfig $httpConfig, PPRequest $request, $options)
     {
         $apiContext = $options['apiContext'];
         $config     = $apiContext->getConfig();

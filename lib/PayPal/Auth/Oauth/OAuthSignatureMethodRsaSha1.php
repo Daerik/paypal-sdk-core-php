@@ -45,13 +45,13 @@ abstract class OAuthSignatureMethodRsaSha1
 	abstract protected function fetch_private_cert(&$request);
 	
 	/**
-	 * @param $request
-	 * @param $consumer
-	 * @param $token
+	 * @param OAuthRequest  $request
+	 * @param OAuthConsumer $consumer
+	 * @param OAuthToken    $token
 	 *
 	 * @return string
 	 */
-	public function build_signature($request, $consumer, $token)
+	public function build_signature(OAuthRequest $request, OAuthConsumer $consumer, OAuthToken $token)
     {
         $base_string          = $request->get_signature_base_string();
         $request->base_string = $base_string;
@@ -72,14 +72,14 @@ abstract class OAuthSignatureMethodRsaSha1
     }
 	
 	/**
-	 * @param $request
-	 * @param $consumer
-	 * @param $token
-	 * @param $signature
+	 * @param OAuthRequest  $request
+	 * @param OAuthConsumer $consumer
+	 * @param OAuthToken    $token
+	 * @param string        $signature
 	 *
 	 * @return bool
 	 */
-	public function check_signature($request, $consumer, $token, $signature)
+	public function check_signature(OAuthRequest $request, OAuthConsumer $consumer, OAuthToken $token, string $signature)
     {
         $decoded_sig = base64_decode($signature);
 

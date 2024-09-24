@@ -40,7 +40,7 @@ class PPIPNMessage
      *                         the class automatically reads incoming POST data
      *                         from the input stream
      */
-    public function __construct($postData = '', $config = null)
+    public function __construct(string $postData = '', $config = null)
     {
 
         $this->config = PPConfigManager::getConfigWithDefaults($config);

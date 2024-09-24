@@ -20,13 +20,13 @@ interface IPPFormatter
      * @param array     $options Any formatter specific options
      *                           to be passed in
      */
-    public function toString($request, $options = array());
+    public function toString(PPRequest $request, array $options = array());
 	
 	/**
 	 * @param $string
-	 * @param $options
+	 * @param array $options
 	 *
 	 * @return mixed
 	 */
-	public function toObject($string, $options = array());
+	public function toObject($string, array $options = array());
 }

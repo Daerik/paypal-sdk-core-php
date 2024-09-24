@@ -69,13 +69,13 @@ abstract class PPXmlMessage
 	
 	/**
 	 * @param string              $property
-	 * @param PPXmlMessage|string $value
+	 * @param string|PPXmlMessage $value
 	 * @param string              $namespace
 	 *
 	 * @return string
 	 * @throws \ReflectionException
 	 */
-    private function buildProperty($property, $value, $namespace = 'ebl')
+    private function buildProperty(string $property, string|PPXmlMessage $value, string $namespace = 'ebl')
     {
         $annotations = PPUtils::propertyAnnotations($this, $property);
         if (!empty($annotations['namespace'])) {
@@ -111,7 +111,7 @@ abstract class PPXmlMessage
 	 * @throws PPTransformerException
 	 * @throws \ReflectionException
 	 */
-    public function init(array $map = array(), $isRoot = true)
+    public function init(array $map = array(), bool $isRoot = true)
     {
         if ($isRoot) {
             if (stristr($map[0]['name'], ":fault")) {
@@ -184,7 +184,7 @@ abstract class PPXmlMessage
 	 * @throws \ReflectionException
 	 * @throws \ReflectionException
 	 */
-    private function fillRelation($property, array $element)
+    private function fillRelation(string $property, array $element)
     {
         if (!class_exists($type = PPUtils::propertyType($this, $property))) {
             trigger_error("Class $type not found.");

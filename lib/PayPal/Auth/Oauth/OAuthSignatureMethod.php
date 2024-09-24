@@ -25,7 +25,7 @@ abstract class OAuthSignatureMethod
      *
      * @return string
      */
-    abstract public function build_signature($request, $consumer, $token);
+    abstract public function build_signature(OAuthRequest $request, OAuthConsumer $consumer, OAuthToken $token);
 
     /**
      * Verifies that a given signature is correct
@@ -37,7 +37,7 @@ abstract class OAuthSignatureMethod
      *
      * @return bool
      */
-    public function check_signature($request, $consumer, $token, $signature)
+    public function check_signature(OAuthRequest $request, OAuthConsumer $consumer, OAuthToken $token, string $signature)
     {
         $built = $this->build_signature($request, $consumer, $token);
         return $built == $signature;

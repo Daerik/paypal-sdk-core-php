@@ -65,11 +65,11 @@ class PPLoggingManager
 	
 	/**
 	 * @param $message
-	 * @param $level
+	 * @param int $level
 	 *
 	 * @return void
 	 */
-	private function log($message, $level = PPLoggingLevel::INFO)
+	private function log($message, int $level = PPLoggingLevel::INFO)
     {
         if ($this->isLoggingEnabled && ($level <= $this->loggingLevel)) {
             $this->loggerMessage .= $this->loggerName . ": $message\n";

@@ -43,9 +43,9 @@ class PPBaseService
 	 * @param $serviceName
 	 * @param $serviceBinding
 	 * @param $config
-	 * @param $handlers
+	 * @param array $handlers
 	 */
-	public function __construct($serviceName, $serviceBinding, $config = null, $handlers = array())
+	public function __construct($serviceName, $serviceBinding, $config = null, array $handlers = array())
     {
         $this->serviceName    = $serviceName;
         $this->serviceBinding = $serviceBinding;
@@ -64,7 +64,7 @@ class PPBaseService
 	 * @return mixed
 	 * @throws PPConnectionException
 	 */
-    public function call($port, $method, $requestObject, $apiContext, $handlers = array())
+    public function call($port, string $method, object $requestObject, apiContext $apiContext, array $handlers = array())
     {
 
         if (!is_array($handlers)) {

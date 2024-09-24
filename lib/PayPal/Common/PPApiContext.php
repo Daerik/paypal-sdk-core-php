@@ -50,7 +50,7 @@ class PPApiContext
      * @param string $value header value
      * @param bool   $force if true (default), existing value is overwritten
      */
-    public function addHttpHeader($name, $value, $force = true)
+    public function addHttpHeader(string $name, string $value, bool $force = true)
     {
         if (!$force && array_key_exists($name, $this->httpHeaders)) {
             return $this;
@@ -63,7 +63,7 @@ class PPApiContext
      *
      * @param PPXmlMessage $SOAPHeader object to attach to SOAP header
      */
-    public function setSOAPHeader($SOAPHeader)
+    public function setSOAPHeader(PPXmlMessage $SOAPHeader)
     {
         $this->SOAPHeader = $SOAPHeader;
         return $this;
@@ -114,9 +114,9 @@ class PPApiContext
 
     /**
      *
-     * @param array $config SDK configuration parameters
+     * @param null|array $config SDK configuration parameters
      */
-    public function __construct($config = null)
+    public function __construct(array $config = null)
     {
         $this->config = PPConfigManager::getConfigWithDefaults($config);
     }

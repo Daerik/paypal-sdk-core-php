@@ -54,7 +54,7 @@ class PPCertificateCredential
 	 *
 	 * @throws PPMissingCredentialException
 	 */
-    public function __construct($userName, $password, $certPath, $certificatePassPhrase = null)
+    public function __construct(string $userName, string $password, string $certPath, $certificatePassPhrase = null)
     {
         $this->userName              = trim($userName);
         $this->password              = trim($password);

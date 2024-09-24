@@ -20,7 +20,7 @@ class PPOpenIdTokeninfo
      *
      * @param string $scope
      */
-    public function setScope($scope)
+    public function setScope(string $scope)
     {
         $this->scope = $scope;
         return $this;
@@ -40,7 +40,7 @@ class PPOpenIdTokeninfo
      *
      * @param string $access_token
      */
-    public function setAccessToken($access_token)
+    public function setAccessToken(string $access_token)
     {
         $this->access_token = $access_token;
         return $this;
@@ -60,7 +60,7 @@ class PPOpenIdTokeninfo
      *
      * @param string $refresh_token
      */
-    public function setRefreshToken($refresh_token)
+    public function setRefreshToken(string $refresh_token)
     {
         $this->refresh_token = $refresh_token;
         return $this;
@@ -80,7 +80,7 @@ class PPOpenIdTokeninfo
      *
      * @param string $token_type
      */
-    public function setTokenType($token_type)
+    public function setTokenType(string $token_type)
     {
         $this->token_type = $token_type;
         return $this;
@@ -100,7 +100,7 @@ class PPOpenIdTokeninfo
      *
      * @param string $id_token
      */
-    public function setIdToken($id_token)
+    public function setIdToken(string $id_token)
     {
         $this->id_token = $id_token;
         return $this;
@@ -120,7 +120,7 @@ class PPOpenIdTokeninfo
      *
      * @param int $expires_in
      */
-    public function setExpiresIn($expires_in)
+    public function setExpiresIn(int $expires_in)
     {
         $this->expires_in = $expires_in;
         return $this;
@@ -157,7 +157,7 @@ class PPOpenIdTokeninfo
 	 * @throws PPConnectionException
 	 * @throws \ReflectionException
 	 */
-    public static function createFromAuthorizationCode($params, $clientId, $clientSecret, $apiContext = null)
+    public static function createFromAuthorizationCode(array $params, $clientId, $clientSecret, $apiContext = null)
     {
         static $allowedParams = array('grant_type' => 1, 'code' => 1, 'redirect_uri' => 1);
         if (is_null($apiContext)) {
@@ -210,7 +210,7 @@ class PPOpenIdTokeninfo
 	 * @throws PPConnectionException
 	 * @throws \ReflectionException
 	 */
-    public function createFromRefreshToken($params, $apiContext = null)
+    public function createFromRefreshToken(array $params, $apiContext = null)
     {
 
         static $allowedParams = array('grant_type' => 1, 'refresh_token' => 1, 'scope' => 1);

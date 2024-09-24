@@ -65,11 +65,11 @@ class OAuthUtil
     //                  see http://code.google.com/p/oauth/issues/detail?id=163
 	/**
 	 * @param $header
-	 * @param $only_allow_oauth_parameters
+	 * @param true $only_allow_oauth_parameters
 	 *
 	 * @return array
 	 */
-	public static function split_header($header, $only_allow_oauth_parameters = true)
+	public static function split_header($header, true $only_allow_oauth_parameters = true)
     {
         $params = array();
         if (preg_match_all('/(' . ($only_allow_oauth_parameters ? 'oauth_' : '') . '[a-z_-]*)=(:?"([^"]*)"|([^,]*))/',

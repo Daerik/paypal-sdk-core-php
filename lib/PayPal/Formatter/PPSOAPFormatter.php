@@ -2,6 +2,7 @@
 namespace PayPal\Formatter;
 
 use BadMethodCallException;
+use PayPal\Core\PPRequest;
 class PPSOAPFormatter
   implements IPPFormatter
 {
@@ -9,12 +10,12 @@ class PPSOAPFormatter
     private static $SOAP_NAMESPACE = 'xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"';
 	
 	/**
-	 * @param $request
-	 * @param $options
+	 * @param PPRequest $request
+	 * @param array     $options
 	 *
 	 * @return string
 	 */
-	public function toString($request, $options = array())
+	public function toString(PPRequest $request, array $options = array())
     {
 
         $customNamespace = ($request->getBindingInfo('namespace') != null) ? $request->getBindingInfo('namespace') : "";
@@ -35,11 +36,11 @@ class PPSOAPFormatter
 	
 	/**
 	 * @param $string
-	 * @param $options
+	 * @param array $options
 	 *
 	 * @return mixed
 	 */
-	public function toObject($string, $options = array())
+	public function toObject($string, array $options = array())
     {
         throw new BadMethodCallException("Unimplemented");
     }

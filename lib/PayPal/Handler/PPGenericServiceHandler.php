@@ -2,6 +2,8 @@
 namespace PayPal\Handler;
 
 use PayPal\Common\PPUserAgent;
+use PayPal\Core\PPHttpConfig;
+use PayPal\Core\PPRequest;
 use PayPal\Core\PPUtils;
 
 /**
@@ -27,13 +29,13 @@ class PPGenericServiceHandler
     }
 	
 	/**
-	 * @param $httpConfig
-	 * @param $request
+	 * @param PPHttpConfig $httpConfig
+	 * @param PPRequest    $request
 	 * @param $options
 	 *
 	 * @return void
 	 */
-	public function handle($httpConfig, $request, $options)
+	public function handle(PPHttpConfig $httpConfig, PPRequest $request, $options)
     {
         $httpConfig->addHeader('X-PAYPAL-REQUEST-DATA-FORMAT', $request->getBindingType());
         $httpConfig->addHeader('X-PAYPAL-RESPONSE-DATA-FORMAT', $request->getBindingType());

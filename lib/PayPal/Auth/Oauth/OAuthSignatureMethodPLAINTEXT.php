@@ -26,7 +26,7 @@ class OAuthSignatureMethodPLAINTEXT
      * Please note that the second encoding MUST NOT happen in the SignatureMethod, as
      * OAuthRequest handles this!
      */
-    public function build_signature($request, $consumer, $token)
+    public function build_signature(OAuthRequest $request, OAuthConsumer $consumer, OAuthToken $token)
     {
         $key_parts = array(
           $consumer->secret,

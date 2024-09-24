@@ -20,9 +20,9 @@ class PPAPIService
 	 * @param $serviceName
 	 * @param $serviceBinding
 	 * @param $apiContext
-	 * @param $handlers
+	 * @param array $handlers
 	 */
-	public function __construct($port, $serviceName, $serviceBinding, $apiContext, $handlers = array())
+	public function __construct($port, $serviceName, $serviceBinding, $apiContext, array $handlers = array())
     {
 
         $this->apiContext  = $apiContext;
@@ -50,7 +50,7 @@ class PPAPIService
      *
      * @param IPPHandler $handler
      */
-    public function addHandler($handler)
+    public function addHandler(IPPHandler $handler)
     {
         $this->handlers[] = $handler;
     }
@@ -64,7 +64,7 @@ class PPAPIService
 	 * @return array containing request and response
 	 * @throws PPConnectionException
 	 */
-    public function makeRequest($apiMethod, $request)
+    public function makeRequest(string $apiMethod, $request)
     {
 
         $this->apiMethod = $apiMethod;

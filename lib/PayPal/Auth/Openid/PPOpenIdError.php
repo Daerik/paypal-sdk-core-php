@@ -15,7 +15,7 @@ class PPOpenIdError
      *
      * @param string $error
      */
-    public function setError($error)
+    public function setError(string $error)
     {
         $this->error = $error;
         return $this;
@@ -35,7 +35,7 @@ class PPOpenIdError
      *
      * @param string $error_description
      */
-    public function setErrorDescription($error_description)
+    public function setErrorDescription(string $error_description)
     {
         $this->error_description = $error_description;
         return $this;
@@ -55,7 +55,7 @@ class PPOpenIdError
      *
      * @param string $error_uri
      */
-    public function setErrorUri($error_uri)
+    public function setErrorUri(string $error_uri)
     {
         $this->error_uri = $error_uri;
         return $this;

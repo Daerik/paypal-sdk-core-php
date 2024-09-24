@@ -4,19 +4,21 @@ namespace PayPal\Handler;
 use PayPal\Auth\PPCertificateCredential;
 use PayPal\Auth\PPSubjectAuthorization;
 use PayPal\Auth\PPTokenAuthorization;
+use PayPal\Core\PPHttpConfig;
+use PayPal\Core\PPRequest;
 
 class PPCertificateAuthHandler
   implements IPPHandler
 {
 	
 	/**
-	 * @param $httpConfig
-	 * @param $request
+	 * @param PPHttpConfig $httpConfig
+	 * @param PPRequest    $request
 	 * @param $options
 	 *
 	 * @return void
 	 */
-	public function handle($httpConfig, $request, $options)
+	public function handle(PPHttpConfig $httpConfig, PPRequest $request, $options)
     {
         /** @var PPCertificateCredential $credential */
         $credential = $request->getCredential();

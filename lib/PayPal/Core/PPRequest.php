@@ -82,7 +82,7 @@ class PPRequest
      * @param string $name
      * @param mixed  $value
      */
-    public function addBindingInfo($name, $value)
+    public function addBindingInfo(string $name, mixed $value)
     {
         $this->bindingInfo[$name] = $value;
     }

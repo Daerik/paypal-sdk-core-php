@@ -5,6 +5,8 @@ use PayPal\Auth\Oauth\AuthSignature;
 use PayPal\Auth\PPCertificateCredential;
 use PayPal\Auth\PPSignatureCredential;
 use PayPal\Auth\PPTokenAuthorization;
+use PayPal\Core\PPHttpConfig;
+use PayPal\Core\PPRequest;
 use PayPal\Exception\OAuthException;
 use PayPal\Exception\PPInvalidCredentialException;
 
@@ -21,14 +23,14 @@ class PPAuthenticationHandler
 {
 	
 	/**
-	 * @param $httpConfig
-	 * @param $request
+	 * @param PPHttpConfig $httpConfig
+	 * @param PPRequest    $request
 	 * @param $options
 	 *
 	 * @throws PPInvalidCredentialException
 	 * @throws OAuthException
 	 */
-	public function handle($httpConfig, $request, $options)
+	public function handle(PPHttpConfig $httpConfig, PPRequest $request, $options)
     {
         $credential = $request->getCredential();
         if (isset($credential)) {

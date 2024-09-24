@@ -2,28 +2,29 @@
 namespace PayPal\Formatter;
 
 use BadMethodCallException;
+use PayPal\Core\PPRequest;
 class PPNVPFormatter
   implements IPPFormatter
 {
 	
 	/**
-	 * @param $request
-	 * @param $options
+	 * @param PPRequest $request
+	 * @param array     $options
 	 *
 	 * @return mixed
 	 */
-	public function toString($request, $options = array())
+	public function toString(PPRequest $request, array $options = array())
     {
         return $request->getRequestObject()->toNVPString();
     }
 	
 	/**
 	 * @param $string
-	 * @param $options
+	 * @param array $options
 	 *
 	 * @return mixed
 	 */
-	public function toObject($string, $options = array())
+	public function toObject($string, array $options = array())
     {
         throw new BadMethodCallException("Unimplemented");
     }

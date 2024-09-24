@@ -15,7 +15,7 @@ class PPOpenIdAddress
      *
      * @param string $street_address
      */
-    public function setStreetAddress($street_address)
+    public function setStreetAddress(string $street_address)
     {
         $this->street_address = $street_address;
         return $this;
@@ -35,7 +35,7 @@ class PPOpenIdAddress
      *
      * @param string $locality
      */
-    public function setLocality($locality)
+    public function setLocality(string $locality)
     {
         $this->locality = $locality;
         return $this;
@@ -55,7 +55,7 @@ class PPOpenIdAddress
      *
      * @param string $region
      */
-    public function setRegion($region)
+    public function setRegion(string $region)
     {
         $this->region = $region;
         return $this;
@@ -75,7 +75,7 @@ class PPOpenIdAddress
      *
      * @param string $postal_code
      */
-    public function setPostalCode($postal_code)
+    public function setPostalCode(string $postal_code)
     {
         $this->postal_code = $postal_code;
         return $this;
@@ -95,7 +95,7 @@ class PPOpenIdAddress
      *
      * @param string $country
      */
-    public function setCountry($country)
+    public function setCountry(string $country)
     {
         $this->country = $country;
         return $this;

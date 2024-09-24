@@ -24,7 +24,7 @@ class PPReflectionUtil
 	 * @return mixed|string
 	 * @throws \ReflectionException
 	 */
-    public static function getPropertyClass($class, $propertyName)
+    public static function getPropertyClass(string $class, string $propertyName)
     {
 
         if (($annotations = self::propertyAnnotations($class, $propertyName)) && isset($annotations['return'])) {
@@ -49,7 +49,7 @@ class PPReflectionUtil
 	 * @return string
 	 * @throws \ReflectionException
 	 */
-    public static function propertyAnnotations($class, $propertyName)
+    public static function propertyAnnotations(string $class, string $propertyName)
     {
         $class = is_object($class) ? get_class($class) : $class;
         if (!class_exists('ReflectionProperty')) {

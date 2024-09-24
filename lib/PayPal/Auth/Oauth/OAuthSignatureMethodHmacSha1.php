@@ -18,13 +18,13 @@ class OAuthSignatureMethodHmacSha1
 	}
 	
 	/**
-	 * @param $request
-	 * @param $consumer
-	 * @param $token
+	 * @param OAuthRequest  $request
+	 * @param OAuthConsumer $consumer
+	 * @param OAuthToken    $token
 	 *
 	 * @return string
 	 */
-	public function build_signature($request, $consumer, $token) {
+	public function build_signature(OAuthRequest $request, OAuthConsumer $consumer, OAuthToken $token) {
 		$base_string          = $request->get_signature_base_string();
 		$base_string          = preg_replace_callback("/(%[A-Za-z0-9]{2})/", array($this, "replace_callback"),
 			$base_string);//convert base string to lowercase

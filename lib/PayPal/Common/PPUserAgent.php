@@ -11,7 +11,7 @@ class PPUserAgent
      * @param string $sdkName
      * @param string $sdkVersion
      */
-    public static function getValue($sdkName, $sdkVersion)
+    public static function getValue(string $sdkName, string $sdkVersion)
     {
 
         $featureList = array(

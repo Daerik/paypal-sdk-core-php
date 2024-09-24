@@ -40,11 +40,11 @@ class PPHttpConfig
 
     /**
      *
-     * @param string $url
-     * @param string $method  HTTP method (GET, POST etc) defaults to POST
-     * @param array  $configs All Configurations
+     * @param null|string $url
+     * @param string      $method  HTTP method (GET, POST etc) defaults to POST
+     * @param array       $configs All Configurations
      */
-    public function __construct($url = null, $method = self::HTTP_POST, $configs = array())
+    public function __construct(string $url = null, string $method = self::HTTP_POST, array $configs = array())
     {
         $this->url         = $url;
         $this->method      = $method;
@@ -118,11 +118,11 @@ class PPHttpConfig
 	/**
 	 * @param $name
 	 * @param $value
-	 * @param $overWrite
+	 * @param true $overWrite
 	 *
 	 * @return void
 	 */
-	public function addHeader($name, $value, $overWrite = true)
+	public function addHeader($name, $value, true $overWrite = true)
     {
         if (!array_key_exists($name, $this->headers) || $overWrite) {
             $this->headers[$name] = $value;
@@ -185,7 +185,7 @@ class PPHttpConfig
      *
      * @param string $certPath - path to client certificate file (PEM formatted file)
      */
-    public function setSSLCert($certPath, $passPhrase = null)
+    public function setSSLCert(string $certPath, $passPhrase = null)
     {
         $this->curlOptions[CURLOPT_SSLCERT] = realpath($certPath);
         if (isset($passPhrase) && trim($passPhrase) != "") {
@@ -198,7 +198,7 @@ class PPHttpConfig
      *
      * @param int $timeout
      */
-    public function setHttpConnectionTimeout($timeout)
+    public function setHttpConnectionTimeout(int $timeout)
     {
         $this->curlOptions[CURLOPT_CONNECTTIMEOUT] = $timeout;
     }
@@ -208,7 +208,7 @@ class PPHttpConfig
      *
      * @param int $timeout
      */
-    public function setHttpTimeout($timeout)
+    public function setHttpTimeout(int $timeout)
     {
         $this->curlOptions[CURLOPT_TIMEOUT] = $timeout;
     }
@@ -220,7 +220,7 @@ class PPHttpConfig
      *
      * @throws PPConfigurationException
      */
-    public function setHttpProxy($proxy)
+    public function setHttpProxy(string $proxy)
     {
         $urlParts = parse_url($proxy);
         if (!$urlParts || !array_key_exists("host", $urlParts)) {
@@ -257,7 +257,7 @@ class PPHttpConfig
      *
      * @param string $userAgentString
      */
-    public function setUserAgent($userAgentString)
+    public function setUserAgent(string $userAgentString)
     {
         $this->curlOptions[CURLOPT_USERAGENT] = $userAgentString;
     }
@@ -270,7 +270,7 @@ class PPHttpConfig
      *
      * @return array
      */
-    public function getHttpConstantsFromConfigs($configs = array(), $prefix)
+    public function getHttpConstantsFromConfigs(array $configs = array(), $prefix)
     {
         $arr = array();
         if ($prefix != null && is_array($configs)) {

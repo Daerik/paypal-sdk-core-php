@@ -18,7 +18,7 @@ class PPUtils
      *
      * @return array
      */
-    public static function nvpToMap($nvpString)
+    public static function nvpToMap(string $nvpString)
     {
         $ret    = array();
         $params = explode("&", $nvpString);
@@ -37,7 +37,7 @@ class PPUtils
      *
      * @return bool
      */
-    public static function array_match_key($map, $key)
+    public static function array_match_key(array $map, string $key)
     {
         $replace = str_replace(array(
           '(',
@@ -98,7 +98,7 @@ class PPUtils
 	 * @return array
 	 * @throws Exception
 	 */
-    public static function xmlToArray($xmlInput)
+    public static function xmlToArray(string $xmlInput)
     {
         $doc                     = new DOMDocument();
         $doc->preserveWhiteSpace = false;
@@ -119,7 +119,7 @@ class PPUtils
      *
      * @param DOMNode $node DOM node to convert
      */
-    private static function xmlNodeToArray($node)
+    private static function xmlNodeToArray(DOMNode $node)
     {
         $result = array();
 
@@ -178,7 +178,7 @@ class PPUtils
      *
      * @return array
      */
-    public static function filterKeyPrefix(array $map, $keyPrefix)
+    public static function filterKeyPrefix(array $map, string $keyPrefix)
     {
         $filtered = array();
         foreach ($map as $key => $val) {
@@ -211,7 +211,7 @@ class PPUtils
 	 * @return string
 	 * @throws \ReflectionException
 	 */
-    public static function propertyAnnotations($class, $propertyName)
+    public static function propertyAnnotations(string $class, string $propertyName)
     {
         $class = is_object($class) ? get_class($class) : $class;
         if (!class_exists('ReflectionProperty')) {
@@ -249,7 +249,7 @@ class PPUtils
 	 * @return string
 	 * @throws \ReflectionException
 	 */
-    public static function isAttributeProperty($class, $propertyName)
+    public static function isAttributeProperty(string $class, string $propertyName)
     {
         if (($annotations = self::propertyAnnotations($class, $propertyName))) {
             return array_key_exists('attribute', $annotations);
@@ -267,7 +267,7 @@ class PPUtils
 	 * @return string
 	 * @throws \ReflectionException
 	 */
-    public static function isPropertyArray($class, $propertyName)
+    public static function isPropertyArray(string $class, string $propertyName)
     {
         if (($annotations = self::propertyAnnotations($class, $propertyName))) {
             if (isset($annotations['var']) && str_ends_with($annotations['var'], '[]')) {
@@ -289,7 +289,7 @@ class PPUtils
 	 * @return string
 	 * @throws \ReflectionException
 	 */
-    public static function propertyType($class, $propertyName)
+    public static function propertyType(string $class, string $propertyName)
     {
         if (($annotations = self::propertyAnnotations($class, $propertyName)) && isset($annotations['var'])) {
             if (str_ends_with($annotations['var'], '[]')) {
@@ -309,7 +309,7 @@ class PPUtils
 	 * @return array
 	 * @throws \ReflectionException
 	 */
-    public static function objectProperties($object)
+    public static function objectProperties(object $object)
     {
         $props = array();
         foreach (get_object_vars($object) as $property => $default) {

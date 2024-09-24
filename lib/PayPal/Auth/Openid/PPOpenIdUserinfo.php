@@ -20,7 +20,7 @@ class PPOpenIdUserinfo
      *
      * @param string $user_id
      */
-    public function setUserId($user_id)
+    public function setUserId(string $user_id)
     {
         $this->user_id = $user_id;
         return $this;
@@ -40,7 +40,7 @@ class PPOpenIdUserinfo
      *
      * @param string $sub
      */
-    public function setSub($sub)
+    public function setSub(string $sub)
     {
         $this->sub = $sub;
         return $this;
@@ -60,7 +60,7 @@ class PPOpenIdUserinfo
      *
      * @param string $name
      */
-    public function setName($name)
+    public function setName(string $name)
     {
         $this->name = $name;
         return $this;
@@ -80,7 +80,7 @@ class PPOpenIdUserinfo
      *
      * @param string $given_name
      */
-    public function setGivenName($given_name)
+    public function setGivenName(string $given_name)
     {
         $this->given_name = $given_name;
         return $this;
@@ -100,7 +100,7 @@ class PPOpenIdUserinfo
      *
      * @param string $family_name
      */
-    public function setFamilyName($family_name)
+    public function setFamilyName(string $family_name)
     {
         $this->family_name = $family_name;
         return $this;
@@ -120,7 +120,7 @@ class PPOpenIdUserinfo
      *
      * @param string $middle_name
      */
-    public function setMiddleName($middle_name)
+    public function setMiddleName(string $middle_name)
     {
         $this->middle_name = $middle_name;
         return $this;
@@ -140,7 +140,7 @@ class PPOpenIdUserinfo
      *
      * @param string $picture
      */
-    public function setPicture($picture)
+    public function setPicture(string $picture)
     {
         $this->picture = $picture;
         return $this;
@@ -160,7 +160,7 @@ class PPOpenIdUserinfo
      *
      * @param string $email
      */
-    public function setEmail($email)
+    public function setEmail(string $email)
     {
         $this->email = $email;
         return $this;
@@ -180,7 +180,7 @@ class PPOpenIdUserinfo
      *
      * @param bool $email_verified
      */
-    public function setEmailVerified($email_verified)
+    public function setEmailVerified(bool $email_verified)
     {
         $this->email_verified = $email_verified;
         return $this;
@@ -200,7 +200,7 @@ class PPOpenIdUserinfo
      *
      * @param string $gender
      */
-    public function setGender($gender)
+    public function setGender(string $gender)
     {
         $this->gender = $gender;
         return $this;
@@ -220,7 +220,7 @@ class PPOpenIdUserinfo
      *
      * @param string $birthday
      */
-    public function setBirthday($birthday)
+    public function setBirthday(string $birthday)
     {
         $this->birthday = $birthday;
         return $this;
@@ -240,7 +240,7 @@ class PPOpenIdUserinfo
      *
      * @param string $zoneinfo
      */
-    public function setZoneinfo($zoneinfo)
+    public function setZoneinfo(string $zoneinfo)
     {
         $this->zoneinfo = $zoneinfo;
         return $this;
@@ -260,7 +260,7 @@ class PPOpenIdUserinfo
      *
      * @param string $locale
      */
-    public function setLocale($locale)
+    public function setLocale(string $locale)
     {
         $this->locale = $locale;
         return $this;
@@ -280,7 +280,7 @@ class PPOpenIdUserinfo
      *
      * @param string $language
      */
-    public function setLanguage($language)
+    public function setLanguage(string $language)
     {
         $this->language = $language;
         return $this;
@@ -300,7 +300,7 @@ class PPOpenIdUserinfo
      *
      * @param bool $verified
      */
-    public function setVerified($verified)
+    public function setVerified(bool $verified)
     {
         $this->verified = $verified;
         return $this;
@@ -320,7 +320,7 @@ class PPOpenIdUserinfo
      *
      * @param string $phone_number
      */
-    public function setPhoneNumber($phone_number)
+    public function setPhoneNumber(string $phone_number)
     {
         $this->phone_number = $phone_number;
         return $this;
@@ -340,7 +340,7 @@ class PPOpenIdUserinfo
      *
      * @param PPOpenIdAddress $address
      */
-    public function setAddress($address)
+    public function setAddress(PPOpenIdAddress $address)
     {
         $this->address = $address;
         return $this;
@@ -361,7 +361,7 @@ class PPOpenIdUserinfo
      *
      * @param bool $verified_account
      */
-    public function setVerifiedAccount($verified_account)
+    public function setVerifiedAccount(bool $verified_account)
     {
         $this->verified_account = $verified_account;
         return $this;
@@ -381,7 +381,7 @@ class PPOpenIdUserinfo
      *
      * @param string $account_type
      */
-    public function setAccountType($account_type)
+    public function setAccountType(string $account_type)
     {
         $this->account_type = $account_type;
         return $this;
@@ -401,7 +401,7 @@ class PPOpenIdUserinfo
      *
      * @param string $age_range
      */
-    public function setAgeRange($age_range)
+    public function setAgeRange(string $age_range)
     {
         $this->age_range = $age_range;
         return $this;
@@ -421,7 +421,7 @@ class PPOpenIdUserinfo
      *
      * @param string $payer_id
      */
-    public function setPayerId($payer_id)
+    public function setPayerId(string $payer_id)
     {
         $this->payer_id = $payer_id;
         return $this;
@@ -451,7 +451,7 @@ class PPOpenIdUserinfo
 	 * @throws PPConnectionException
 	 * @throws \ReflectionException
 	 */
-    public static function getUserinfo($params, $apiContext = null)
+    public static function getUserinfo(array $params, $apiContext = null)
     {
         static $allowedParams = array('schema' => 1);
         if (is_null($apiContext)) {

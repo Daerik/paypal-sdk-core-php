@@ -55,7 +55,7 @@ class PPHttpConnection
      *
      * @throws PPConnectionException
      */
-    public function execute($data)
+    public function execute(string $data)
     {
         $this->logger->fine("Connecting to " . $this->httpConfig->getUrl());
         $this->logger->fine("Payload " . $data);

@@ -1,6 +1,8 @@
 <?php
 namespace PayPal\Handler;
 
+use PayPal\Core\PPHttpConfig;
+use PayPal\Core\PPRequest;
 class GenericSoapHandler
   implements IPPHandler
 {
@@ -16,13 +18,13 @@ class GenericSoapHandler
     }
 	
 	/**
-	 * @param $httpConfig
-	 * @param $request
+	 * @param PPHttpConfig $httpConfig
+	 * @param PPRequest    $request
 	 * @param $options
 	 *
 	 * @return void
 	 */
-	public function handle($httpConfig, $request, $options)
+	public function handle(PPHttpConfig $httpConfig, PPRequest $request, $options)
     {
 
         if (isset($options['apiContext'])) {

@@ -87,7 +87,7 @@ abstract class PPXmlFaultMessage
 	 * @throws \ReflectionException
 	 * @throws \ReflectionException
 	 */
-    private function fillRelation($property, array $element)
+    private function fillRelation(string $property, array $element)
     {
         if (!class_exists($type = PPUtils::propertyType($this, $property))) {
             trigger_error("Class $type not found.");
