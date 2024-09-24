@@ -1,35 +1,34 @@
 <?php
-namespace PayPal\Auth;
-
-/**
- * Interface that represents API credentials
- */
-abstract class IPPCredential
-{
-    /**
-     *
-     * @var IPPThirdPartyAuthorization
-     */
-    protected IPPThirdPartyAuthorization $thirdPartyAuthorization;
+	namespace PayPal\Auth;
 	
 	/**
-	 * @param $thirdPartyAuthorization
-	 *
-	 * @return void
+	 * Interface that represents API credentials
 	 */
-	public function setThirdPartyAuthorization($thirdPartyAuthorization): void {
-        $this->thirdPartyAuthorization = $thirdPartyAuthorization;
-    }
-	
-	/**
-	 * @return IPPThirdPartyAuthorization
-	 */
-	public function getThirdPartyAuthorization(): IPPThirdPartyAuthorization {
-        return $this->thirdPartyAuthorization;
-    }
-	
-	/**
-	 * @return mixed
-	 */
-	abstract public function validate(): mixed;
-}
+	abstract class IPPCredential {
+		/**
+		 *
+		 * @var IPPThirdPartyAuthorization
+		 */
+		protected IPPThirdPartyAuthorization $thirdPartyAuthorization;
+		
+		/**
+		 * @return IPPThirdPartyAuthorization
+		 */
+		public function getThirdPartyAuthorization(): IPPThirdPartyAuthorization {
+			return $this->thirdPartyAuthorization;
+		}
+		
+		/**
+		 * @param $thirdPartyAuthorization
+		 *
+		 * @return void
+		 */
+		public function setThirdPartyAuthorization($thirdPartyAuthorization): void {
+			$this->thirdPartyAuthorization = $thirdPartyAuthorization;
+		}
+		
+		/**
+		 * @return mixed
+		 */
+		abstract public function validate(): mixed;
+	}
