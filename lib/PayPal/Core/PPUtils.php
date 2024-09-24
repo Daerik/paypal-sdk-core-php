@@ -222,6 +222,7 @@
 		 */
 		public static function propertyAnnotations(object|string $class, string $propertyName): mixed {
 			$class = is_object($class) ? get_class($class) : $class;
+			error_log($class . '::' . $propertyName);
 			if(!class_exists('ReflectionProperty')) {
 				throw new RuntimeException("Property type of " . $class . "::$propertyName cannot be resolved");
 			}
