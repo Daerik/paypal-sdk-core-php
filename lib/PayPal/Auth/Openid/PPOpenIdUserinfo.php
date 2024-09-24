@@ -449,6 +449,7 @@ class PPOpenIdUserinfo
 	 * @return PPOpenIdUserinfo
 	 * @throws PPConfigurationException
 	 * @throws PPConnectionException
+	 * @throws \ReflectionException
 	 */
     public static function getUserinfo($params, $apiContext = null)
     {

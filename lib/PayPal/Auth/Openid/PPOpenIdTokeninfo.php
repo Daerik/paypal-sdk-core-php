@@ -155,6 +155,7 @@ class PPOpenIdTokeninfo
 	 * @return PPOpenIdTokeninfo
 	 * @throws PPConfigurationException
 	 * @throws PPConnectionException
+	 * @throws \ReflectionException
 	 */
     public static function createFromAuthorizationCode($params, $clientId, $clientSecret, $apiContext = null)
     {
@@ -207,6 +208,7 @@ class PPOpenIdTokeninfo
 	 * @return PPOpenIdTokeninfo
 	 * @throws PPConfigurationException
 	 * @throws PPConnectionException
+	 * @throws \ReflectionException
 	 */
     public function createFromRefreshToken($params, $apiContext = null)
     {
