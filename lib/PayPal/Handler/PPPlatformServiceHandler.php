@@ -51,7 +51,7 @@ class PPPlatformServiceHandler
         // $apiUsername is optional, if null the default account in config file is taken
         $credMgr = PPCredentialManager::getInstance($options['config']);
         $request->setCredential(clone($credMgr->getCredentialObject($this->apiUsername)));
-
+		$endpoint = '';
         $config     = $options['config'];
         $credential = $request->getCredential();
         //TODO: Assuming existence of getApplicationId

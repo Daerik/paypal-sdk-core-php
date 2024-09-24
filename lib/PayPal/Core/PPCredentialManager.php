@@ -64,7 +64,7 @@ class PPCredentialManager
         $suffix = 1;
         $prefix = "acct";
         if (array_key_exists($prefix, $config)) {
-            $credArr = $this->config[$searchKey];
+            $credArr = $this->config[$prefix];
         } else {
             $arr = array();
             foreach ($config as $k => $v) {
@@ -126,15 +126,15 @@ class PPCredentialManager
                 );
             }
 
-            if ($userName && isset($credArr[$key . ".Subject"]) && trim($credArr[$key . ".Subject"]) != "") {
+            if (!empty($userName) && isset($credArr[$key . ".Subject"]) && trim($credArr[$key . ".Subject"]) != "") {
                 $this->credentialHashmap[$userName]->setThirdPartyAuthorization(
                   new PPSubjectAuthorization($credArr[$key . ".Subject"]));
-            } elseif ($userName && (isset($credArr[$key . '.accessToken']) && isset($credArr[$key . '.tokenSecret']))) {
+            } elseif (!empty($userName) && (isset($credArr[$key . '.accessToken']) && isset($credArr[$key . '.tokenSecret']))) {
                 $this->credentialHashmap[$userName]->setThirdPartyAuthorization(
                   new PPTokenAuthorization($credArr[$key . '.accessToken'], $credArr[$key . '.tokenSecret']));
             }
 
-            if ($userName && $this->defaultAccountName == null) {
+            if (!empty($userName) && $this->defaultAccountName == null) {
                 if (array_key_exists($key . '.UserName', $credArr)) {
                     $this->defaultAccountName = $credArr[$key . '.UserName'];
                 } else {

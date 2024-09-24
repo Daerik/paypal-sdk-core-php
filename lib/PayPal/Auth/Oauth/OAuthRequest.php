@@ -154,6 +154,7 @@ class OAuthRequest {
 		// Grab all parameters
 		$params = $this->parameters;
 		ksort($params);
+		$res = array();
 		// Remove oauth_signature if present
 		// Ref: Spec: 9.1.1 ("The oauth_signature parameter MUST be excluded.")
 		if(isset($params['oauth_signature'])) {
