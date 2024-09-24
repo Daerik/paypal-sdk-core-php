@@ -73,7 +73,7 @@ class PPIPNMessage
     /**
      * Validates a IPN message
      *
-     * @return boolean
+     * @return bool
      */
     public function validate()
     {

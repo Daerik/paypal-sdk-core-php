@@ -176,7 +176,7 @@ class PPOpenIdUserinfo
     /**
      * True if the End-User's e-mail address has been verified; otherwise false.
      *
-     * @param boolean $email_verified
+     * @param bool $email_verified
      */
     public function setEmailVerified($email_verified)
     {
@@ -186,7 +186,7 @@ class PPOpenIdUserinfo
 
     /**
      * True if the End-User's e-mail address has been verified; otherwise false.
-     * @return boolean
+     * @return bool
      */
     public function getEmailVerified()
     {
@@ -296,7 +296,7 @@ class PPOpenIdUserinfo
     /**
      * End-User's verified status.
      *
-     * @param boolean $verified
+     * @param bool $verified
      */
     public function setVerified($verified)
     {
@@ -306,7 +306,7 @@ class PPOpenIdUserinfo
 
     /**
      * End-User's verified status.
-     * @return boolean
+     * @return bool
      */
     public function getVerified()
     {
@@ -356,7 +356,7 @@ class PPOpenIdUserinfo
     /**
      * Verified account status.
      *
-     * @param boolean $verified_account
+     * @param bool $verified_account
      */
     public function setVerifiedAccount($verified_account)
     {
@@ -366,7 +366,7 @@ class PPOpenIdUserinfo
 
     /**
      * Verified account status.
-     * @return boolean
+     * @return bool
      */
     public function getVerifiedAccount()
     {

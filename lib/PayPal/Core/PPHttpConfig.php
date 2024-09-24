@@ -146,7 +146,7 @@ class PPHttpConfig
     /**
      * Set connection timeout in seconds
      *
-     * @param integer $timeout
+     * @param int $timeout
      */
     public function setHttpConnectionTimeout($timeout)
     {
@@ -156,7 +156,7 @@ class PPHttpConfig
     /**
      * Set timeout in seconds
      *
-     * @param integer $timeout
+     * @param int $timeout
      */
     public function setHttpTimeout($timeout)
     {
@@ -187,7 +187,7 @@ class PPHttpConfig
     }
 
     /**
-     * @param integer $retry
+     * @param int $retry
      */
     public function setHttpRetryCount($retryCount)
     {

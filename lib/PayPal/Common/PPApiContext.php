@@ -46,9 +46,9 @@ class PPApiContext
 
     /**
      *
-     * @param string  $name  header name
-     * @param string  $value header value
-     * @param boolean $force if true (default), existing value is overwritten
+     * @param string $name  header name
+     * @param string $value header value
+     * @param bool   $force if true (default), existing value is overwritten
      */
     public function addHttpHeader($name, $value, $force = true)
     {

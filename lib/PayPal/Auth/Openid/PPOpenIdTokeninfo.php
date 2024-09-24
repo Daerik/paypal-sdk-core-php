@@ -116,7 +116,7 @@ class PPOpenIdTokeninfo
     /**
      * The lifetime in seconds of the access token.
      *
-     * @param integer $expires_in
+     * @param int $expires_in
      */
     public function setExpiresIn($expires_in)
     {
@@ -126,7 +126,7 @@ class PPOpenIdTokeninfo
 
     /**
      * The lifetime in seconds of the access token.
-     * @return integer
+     * @return int
      */
     public function getExpiresIn()
     {
