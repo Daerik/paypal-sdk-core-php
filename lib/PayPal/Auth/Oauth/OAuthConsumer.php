@@ -4,6 +4,10 @@ namespace PayPal\Auth\Oauth;
 class OAuthConsumer {
 	public string $key;
 	public string $secret;
+	/**
+	 * @var null|mixed
+	 */
+	private mixed $callback_url;
 	
 	/**
 	 * @param $key
