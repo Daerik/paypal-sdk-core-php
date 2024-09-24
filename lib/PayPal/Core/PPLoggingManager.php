@@ -34,7 +34,7 @@ class PPLoggingManager
         $this->isLoggingEnabled = (array_key_exists('log.LogEnabled', $config) && $config['log.LogEnabled'] == '1');
 
         if ($this->isLoggingEnabled) {
-            $this->loggerFile   = ($config['log.FileName']) ? $config['log.FileName'] : ini_get('error_log');
+            $this->loggerFile   = ($config['log.FileName']) ?: ini_get('error_log');
             $loggingLevel       = strtoupper($config['log.LogLevel']);
             $this->loggingLevel = (isset($loggingLevel) && defined(__NAMESPACE__ . "\\PPLoggingLevel::$loggingLevel")) ? constant(__NAMESPACE__ . "\\PPLoggingLevel::$loggingLevel") : PPLoggingManager::DEFAULT_LOGGING_LEVEL;
         }
