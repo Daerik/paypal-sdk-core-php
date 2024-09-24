@@ -37,16 +37,12 @@ class PPOpenIdHandler
         } elseif (isset($config['service.EndPoint'])) {
             return $config['service.EndPoint'];
         } elseif (isset($config['mode'])) {
-            switch (strtoupper($config['mode'])) {
-                case 'SANDBOX':
-                    return PPConstants::REST_SANDBOX_ENDPOINT;
-                case 'LIVE':
-                    return PPConstants::REST_LIVE_ENDPOINT;
-                case 'TLS':
-                    return PPConstants::REST_TLS_ENDPOINT;
-                default:
-                    throw new PPConfigurationException('The mode config parameter must be set to either sandbox/live/tls');
-            }
+	        return match (strtoupper($config['mode'])) {
+		        'SANDBOX' => PPConstants::REST_SANDBOX_ENDPOINT,
+		        'LIVE'    => PPConstants::REST_LIVE_ENDPOINT,
+		        'TLS'     => PPConstants::REST_TLS_ENDPOINT,
+		        default   => throw new PPConfigurationException('The mode config parameter must be set to either sandbox/live/tls'),
+	        };
         } else {
             throw new PPConfigurationException('You must set one of service.endpoint or mode parameters in your configuration');
         }

@@ -34,13 +34,10 @@ class PPUserAgent
 
     private static function _getPHPBit()
     {
-        switch (PHP_INT_SIZE) {
-            case 4:
-                return '32';
-            case 8:
-                return '64';
-            default:
-                return PHP_INT_SIZE;
-        }
+	    return match (PHP_INT_SIZE) {
+		    4       => '32',
+		    8       => '64',
+		    default => PHP_INT_SIZE,
+	    };
     }
 }
