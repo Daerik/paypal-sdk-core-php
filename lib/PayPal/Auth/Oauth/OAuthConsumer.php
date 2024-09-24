@@ -4,10 +4,7 @@ namespace PayPal\Auth\Oauth;
 class OAuthConsumer {
 	public string $key;
 	public string $secret;
-	/**
-	 * @var null|mixed
-	 */
-	private mixed $callback_url;
+	private ?string $callback_url;
 	
 	/**
 	 * @param $key
@@ -25,5 +22,9 @@ class OAuthConsumer {
 	 */
 	public function __toString() {
 		return "OAuthConsumer[key=$this->key,secret=$this->secret]";
+	}
+	
+	public function setCallbackUrl(?string $callback_url): void {
+		$this->callback_url = $callback_url;
 	}
 }
