@@ -1,6 +1,7 @@
 <?php
 namespace PayPal\Core;
 
+use JetBrains\PhpStorm\NoReturn;
 use PayPal\Auth\PPCertificateCredential;
 use PayPal\Auth\PPSignatureCredential;
 use PayPal\Auth\PPSubjectAuthorization;
@@ -150,7 +151,7 @@ class PPCredentialManager
         return $credObj;
     }
 
-    public function __clone()
+    #[NoReturn] public function __clone()
     {
         trigger_error('Clone is not allowed.', E_USER_ERROR);
     }
