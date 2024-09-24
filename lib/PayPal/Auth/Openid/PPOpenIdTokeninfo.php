@@ -169,9 +169,8 @@ class PPOpenIdTokeninfo
         if (is_null($apiContext)) {
             $apiContext = new PPApiContext();
         }
-        $config = $apiContext->getConfig();
-
-        if ($apiContext->get($clientId) !== false) {
+	    
+	    if ($apiContext->get($clientId) !== false) {
             $clientId = $apiContext->get($clientId);
         }
 

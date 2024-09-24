@@ -65,9 +65,9 @@ abstract class PPMessage
 
         foreach (get_object_vars($this) as $property => $defaultValue) {
             if (array_key_exists($propKey = strtolower($prefix . $property), $map) &&
-              $this->isBuiltInType(($type = PPUtils::propertyType($this, $property)))
+              $this->isBuiltInType((PPUtils::propertyType($this, $property)))
             ) {
-                $type              = PPUtils::propertyType($this, $property);
+                PPUtils::propertyType($this, $property);
                 $this->{$property} = urldecode($map[$propKey]);
                 continue; // string
 
@@ -87,8 +87,7 @@ abstract class PPMessage
                         $this->{$property}[trim($key, "()")] = urldecode($value);
                     }
                 } else { // Array of complex objects
-                    $delim = '.';
-                    for ($i = 0; $itemValues = PPUtils::filterKeyPrefix($filtered, "($i)"); $i++) {
+	                for ($i = 0; $itemValues = PPUtils::filterKeyPrefix($filtered, "($i)"); $i++) {
                         $this->{$property}[$i] = $item = new $type();
                         $item->init(PPUtils::filterKeyPrefix($itemValues, "."));
                         if (array_key_exists("", $itemValues)) {

@@ -130,7 +130,7 @@ class PPUtils
 	                $result[$i]['name'] = $child->nodeName;
 	                $result[$i]['text'] = $child->childNodes->item(0)->nodeValue;
 	                if ($child->hasAttributes()) {
-	                    foreach ($child->attributes as $k => $v) {
+	                    foreach ($child->attributes as $v) {
 	                        if ($v->namespaceURI != 'http://www.w3.org/2001/XMLSchema-instance') {
 	                            $result[$i]['attributes'][$v->name] = $v->value;
 	                        }
@@ -142,7 +142,7 @@ class PPUtils
 	
 	                if ($child->hasAttributes()) {
 	                    $attrs = $child->attributes;
-	                    foreach ($attrs as $k => $v) {
+	                    foreach ($attrs as $v) {
 	                        if ($v->namespaceURI != 'http://www.w3.org/2001/XMLSchema-instance') {
 	
 	                            $result[$i]['attributes'][$v->name] = $v->value;
@@ -177,7 +177,7 @@ class PPUtils
     public static function filterKeyPrefix(array $map, string $keyPrefix): array {
         $filtered = array();
         foreach ($map as $key => $val) {
-            if (($pos = stripos($key, $keyPrefix)) !== 0) {
+            if ((stripos($key, $keyPrefix)) !== 0) {
                 continue;
             }
 

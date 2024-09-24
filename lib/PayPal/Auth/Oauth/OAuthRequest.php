@@ -246,7 +246,6 @@ class OAuthRequest {
 			$out = 'Authorization: OAuth';
 		}
 		
-		$total = array();
 		foreach($this->parameters as $k => $v) {
 			if(!str_starts_with($k, "oauth")) {
 				continue;
@@ -276,7 +275,6 @@ class OAuthRequest {
 	 */
 	public function sign_request($signature_method, $consumer, $token): void {
 		
-		$empty = FALSE;
 		$msg   = array();
 		if($token->key == NULL) {
 			$msg[] = 'Token key';

@@ -61,7 +61,7 @@ abstract class OAuthSignatureMethodRsaSha1
         $privatekeyid = openssl_get_privatekey($cert);
 
         // Sign using the key
-        $ok = openssl_sign($base_string, $signature, $privatekeyid);
+        openssl_sign($base_string, $signature, $privatekeyid);
 
         return base64_encode($signature);
     }

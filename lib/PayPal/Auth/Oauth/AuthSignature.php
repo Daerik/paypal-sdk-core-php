@@ -19,8 +19,7 @@ class AuthSignature
 
         $sig_method   = $hmac_method;
         $authConsumer = new OAuthConsumer($key, $secret, null);
-        $authToken    = null;
-        $authToken    = new OAuthToken($token, $tokenSecret);
+		$authToken    = new OAuthToken($token, $tokenSecret);
 
         //$params is the query param array which is required only in the httpMethod is "GET"
         $params = array();
