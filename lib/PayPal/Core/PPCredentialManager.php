@@ -178,7 +178,7 @@ class PPCredentialManager
 	/**
 	 * @param mixed $config
 	 */
-	public function setConfig($config): void {
+	public function setConfig(mixed $config): void {
 		$this->config = $config;
 	}
 	
