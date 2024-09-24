@@ -13,7 +13,7 @@ class OAuthSignatureMethodHmacSha1
 	/**
 	 * @return string
 	 */
-	public function get_name() {
+	public function get_name(): string {
 		return "HMAC-SHA1";
 	}
 	
@@ -24,7 +24,7 @@ class OAuthSignatureMethodHmacSha1
 	 *
 	 * @return string
 	 */
-	public function build_signature(OAuthRequest $request, OAuthConsumer $consumer, OAuthToken $token) {
+	public function build_signature(OAuthRequest $request, OAuthConsumer $consumer, OAuthToken $token): string {
 		$base_string          = $request->get_signature_base_string();
 		$base_string          = preg_replace_callback("/(%[A-Za-z0-9]{2})/", array($this, "replace_callback"),
 			$base_string);//convert base string to lowercase
@@ -45,7 +45,7 @@ class OAuthSignatureMethodHmacSha1
 	/**
 	 * preg_replace_callback callback function
 	 */
-	private function replace_callback($match) {
+	private function replace_callback($match): string {
 		return strtolower($match[0]);
 	}
 }

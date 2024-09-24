@@ -56,8 +56,7 @@ class PPLoggingManager
 	/**
 	 * @return void
 	 */
-	public function flush()
-    {
+	public function flush(): void {
         if($this->loggerMessage) {
             error_log($this->loggerMessage, 3, $this->loggerFile);
         }
@@ -69,8 +68,7 @@ class PPLoggingManager
 	 *
 	 * @return void
 	 */
-	private function log($message, int $level = PPLoggingLevel::INFO)
-    {
+	private function log($message, int $level = PPLoggingLevel::INFO): void {
         if ($this->isLoggingEnabled && ($level <= $this->loggingLevel)) {
             $this->loggerMessage .= $this->loggerName . ": $message\n";
         }
@@ -81,8 +79,7 @@ class PPLoggingManager
 	 *
 	 * @return void
 	 */
-	public function error($message)
-    {
+	public function error($message): void {
         $this->log($message, PPLoggingLevel::ERROR);
     }
 	
@@ -91,8 +88,7 @@ class PPLoggingManager
 	 *
 	 * @return void
 	 */
-	public function warning($message)
-    {
+	public function warning($message): void {
         $this->log($message, PPLoggingLevel::WARN);
     }
 	
@@ -101,8 +97,7 @@ class PPLoggingManager
 	 *
 	 * @return void
 	 */
-	public function info($message)
-    {
+	public function info($message): void {
         $this->log($message);
     }
 	
@@ -111,8 +106,7 @@ class PPLoggingManager
 	 *
 	 * @return void
 	 */
-	public function fine($message)
-    {
+	public function fine($message): void {
         $this->log($message, PPLoggingLevel::FINE);
     }
 

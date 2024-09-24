@@ -50,8 +50,7 @@ class PPSignatureCredential
 	/**
 	 * @throws PPMissingCredentialException
 	 */
-	public function validate()
-    {
+	public function validate(): void {
 
         if (empty($this->userName)) {
             throw new PPMissingCredentialException("username cannot be empty");
@@ -65,24 +64,21 @@ class PPSignatureCredential
 	/**
 	 * @return string
 	 */
-	public function getUserName()
-    {
+	public function getUserName(): string {
         return $this->userName;
     }
 	
 	/**
 	 * @return string
 	 */
-	public function getPassword()
-    {
+	public function getPassword(): string {
         return $this->password;
     }
 	
 	/**
 	 * @return string
 	 */
-	public function getSignature()
-    {
+	public function getSignature(): string {
         return $this->signature;
     }
 	
@@ -91,16 +87,14 @@ class PPSignatureCredential
 	 *
 	 * @return void
 	 */
-	public function setApplicationId($applicationId)
-    {
+	public function setApplicationId($applicationId): void {
         $this->applicationId = trim($applicationId);
     }
 	
 	/**
 	 * @return string
 	 */
-	public function getApplicationId()
-    {
+	public function getApplicationId(): string {
         return $this->applicationId;
     }
 }

@@ -15,8 +15,7 @@ class PPSOAPFormatter
 	 *
 	 * @return string
 	 */
-	public function toString(PPRequest $request, array $options = array())
-    {
+	public function toString(PPRequest $request, array $options = array()): string {
 
         $customNamespace = ($request->getBindingInfo('namespace') != null) ? $request->getBindingInfo('namespace') : "";
         $soapEnvelope    = '<soapenv:Envelope ' . self::$SOAP_NAMESPACE . " $customNamespace >";
@@ -40,8 +39,7 @@ class PPSOAPFormatter
 	 *
 	 * @return mixed
 	 */
-	public function toObject($string, array $options = array())
-    {
+	public function toObject($string, array $options = array()): mixed {
         throw new BadMethodCallException("Unimplemented");
     }
 }

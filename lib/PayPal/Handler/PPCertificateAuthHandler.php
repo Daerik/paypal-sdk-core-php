@@ -18,8 +18,7 @@ class PPCertificateAuthHandler
 	 *
 	 * @return void
 	 */
-	public function handle(PPHttpConfig $httpConfig, PPRequest $request, $options)
-    {
+	public function handle(PPHttpConfig $httpConfig, PPRequest $request, $options): void {
         /** @var PPCertificateCredential $credential */
         $credential = $request->getCredential();
 

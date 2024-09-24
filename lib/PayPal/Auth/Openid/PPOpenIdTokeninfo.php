@@ -20,8 +20,7 @@ class PPOpenIdTokeninfo
      *
      * @param string $scope
      */
-    public function setScope(string $scope)
-    {
+    public function setScope(string $scope): static {
         $this->scope = $scope;
         return $this;
     }
@@ -30,8 +29,7 @@ class PPOpenIdTokeninfo
      * OPTIONAL, if identical to the scope requested by the client; otherwise, REQUIRED.
      * @return string
      */
-    public function getScope()
-    {
+    public function getScope(): string {
         return $this->scope;
     }
 
@@ -40,8 +38,7 @@ class PPOpenIdTokeninfo
      *
      * @param string $access_token
      */
-    public function setAccessToken(string $access_token)
-    {
+    public function setAccessToken(string $access_token): static {
         $this->access_token = $access_token;
         return $this;
     }
@@ -50,8 +47,7 @@ class PPOpenIdTokeninfo
      * The access token issued by the authorization server.
      * @return string
      */
-    public function getAccessToken()
-    {
+    public function getAccessToken(): string {
         return $this->access_token;
     }
 
@@ -60,8 +56,7 @@ class PPOpenIdTokeninfo
      *
      * @param string $refresh_token
      */
-    public function setRefreshToken(string $refresh_token)
-    {
+    public function setRefreshToken(string $refresh_token): static {
         $this->refresh_token = $refresh_token;
         return $this;
     }
@@ -70,8 +65,7 @@ class PPOpenIdTokeninfo
      * The refresh token, which can be used to obtain new access tokens using the same authorization grant as described in OAuth2.0 RFC6749 in Section 6.
      * @return string
      */
-    public function getRefreshToken()
-    {
+    public function getRefreshToken(): string {
         return $this->refresh_token;
     }
 
@@ -80,8 +74,7 @@ class PPOpenIdTokeninfo
      *
      * @param string $token_type
      */
-    public function setTokenType(string $token_type)
-    {
+    public function setTokenType(string $token_type): static {
         $this->token_type = $token_type;
         return $this;
     }
@@ -90,8 +83,7 @@ class PPOpenIdTokeninfo
      * The type of the token issued as described in OAuth2.0 RFC6749 (Section 7.1).  Value is case insensitive.
      * @return string
      */
-    public function getTokenType()
-    {
+    public function getTokenType(): string {
         return $this->token_type;
     }
 
@@ -100,8 +92,7 @@ class PPOpenIdTokeninfo
      *
      * @param string $id_token
      */
-    public function setIdToken(string $id_token)
-    {
+    public function setIdToken(string $id_token): static {
         $this->id_token = $id_token;
         return $this;
     }
@@ -110,8 +101,7 @@ class PPOpenIdTokeninfo
      * The id_token is a session token assertion that denotes the user's authentication status
      * @return string
      */
-    public function getIdToken()
-    {
+    public function getIdToken(): string {
         return $this->id_token;
     }
 
@@ -120,8 +110,7 @@ class PPOpenIdTokeninfo
      *
      * @param int $expires_in
      */
-    public function setExpiresIn(int $expires_in)
-    {
+    public function setExpiresIn(int $expires_in): static {
         $this->expires_in = $expires_in;
         return $this;
     }
@@ -130,8 +119,7 @@ class PPOpenIdTokeninfo
      * The lifetime in seconds of the access token.
      * @return int
      */
-    public function getExpiresIn()
-    {
+    public function getExpiresIn(): int {
         return $this->expires_in;
     }
 	
@@ -157,8 +145,7 @@ class PPOpenIdTokeninfo
 	 * @throws PPConnectionException
 	 * @throws \ReflectionException
 	 */
-    public static function createFromAuthorizationCode(array $params, $clientId, $clientSecret, $apiContext = null)
-    {
+    public static function createFromAuthorizationCode(array $params, $clientId, $clientSecret, $apiContext = null): PPOpenIdTokeninfo {
         static $allowedParams = array('grant_type' => 1, 'code' => 1, 'redirect_uri' => 1);
         if (is_null($apiContext)) {
             $apiContext = new PPApiContext();
@@ -210,8 +197,7 @@ class PPOpenIdTokeninfo
 	 * @throws PPConnectionException
 	 * @throws \ReflectionException
 	 */
-    public function createFromRefreshToken(array $params, $apiContext = null)
-    {
+    public function createFromRefreshToken(array $params, $apiContext = null): static {
 
         static $allowedParams = array('grant_type' => 1, 'refresh_token' => 1, 'scope' => 1);
         if (is_null($apiContext)) {

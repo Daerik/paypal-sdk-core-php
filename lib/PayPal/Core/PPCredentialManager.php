@@ -46,8 +46,7 @@ class PPCredentialManager
 	 * @return PPCredentialManager
 	 * @throws PPMissingCredentialException
 	 */
-	public static function getInstance($config)
-    {
+	public static function getInstance($config): PPCredentialManager {
 
         return self::$instance = new PPCredentialManager($config);
     }
@@ -58,8 +57,7 @@ class PPCredentialManager
 	/**
 	 * @throws PPMissingCredentialException
 	 */
-	private function initCredential($config)
-    {
+	private function initCredential($config): void {
         $suffix = 1;
         $prefix = "acct";
         if (array_key_exists($prefix, $config)) {

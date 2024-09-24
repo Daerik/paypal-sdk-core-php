@@ -17,8 +17,7 @@ class PPOpenIdHandler
 	/**
 	 * @throws PPConfigurationException
 	 */
-	public function handle(PPHttpConfig $httpConfig, PPRequest $request, $options)
-    {
+	public function handle(PPHttpConfig $httpConfig, PPRequest $request, $options): void {
         $apiContext = $options['apiContext'];
         $config     = $apiContext->getConfig();
         $httpConfig->setUrl(

@@ -11,8 +11,7 @@ class PPUserAgent
      * @param string $sdkName
      * @param string $sdkVersion
      */
-    public static function getValue(string $sdkName, string $sdkVersion)
-    {
+    public static function getValue(string $sdkName, string $sdkVersion): string {
 
         $featureList = array(
           'lang=PHP',
@@ -35,8 +34,7 @@ class PPUserAgent
 	/**
 	 * @return int|string
 	 */
-	private static function _getPHPBit()
-    {
+	private static function _getPHPBit(): int|string {
 	    return match (PHP_INT_SIZE) {
 		    4       => '32',
 		    8       => '64',

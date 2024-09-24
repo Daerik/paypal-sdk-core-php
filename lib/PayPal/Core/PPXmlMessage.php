@@ -14,8 +14,7 @@ abstract class PPXmlMessage
 	 * @throws \ReflectionException
 	 * @throws \ReflectionException
 	 */
-    public function toSOAP()
-    {
+    public function toSOAP(): string {
         return $this->toXMLString();
     }
 	
@@ -23,8 +22,7 @@ abstract class PPXmlMessage
 	 * @return string
 	 * @throws \ReflectionException
 	 */
-    public function toXMLString()
-    {
+    public function toXMLString(): string {
         $attributes = array();
         $properties = get_object_vars($this);
         foreach (array_keys($properties) as $property) {
@@ -75,8 +73,7 @@ abstract class PPXmlMessage
 	 * @return string
 	 * @throws \ReflectionException
 	 */
-    private function buildProperty(string $property, string|PPXmlMessage $value, string $namespace = 'ebl')
-    {
+    private function buildProperty(string $property, string|PPXmlMessage $value, string $namespace = 'ebl'): string {
         $annotations = PPUtils::propertyAnnotations($this, $property);
         if (!empty($annotations['namespace'])) {
             $namespace = $annotations['namespace'];
@@ -111,8 +108,7 @@ abstract class PPXmlMessage
 	 * @throws PPTransformerException
 	 * @throws \ReflectionException
 	 */
-    public function init(array $map = array(), bool $isRoot = true)
-    {
+    public function init(array $map = array(), bool $isRoot = true): void {
         if ($isRoot) {
             if (stristr($map[0]['name'], ":fault")) {
                 throw new PPTransformerException("soapfault");
@@ -184,8 +180,7 @@ abstract class PPXmlMessage
 	 * @throws \ReflectionException
 	 * @throws \ReflectionException
 	 */
-    private function fillRelation(string $property, array $element)
-    {
+    private function fillRelation(string $property, array $element): void {
         if (!class_exists($type = PPUtils::propertyType($this, $property))) {
             trigger_error("Class $type not found.");
             return; // just ignore

@@ -45,8 +45,7 @@ class PPConfigManager
 	/**
 	 * @return PPConfigManager
 	 */
-	public static function getInstance()
-    {
+	public static function getInstance(): PPConfigManager {
         if (!isset(self::$instance)) {
             self::$instance = new PPConfigManager();
         }
@@ -60,8 +59,7 @@ class PPConfigManager
 	 *
 	 * @return void
 	 */
-	private function load($fileName)
-    {
+	private function load($fileName): void {
         //Gracefully check for ini file
         $parsedConfig = parse_ini_file($fileName);
         if (!empty($parsedConfig)) {
@@ -100,8 +98,7 @@ class PPConfigManager
      * If $userId is null, returns config keys corresponding to
      * all configured accounts
      */
-    public function getIniPrefix($userId = null)
-    {
+    public function getIniPrefix($userId = null): array|string {
 
         if ($userId == null) {
             $arr = array();
@@ -131,8 +128,7 @@ class PPConfigManager
     /**
      * use  the default configuration if it is not passed in hashmap
      */
-    public static function getConfigWithDefaults($config = null)
-    {
+    public static function getConfigWithDefaults($config = null): array {
         if (!is_array(PPConfigManager::getInstance()->getConfigHashmap()) && $config == null) return PPConfigManager::$defaults;
         return array_merge(PPConfigManager::$defaults,
           ($config != null) ? $config : PPConfigManager::getInstance()->getConfigHashmap());

@@ -61,24 +61,21 @@ class PPHttpConfig
 	/**
 	 * @return null|string
 	 */
-	public function getUrl()
-    {
+	public function getUrl(): ?string {
         return $this->url;
     }
 	
 	/**
 	 * @return string
 	 */
-	public function getMethod()
-    {
+	public function getMethod(): string {
         return $this->method;
     }
 	
 	/**
 	 * @return array
 	 */
-	public function getHeaders()
-    {
+	public function getHeaders(): array {
         return $this->headers;
     }
 	
@@ -87,8 +84,7 @@ class PPHttpConfig
 	 *
 	 * @return null|mixed
 	 */
-	public function getHeader($name)
-    {
+	public function getHeader($name): mixed {
         if (array_key_exists($name, $this->headers)) {
             return $this->headers[$name];
         }
@@ -100,8 +96,7 @@ class PPHttpConfig
 	 *
 	 * @return void
 	 */
-	public function setUrl($url)
-    {
+	public function setUrl($url): void {
         $this->url = $url;
     }
 	
@@ -110,8 +105,7 @@ class PPHttpConfig
 	 *
 	 * @return void
 	 */
-	public function setHeaders(array $headers)
-    {
+	public function setHeaders(array $headers): void {
         $this->headers = $headers;
     }
 	
@@ -122,8 +116,7 @@ class PPHttpConfig
 	 *
 	 * @return void
 	 */
-	public function addHeader($name, $value, true $overWrite = true)
-    {
+	public function addHeader($name, $value, true $overWrite = true): void {
         if (!array_key_exists($name, $this->headers) || $overWrite) {
             $this->headers[$name] = $value;
         } else {
@@ -136,16 +129,14 @@ class PPHttpConfig
 	 *
 	 * @return void
 	 */
-	public function removeHeader($name)
-    {
+	public function removeHeader($name): void {
         unset($this->headers[$name]);
     }
 	
 	/**
 	 * @return array|int[]
 	 */
-	public function getCurlOptions()
-    {
+	public function getCurlOptions(): array {
         return $this->curlOptions;
     }
 	
@@ -155,8 +146,7 @@ class PPHttpConfig
 	 *
 	 * @return void
 	 */
-	public function addCurlOption($name, $value)
-    {
+	public function addCurlOption($name, $value): void {
         $this->curlOptions[$name] = $value;
     }
 
@@ -165,8 +155,7 @@ class PPHttpConfig
      *
      * @param $name
      */
-    public function removeCurlOption($name)
-    {
+    public function removeCurlOption($name): void {
         unset($this->curlOptions[$name]);
     }
 	
@@ -175,8 +164,7 @@ class PPHttpConfig
 	 *
 	 * @return void
 	 */
-	public function setCurlOptions($options)
-    {
+	public function setCurlOptions($options): void {
         $this->curlOptions = $options;
     }
 
@@ -185,8 +173,7 @@ class PPHttpConfig
      *
      * @param string $certPath - path to client certificate file (PEM formatted file)
      */
-    public function setSSLCert(string $certPath, $passPhrase = null)
-    {
+    public function setSSLCert(string $certPath, $passPhrase = null): void {
         $this->curlOptions[CURLOPT_SSLCERT] = realpath($certPath);
         if (isset($passPhrase) && trim($passPhrase) != "") {
             $this->curlOptions[CURLOPT_SSLCERTPASSWD] = $passPhrase;
@@ -198,8 +185,7 @@ class PPHttpConfig
      *
      * @param int $timeout
      */
-    public function setHttpConnectionTimeout(int $timeout)
-    {
+    public function setHttpConnectionTimeout(int $timeout): void {
         $this->curlOptions[CURLOPT_CONNECTTIMEOUT] = $timeout;
     }
 
@@ -208,8 +194,7 @@ class PPHttpConfig
      *
      * @param int $timeout
      */
-    public function setHttpTimeout(int $timeout)
-    {
+    public function setHttpTimeout(int $timeout): void {
         $this->curlOptions[CURLOPT_TIMEOUT] = $timeout;
     }
 
@@ -220,8 +205,7 @@ class PPHttpConfig
      *
      * @throws PPConfigurationException
      */
-    public function setHttpProxy(string $proxy)
-    {
+    public function setHttpProxy(string $proxy): void {
         $urlParts = parse_url($proxy);
         if (!$urlParts || !array_key_exists("host", $urlParts)) {
             throw new PPConfigurationException("Invalid proxy configuration " . $proxy);
@@ -239,16 +223,14 @@ class PPHttpConfig
 	/**
 	 * @param $retryCount
 	 */
-    public function setHttpRetryCount($retryCount)
-    {
+    public function setHttpRetryCount($retryCount): void {
         $this->retryCount = $retryCount;
     }
 	
 	/**
 	 * @return mixed
 	 */
-	public function getHttpRetryCount()
-    {
+	public function getHttpRetryCount(): mixed {
         return $this->retryCount;
     }
 
@@ -257,8 +239,7 @@ class PPHttpConfig
      *
      * @param string $userAgentString
      */
-    public function setUserAgent(string $userAgentString)
-    {
+    public function setUserAgent(string $userAgentString): void {
         $this->curlOptions[CURLOPT_USERAGENT] = $userAgentString;
     }
 
@@ -270,8 +251,7 @@ class PPHttpConfig
      *
      * @return array
      */
-    public function getHttpConstantsFromConfigs(array $configs = array(), $prefix)
-    {
+    public function getHttpConstantsFromConfigs(array $configs = array(), $prefix): array {
         $arr = array();
         if ($prefix != null && is_array($configs)) {
             foreach ($configs as $k => $v) {

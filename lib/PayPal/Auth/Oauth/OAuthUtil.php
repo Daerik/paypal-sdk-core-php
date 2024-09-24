@@ -8,8 +8,7 @@ class OAuthUtil
 	 *
 	 * @return array|string|string[]
 	 */
-	public static function urlencode_rfc3986($input)
-    {
+	public static function urlencode_rfc3986($input): array|string {
         if (is_array($input)) {
             return array_map(array('PayPal\Auth\Oauth\OAuthUtil', 'urlencode_rfc3986'), $input);
         } elseif (is_scalar($input)) {
@@ -33,8 +32,7 @@ class OAuthUtil
 	 *
 	 * @return array
 	 */
-	public static function parseQueryString($str)
-    {
+	public static function parseQueryString($str): array {
         $op    = array();
         $pairs = explode("&", $str);
         foreach ($pairs as $pair) {
@@ -53,8 +51,7 @@ class OAuthUtil
 	 *
 	 * @return string
 	 */
-	public static function urldecode_rfc3986($string)
-    {
+	public static function urldecode_rfc3986($string): string {
         return urldecode($string);
     }
 
@@ -69,8 +66,7 @@ class OAuthUtil
 	 *
 	 * @return array
 	 */
-	public static function split_header($header, true $only_allow_oauth_parameters = true)
-    {
+	public static function split_header($header, true $only_allow_oauth_parameters = true): array {
         $params = array();
         if (preg_match_all('/(' . ($only_allow_oauth_parameters ? 'oauth_' : '') . '[a-z_-]*)=(:?"([^"]*)"|([^,]*))/',
           $header, $matches)) {
@@ -89,8 +85,7 @@ class OAuthUtil
 	/**
 	 * @return array
 	 */
-	public static function get_headers()
-    {
+	public static function get_headers(): array {
         if (function_exists('apache_request_headers')) {
             // we need this to get the actual Authorization: header
             // because apache tends to tell us it doesn't exist
@@ -145,8 +140,7 @@ class OAuthUtil
 	 *
 	 * @return array
 	 */
-	public static function parse_parameters($input)
-    {
+	public static function parse_parameters($input): array {
         if (!isset($input) || !$input) {
             return array();
         }
@@ -182,8 +176,7 @@ class OAuthUtil
 	 *
 	 * @return string
 	 */
-	public static function build_http_query($params)
-    {
+	public static function build_http_query($params): string {
         if (!$params) {
             return '';
         }

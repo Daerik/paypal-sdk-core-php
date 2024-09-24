@@ -18,24 +18,21 @@ class PPBaseService
 	/**
 	 * @return mixed
 	 */
-	public function getLastRequest()
-    {
+	public function getLastRequest(): mixed {
         return $this->lastRequest;
     }
 	
 	/**
 	 * @return mixed
 	 */
-	public function getLastResponse()
-    {
+	public function getLastResponse(): mixed {
         return $this->lastResponse;
     }
 	
 	/**
 	 * @return mixed
 	 */
-	public function getServiceName()
-    {
+	public function getServiceName(): mixed {
         return $this->serviceName;
     }
 	
@@ -64,8 +61,7 @@ class PPBaseService
 	 * @return mixed
 	 * @throws PPConnectionException
 	 */
-    public function call($port, string $method, object $requestObject, apiContext $apiContext, array $handlers = array())
-    {
+    public function call($port, string $method, object $requestObject, apiContext $apiContext, array $handlers = array()): mixed {
 
         if (!is_array($handlers)) {
             $handlers = array();

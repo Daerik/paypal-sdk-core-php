@@ -16,8 +16,7 @@ class PPConnectionManager
 	/**
 	 * @return PPConnectionManager
 	 */
-	public static function getInstance()
-    {
+	public static function getInstance(): PPConnectionManager {
         if (self::$instance == null) {
             self::$instance = new PPConnectionManager();
         }
@@ -27,8 +26,7 @@ class PPConnectionManager
     /**
      * This function returns a new PPHttpConnection object
      */
-    public function getConnection($httpConfig, $config)
-    {
+    public function getConnection($httpConfig, $config): PPHttpConnection {
         if (isset($config["http.ConnectionTimeOut"])) {
             $httpConfig->setHttpConnectionTimeout($config["http.ConnectionTimeOut"]);
         }

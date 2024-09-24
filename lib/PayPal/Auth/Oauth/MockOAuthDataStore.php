@@ -20,7 +20,7 @@ class MockOAuthDataStore
 	 *
 	 * @return null|OAuthConsumer
 	 */
-	public function lookup_consumer($consumer_key) {/*{{{*/
+	public function lookup_consumer($consumer_key): ?OAuthConsumer {/*{{{*/
 		if($consumer_key == $this->consumer->key) {
 			return $this->consumer;
 		}
@@ -52,7 +52,7 @@ class MockOAuthDataStore
 	 *
 	 * @return null|string
 	 */
-	public function lookup_nonce($consumer, $token, $nonce, $timestamp) {/*{{{*/
+	public function lookup_nonce($consumer, $token, $nonce, $timestamp): ?string {/*{{{*/
 		if($consumer->key == $this->consumer->key
 		   && (($token && $token->key == $this->request_token->key)
 		       || ($token && $token->key == $this->access_token->key))
@@ -69,7 +69,7 @@ class MockOAuthDataStore
 	 *
 	 * @return null|OAuthToken
 	 */
-	public function new_request_token($consumer, $callback = NULL) {/*{{{*/
+	public function new_request_token($consumer, $callback = NULL): ?OAuthToken {/*{{{*/
 		if($consumer->key == $this->consumer->key) {
 			return $this->request_token;
 		}
@@ -83,7 +83,7 @@ class MockOAuthDataStore
 	 *
 	 * @return null|OAuthToken
 	 */
-	public function new_access_token($token, $consumer, $verifier = NULL) {/*{{{*/
+	public function new_access_token($token, $consumer, $verifier = NULL): ?OAuthToken {/*{{{*/
 		if($consumer->key == $this->consumer->key
 		   && $token->key == $this->request_token->key
 		) {

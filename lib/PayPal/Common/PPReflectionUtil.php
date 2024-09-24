@@ -24,8 +24,7 @@ class PPReflectionUtil
 	 * @return mixed|string
 	 * @throws \ReflectionException
 	 */
-    public static function getPropertyClass(string $class, string $propertyName)
-    {
+    public static function getPropertyClass(string $class, string $propertyName): mixed {
 
         if (($annotations = self::propertyAnnotations($class, $propertyName)) && isset($annotations['return'])) {
             // 			if (substr($annotations['param'], -2) === '[]') {
@@ -49,8 +48,7 @@ class PPReflectionUtil
 	 * @return string
 	 * @throws \ReflectionException
 	 */
-    public static function propertyAnnotations(string $class, string $propertyName)
-    {
+    public static function propertyAnnotations(string $class, string $propertyName): ?string {
         $class = is_object($class) ? get_class($class) : $class;
         if (!class_exists('ReflectionProperty')) {
             throw new RuntimeException("Property type of " . $class . "::$propertyName cannot be resolved");
@@ -84,8 +82,7 @@ class PPReflectionUtil
     /**
      * preg_replace_callback callback function
      */
-    private static function replace_callback($match)
-    {
+    private static function replace_callback($match): string {
         return ucwords($match[2]);
     }
 }

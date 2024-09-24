@@ -35,8 +35,7 @@ class PPGenericServiceHandler
 	 *
 	 * @return void
 	 */
-	public function handle(PPHttpConfig $httpConfig, PPRequest $request, $options)
-    {
+	public function handle(PPHttpConfig $httpConfig, PPRequest $request, $options): void {
         $httpConfig->addHeader('X-PAYPAL-REQUEST-DATA-FORMAT', $request->getBindingType());
         $httpConfig->addHeader('X-PAYPAL-RESPONSE-DATA-FORMAT', $request->getBindingType());
         $httpConfig->addHeader('X-PAYPAL-DEVICE-IPADDRESS', PPUtils::getLocalIPAddress());
@@ -53,8 +52,7 @@ class PPGenericServiceHandler
      * Compute the value that needs to sent for the PAYPAL_REQUEST_SOURCE
      * parameter when making API calls
      */
-    private function getRequestSource()
-    {
+    private function getRequestSource(): string {
         return str_replace(" ", "-", $this->sdkName) . "-" . $this->sdkVersion;
     }
 }

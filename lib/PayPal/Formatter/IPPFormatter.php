@@ -28,5 +28,5 @@ interface IPPFormatter
 	 *
 	 * @return mixed
 	 */
-	public function toObject($string, array $options = array());
+	public function toObject($string, array $options = array()): mixed;
 }

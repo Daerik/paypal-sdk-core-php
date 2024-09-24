@@ -28,7 +28,7 @@ class OAuthRequest {
 	/**
 	 * attempt to build up a request from what was passed to the server
 	 */
-	public static function from_request($http_method = NULL, $http_url = NULL, $parameters = NULL) {
+	public static function from_request($http_method = NULL, $http_url = NULL, $parameters = NULL): OAuthRequest {
 		$scheme      = (!isset($_SERVER['HTTPS']) || $_SERVER['HTTPS'] != "on")
 			? 'http'
 			: 'https';
@@ -80,7 +80,7 @@ class OAuthRequest {
 	/**
 	 * pretty much a helper function to set up the request
 	 */
-	public static function from_consumer_and_token($consumer, $token, $http_method, $http_url, $parameters = NULL) {
+	public static function from_consumer_and_token($consumer, $token, $http_method, $http_url, $parameters = NULL): OAuthRequest {
 		$parameters = ($parameters) ?: array();
 		$defaults   = array(
 			"oauth_version"   => OAuthRequest::$version,
@@ -105,7 +105,7 @@ class OAuthRequest {
 	 *
 	 * @return void
 	 */
-	public function set_parameter($name, $value, true $allow_duplicates = TRUE) {
+	public function set_parameter($name, $value, true $allow_duplicates = TRUE): void {
 		if($allow_duplicates && isset($this->parameters[$name])) {
 			// We have already added parameter(s) with this name, so add to the list
 			if(is_scalar($this->parameters[$name])) {
@@ -125,14 +125,14 @@ class OAuthRequest {
 	 *
 	 * @return null|mixed
 	 */
-	public function get_parameter($name) {
+	public function get_parameter($name): mixed {
 		return $this->parameters[$name] ?? NULL;
 	}
 	
 	/**
 	 * @return array
 	 */
-	public function get_parameters() {
+	public function get_parameters(): array {
 		return $this->parameters;
 	}
 	
@@ -141,7 +141,7 @@ class OAuthRequest {
 	 *
 	 * @return void
 	 */
-	public function unset_parameter($name) {
+	public function unset_parameter($name): void {
 		unset($this->parameters[$name]);
 	}
 	
@@ -150,7 +150,7 @@ class OAuthRequest {
 	 *
 	 * @return string
 	 */
-	public function get_signable_parameters() {
+	public function get_signable_parameters(): string {
 		// Grab all parameters
 		$params = $this->parameters;
 		ksort($params);
@@ -174,7 +174,7 @@ class OAuthRequest {
 	 * and the parameters (normalized), each urlencoded
 	 * and the concated with &.
 	 */
-	public function get_signature_base_string() {
+	public function get_signature_base_string(): string {
 		$parts = array(
 			$this->get_normalized_http_method(),
 			$this->get_normalized_http_url(),
@@ -189,7 +189,7 @@ class OAuthRequest {
 	/**
 	 * just uppercases the http method
 	 */
-	public function get_normalized_http_method() {
+	public function get_normalized_http_method(): string {
 		return strtoupper($this->http_method);
 	}
 	
@@ -197,7 +197,7 @@ class OAuthRequest {
 	 * parses the url and rebuilds it to be
 	 * scheme://host/path
 	 */
-	public function get_normalized_http_url() {
+	public function get_normalized_http_url(): string {
 		$parts = parse_url($this->http_url);
 		
 		$scheme = (isset($parts['scheme'])) ? $parts['scheme'] : 'http';
@@ -216,7 +216,7 @@ class OAuthRequest {
 	/**
 	 * builds a url usable for a GET request
 	 */
-	public function to_url() {
+	public function to_url(): string {
 		$post_data = $this->to_postdata();
 		$out       = $this->get_normalized_http_url();
 		if($post_data) {
@@ -228,14 +228,14 @@ class OAuthRequest {
 	/**
 	 * builds the data one would send in a POST request
 	 */
-	public function to_postdata() {
+	public function to_postdata(): string {
 		return OAuthUtil::build_http_query($this->parameters);
 	}
 	
 	/**
 	 * builds the Authorization: header
 	 */
-	public function to_header($realm = NULL) {
+	public function to_header($realm = NULL): string {
 		$first = TRUE;
 		if($realm) {
 			$out   = 'Authorization: OAuth realm="' . OAuthUtil::urlencode_rfc3986($realm) . '"';
@@ -272,7 +272,7 @@ class OAuthRequest {
 	/**
 	 * @throws OAuthException
 	 */
-	public function sign_request($signature_method, $consumer, $token) {
+	public function sign_request($signature_method, $consumer, $token): void {
 		
 		$empty = FALSE;
 		$msg   = array();
@@ -317,21 +317,21 @@ class OAuthRequest {
 	 *
 	 * @return mixed
 	 */
-	public function build_signature($signature_method, $consumer, $token) {
+	public function build_signature($signature_method, $consumer, $token): mixed {
 		return $signature_method->build_signature($this, $consumer, $token);
 	}
 	
 	/**
 	 * util function: current timestamp
 	 */
-	private static function generate_timestamp() {
+	private static function generate_timestamp(): int {
 		return time();
 	}
 	
 	/**
 	 * util function: current nonce
 	 */
-	private static function generate_nonce() {
+	private static function generate_nonce(): string {
 		$mt   = microtime();
 		$rand = mt_rand();
 		

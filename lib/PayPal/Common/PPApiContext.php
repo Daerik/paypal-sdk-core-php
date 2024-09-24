@@ -29,8 +29,7 @@ class PPApiContext
      *
      * @param array associative array of HTTP headers to attach to request
      */
-    public function setHttpHeaders(array $httpHeaders)
-    {
+    public function setHttpHeaders(array $httpHeaders): static {
         $this->httpHeaders = $httpHeaders;
         return $this;
     }
@@ -39,8 +38,7 @@ class PPApiContext
      *
      * @return array
      */
-    public function getHttpHeaders()
-    {
+    public function getHttpHeaders(): array {
         return $this->httpHeaders;
     }
 
@@ -50,8 +48,7 @@ class PPApiContext
      * @param string $value header value
      * @param bool   $force if true (default), existing value is overwritten
      */
-    public function addHttpHeader(string $name, string $value, bool $force = true)
-    {
+    public function addHttpHeader(string $name, string $value, bool $force = true): static {
         if (!$force && array_key_exists($name, $this->httpHeaders)) {
             return $this;
         }
@@ -63,8 +60,7 @@ class PPApiContext
      *
      * @param PPXmlMessage $SOAPHeader object to attach to SOAP header
      */
-    public function setSOAPHeader(PPXmlMessage $SOAPHeader)
-    {
+    public function setSOAPHeader(PPXmlMessage $SOAPHeader): static {
         $this->SOAPHeader = $SOAPHeader;
         return $this;
     }
@@ -73,8 +69,7 @@ class PPApiContext
      *
      * @return PPXmlMessage
      */
-    public function getSOAPHeader()
-    {
+    public function getSOAPHeader(): PPXmlMessage {
         return $this->SOAPHeader;
     }
 
@@ -82,8 +77,7 @@ class PPApiContext
      *
      * @param array $config SDK configuration parameters
      */
-    public function setConfig(array $config)
-    {
+    public function setConfig(array $config): static {
         $this->config = PPConfigManager::getConfigWithDefaults($config);
         return $this;
     }
@@ -92,8 +86,7 @@ class PPApiContext
      *
      * @return array
      */
-    public function getConfig()
-    {
+    public function getConfig(): array {
         return $this->config;
     }
 	
@@ -102,8 +95,7 @@ class PPApiContext
 	 *
 	 * @return array|false|mixed|string
 	 */
-	public function get($searchKey)
-    {
+	public function get($searchKey): mixed {
         if (!isset($this->config)) {
             return PPConfigManager::getInstance()->get($searchKey);
         } elseif (array_key_exists($searchKey, $this->getConfig())) {

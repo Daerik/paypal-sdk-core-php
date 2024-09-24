@@ -38,8 +38,7 @@ class PPHttpConnection
 	/**
 	 * @return array
 	 */
-	private function getHttpHeaders()
-    {
+	private function getHttpHeaders(): array {
 
         $ret = array();
         foreach ($this->httpConfig->getHeaders() as $k => $v) {
@@ -55,8 +54,7 @@ class PPHttpConnection
      *
      * @throws PPConnectionException
      */
-    public function execute(string $data)
-    {
+    public function execute(string $data): bool|string {
         $this->logger->fine("Connecting to " . $this->httpConfig->getUrl());
         $this->logger->fine("Payload " . $data);
 

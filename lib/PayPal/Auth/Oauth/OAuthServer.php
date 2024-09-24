@@ -20,7 +20,7 @@ class OAuthServer {
 	 *
 	 * @return void
 	 */
-	public function add_signature_method($signature_method) {
+	public function add_signature_method($signature_method): void {
 		$this->signature_methods[$signature_method->get_name()] =
 			$signature_method;
 	}
@@ -68,7 +68,7 @@ class OAuthServer {
 	/**
 	 * verify an api call, checks all the parameters
 	 */
-	public function verify_request($request) {
+	public function verify_request($request): array {
 		$this->get_version($request);
 		$consumer = $this->get_consumer($request);
 		$token    = $this->get_token($request, $consumer);
@@ -81,7 +81,7 @@ class OAuthServer {
 	/**
 	 * version 1
 	 */
-	private function get_version($request) {
+	private function get_version($request): void {
 		$version = $request->get_parameter("oauth_version");
 		if(!$version) {
 			// Service Providers MUST assume the protocol version to be 1.0 if this parameter is not present.
@@ -160,7 +160,7 @@ class OAuthServer {
 	 * all-in-one function to check the signature on a request
 	 * should guess the signature method appropriately
 	 */
-	private function check_signature($request, $consumer, $token) {
+	private function check_signature($request, $consumer, $token): void {
 		// this should probably be in a different method
 		$timestamp = $request instanceof OAuthRequest
 			? $request->get_parameter('oauth_timestamp')
@@ -190,7 +190,7 @@ class OAuthServer {
 	/**
 	 * check that the timestamp is new enough
 	 */
-	private function check_timestamp($timestamp) {
+	private function check_timestamp($timestamp): void {
 		if(!$timestamp) {
 			throw new OAuthException(
 				'Missing timestamp parameter. The parameter is required'
@@ -209,7 +209,7 @@ class OAuthServer {
 	/**
 	 * check that the nonce is not repeated
 	 */
-	private function check_nonce($consumer, $token, $nonce, $timestamp) {
+	private function check_nonce($consumer, $token, $nonce, $timestamp): void {
 		if(!$nonce) {
 			throw new OAuthException(
 				'Missing nonce parameter. The parameter is required'

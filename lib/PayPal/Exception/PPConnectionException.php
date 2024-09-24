@@ -33,24 +33,21 @@ class PPConnectionException
 	 *
 	 * @return void
 	 */
-	public function setData($data)
-    {
+	public function setData($data): void {
         $this->data = $data;
     }
 	
 	/**
 	 * @return string
 	 */
-	public function getData()
-    {
+	public function getData(): string {
         return $this->data;
     }
 	
 	/**
 	 * @return string
 	 */
-	public function getUrl()
-    {
+	public function getUrl(): string {
         return $this->url;
     }
 }

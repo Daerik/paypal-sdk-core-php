@@ -24,8 +24,7 @@ class GenericSoapHandler
 	 *
 	 * @return void
 	 */
-	public function handle(PPHttpConfig $httpConfig, PPRequest $request, $options)
-    {
+	public function handle(PPHttpConfig $httpConfig, PPRequest $request, $options): void {
 
         if (isset($options['apiContext'])) {
             if ($options['apiContext']->getHttpHeaders() != null) {

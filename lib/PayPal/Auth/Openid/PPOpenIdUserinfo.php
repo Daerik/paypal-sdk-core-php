@@ -20,8 +20,7 @@ class PPOpenIdUserinfo
      *
      * @param string $user_id
      */
-    public function setUserId(string $user_id)
-    {
+    public function setUserId(string $user_id): static {
         $this->user_id = $user_id;
         return $this;
     }
@@ -30,8 +29,7 @@ class PPOpenIdUserinfo
      * Subject - Identifier for the End-User at the Issuer.
      * @return string
      */
-    public function getUserId()
-    {
+    public function getUserId(): string {
         return $this->user_id;
     }
 
@@ -40,8 +38,7 @@ class PPOpenIdUserinfo
      *
      * @param string $sub
      */
-    public function setSub(string $sub)
-    {
+    public function setSub(string $sub): static {
         $this->sub = $sub;
         return $this;
     }
@@ -50,8 +47,7 @@ class PPOpenIdUserinfo
      * Subject - Identifier for the End-User at the Issuer.
      * @return string
      */
-    public function getSub()
-    {
+    public function getSub(): string {
         return $this->sub;
     }
 
@@ -60,8 +56,7 @@ class PPOpenIdUserinfo
      *
      * @param string $name
      */
-    public function setName(string $name)
-    {
+    public function setName(string $name): static {
         $this->name = $name;
         return $this;
     }
@@ -70,8 +65,7 @@ class PPOpenIdUserinfo
      * End-User's full name in displayable form including all name parts, possibly including titles and suffixes, ordered according to the End-User's locale and preferences.
      * @return string
      */
-    public function getName()
-    {
+    public function getName(): string {
         return $this->name;
     }
 
@@ -80,8 +74,7 @@ class PPOpenIdUserinfo
      *
      * @param string $given_name
      */
-    public function setGivenName(string $given_name)
-    {
+    public function setGivenName(string $given_name): static {
         $this->given_name = $given_name;
         return $this;
     }
@@ -90,8 +83,7 @@ class PPOpenIdUserinfo
      * Given name(s) or first name(s) of the End-User
      * @return string
      */
-    public function getGivenName()
-    {
+    public function getGivenName(): string {
         return $this->given_name;
     }
 
@@ -100,8 +92,7 @@ class PPOpenIdUserinfo
      *
      * @param string $family_name
      */
-    public function setFamilyName(string $family_name)
-    {
+    public function setFamilyName(string $family_name): static {
         $this->family_name = $family_name;
         return $this;
     }
@@ -110,8 +101,7 @@ class PPOpenIdUserinfo
      * Surname(s) or last name(s) of the End-User.
      * @return string
      */
-    public function getFamilyName()
-    {
+    public function getFamilyName(): string {
         return $this->family_name;
     }
 
@@ -120,8 +110,7 @@ class PPOpenIdUserinfo
      *
      * @param string $middle_name
      */
-    public function setMiddleName(string $middle_name)
-    {
+    public function setMiddleName(string $middle_name): static {
         $this->middle_name = $middle_name;
         return $this;
     }
@@ -130,8 +119,7 @@ class PPOpenIdUserinfo
      * Middle name(s) of the End-User.
      * @return string
      */
-    public function getMiddleName()
-    {
+    public function getMiddleName(): string {
         return $this->middle_name;
     }
 
@@ -140,8 +128,7 @@ class PPOpenIdUserinfo
      *
      * @param string $picture
      */
-    public function setPicture(string $picture)
-    {
+    public function setPicture(string $picture): static {
         $this->picture = $picture;
         return $this;
     }
@@ -150,8 +137,7 @@ class PPOpenIdUserinfo
      * URL of the End-User's profile picture.
      * @return string
      */
-    public function getPicture()
-    {
+    public function getPicture(): string {
         return $this->picture;
     }
 
@@ -160,8 +146,7 @@ class PPOpenIdUserinfo
      *
      * @param string $email
      */
-    public function setEmail(string $email)
-    {
+    public function setEmail(string $email): static {
         $this->email = $email;
         return $this;
     }
@@ -170,8 +155,7 @@ class PPOpenIdUserinfo
      * End-User's preferred e-mail address.
      * @return string
      */
-    public function getEmail()
-    {
+    public function getEmail(): string {
         return $this->email;
     }
 
@@ -180,8 +164,7 @@ class PPOpenIdUserinfo
      *
      * @param bool $email_verified
      */
-    public function setEmailVerified(bool $email_verified)
-    {
+    public function setEmailVerified(bool $email_verified): static {
         $this->email_verified = $email_verified;
         return $this;
     }
@@ -190,8 +173,7 @@ class PPOpenIdUserinfo
      * True if the End-User's e-mail address has been verified; otherwise false.
      * @return bool
      */
-    public function getEmailVerified()
-    {
+    public function getEmailVerified(): bool {
         return $this->email_verified;
     }
 
@@ -200,8 +182,7 @@ class PPOpenIdUserinfo
      *
      * @param string $gender
      */
-    public function setGender(string $gender)
-    {
+    public function setGender(string $gender): static {
         $this->gender = $gender;
         return $this;
     }
@@ -210,8 +191,7 @@ class PPOpenIdUserinfo
      * End-User's gender.
      * @return string
      */
-    public function getGender()
-    {
+    public function getGender(): string {
         return $this->gender;
     }
 
@@ -220,8 +200,7 @@ class PPOpenIdUserinfo
      *
      * @param string $birthday
      */
-    public function setBirthday(string $birthday)
-    {
+    public function setBirthday(string $birthday): static {
         $this->birthday = $birthday;
         return $this;
     }
@@ -230,8 +209,7 @@ class PPOpenIdUserinfo
      * End-User's birthday, represented as an YYYY-MM-DD format. They year MAY be 0000, indicating it is omited. To represent only the year, YYYY format would be used.
      * @return string
      */
-    public function getBirthday()
-    {
+    public function getBirthday(): string {
         return $this->birthday;
     }
 
@@ -240,8 +218,7 @@ class PPOpenIdUserinfo
      *
      * @param string $zoneinfo
      */
-    public function setZoneinfo(string $zoneinfo)
-    {
+    public function setZoneinfo(string $zoneinfo): static {
         $this->zoneinfo = $zoneinfo;
         return $this;
     }
@@ -250,8 +227,7 @@ class PPOpenIdUserinfo
      * Time zone database representing the End-User's time zone
      * @return string
      */
-    public function getZoneinfo()
-    {
+    public function getZoneinfo(): string {
         return $this->zoneinfo;
     }
 
@@ -260,8 +236,7 @@ class PPOpenIdUserinfo
      *
      * @param string $locale
      */
-    public function setLocale(string $locale)
-    {
+    public function setLocale(string $locale): static {
         $this->locale = $locale;
         return $this;
     }
@@ -270,8 +245,7 @@ class PPOpenIdUserinfo
      * End-User's locale.
      * @return string
      */
-    public function getLocale()
-    {
+    public function getLocale(): string {
         return $this->locale;
     }
 
@@ -280,8 +254,7 @@ class PPOpenIdUserinfo
      *
      * @param string $language
      */
-    public function setLanguage(string $language)
-    {
+    public function setLanguage(string $language): static {
         $this->language = $language;
         return $this;
     }
@@ -290,8 +263,7 @@ class PPOpenIdUserinfo
      * End-User's language.
      * @return string
      */
-    public function getLanguage()
-    {
+    public function getLanguage(): string {
         return $this->language;
     }
 
@@ -300,8 +272,7 @@ class PPOpenIdUserinfo
      *
      * @param bool $verified
      */
-    public function setVerified(bool $verified)
-    {
+    public function setVerified(bool $verified): static {
         $this->verified = $verified;
         return $this;
     }
@@ -310,8 +281,7 @@ class PPOpenIdUserinfo
      * End-User's verified status.
      * @return bool
      */
-    public function getVerified()
-    {
+    public function getVerified(): bool {
         return $this->verified;
     }
 
@@ -320,8 +290,7 @@ class PPOpenIdUserinfo
      *
      * @param string $phone_number
      */
-    public function setPhoneNumber(string $phone_number)
-    {
+    public function setPhoneNumber(string $phone_number): static {
         $this->phone_number = $phone_number;
         return $this;
     }
@@ -330,8 +299,7 @@ class PPOpenIdUserinfo
      * End-User's preferred telephone number.
      * @return string
      */
-    public function getPhoneNumber()
-    {
+    public function getPhoneNumber(): string {
         return $this->phone_number;
     }
 
@@ -340,8 +308,7 @@ class PPOpenIdUserinfo
      *
      * @param PPOpenIdAddress $address
      */
-    public function setAddress(PPOpenIdAddress $address)
-    {
+    public function setAddress(PPOpenIdAddress $address): static {
         $this->address = $address;
         return $this;
     }
@@ -351,8 +318,7 @@ class PPOpenIdUserinfo
      *
      * @return PPOpenIdAddress
      */
-    public function getAddress()
-    {
+    public function getAddress(): PPOpenIdAddress {
         return $this->address;
     }
 
@@ -361,8 +327,7 @@ class PPOpenIdUserinfo
      *
      * @param bool $verified_account
      */
-    public function setVerifiedAccount(bool $verified_account)
-    {
+    public function setVerifiedAccount(bool $verified_account): static {
         $this->verified_account = $verified_account;
         return $this;
     }
@@ -371,8 +336,7 @@ class PPOpenIdUserinfo
      * Verified account status.
      * @return bool
      */
-    public function getVerifiedAccount()
-    {
+    public function getVerifiedAccount(): bool {
         return $this->verified_account;
     }
 
@@ -381,8 +345,7 @@ class PPOpenIdUserinfo
      *
      * @param string $account_type
      */
-    public function setAccountType(string $account_type)
-    {
+    public function setAccountType(string $account_type): static {
         $this->account_type = $account_type;
         return $this;
     }
@@ -391,8 +354,7 @@ class PPOpenIdUserinfo
      * Account type.
      * @return string
      */
-    public function getAccountType()
-    {
+    public function getAccountType(): string {
         return $this->account_type;
     }
 
@@ -401,8 +363,7 @@ class PPOpenIdUserinfo
      *
      * @param string $age_range
      */
-    public function setAgeRange(string $age_range)
-    {
+    public function setAgeRange(string $age_range): static {
         $this->age_range = $age_range;
         return $this;
     }
@@ -411,8 +372,7 @@ class PPOpenIdUserinfo
      * Account holder age range.
      * @return string
      */
-    public function getAgeRange()
-    {
+    public function getAgeRange(): string {
         return $this->age_range;
     }
 
@@ -421,8 +381,7 @@ class PPOpenIdUserinfo
      *
      * @param string $payer_id
      */
-    public function setPayerId(string $payer_id)
-    {
+    public function setPayerId(string $payer_id): static {
         $this->payer_id = $payer_id;
         return $this;
     }
@@ -431,8 +390,7 @@ class PPOpenIdUserinfo
      * Account payer identifier.
      * @return string
      */
-    public function getPayerId()
-    {
+    public function getPayerId(): string {
         return $this->payer_id;
     }
 	
@@ -451,8 +409,7 @@ class PPOpenIdUserinfo
 	 * @throws PPConnectionException
 	 * @throws \ReflectionException
 	 */
-    public static function getUserinfo(array $params, $apiContext = null)
-    {
+    public static function getUserinfo(array $params, $apiContext = null): PPOpenIdUserinfo {
         static $allowedParams = array('schema' => 1);
         if (is_null($apiContext)) {
             $apiContext = new PPApiContext();

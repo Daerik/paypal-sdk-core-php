@@ -13,8 +13,7 @@ abstract class PPMessage
 	 * @return string
 	 * @throws \ReflectionException
 	 */
-    public function toNVPString(string $prefix = '')
-    {
+    public function toNVPString(string $prefix = ''): string {
         $nvp = array();
         foreach (get_object_vars($this) as $property => $defaultValue) {
 
@@ -56,8 +55,7 @@ abstract class PPMessage
 	 * @throws \ReflectionException
 	 * @throws \ReflectionException
 	 */
-    public function init(array $map = array(), string $prefix = '')
-    {
+    public function init(array $map = array(), string $prefix = ''): void {
         if (empty($map)) {
             return;
         }
@@ -123,8 +121,7 @@ abstract class PPMessage
 	 *
 	 * @return bool
 	 */
-	private function isBuiltInType($typeName)
-    {
+	private function isBuiltInType($typeName): bool {
         static $types = array(
           'string',
           'int',

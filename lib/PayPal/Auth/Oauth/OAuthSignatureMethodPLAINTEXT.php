@@ -12,8 +12,7 @@ class OAuthSignatureMethodPLAINTEXT
 	/**
 	 * @return string
 	 */
-	public function get_name()
-    {
+	public function get_name(): string {
         return "PLAINTEXT";
     }
 
@@ -26,8 +25,7 @@ class OAuthSignatureMethodPLAINTEXT
      * Please note that the second encoding MUST NOT happen in the SignatureMethod, as
      * OAuthRequest handles this!
      */
-    public function build_signature(OAuthRequest $request, OAuthConsumer $consumer, OAuthToken $token)
-    {
+    public function build_signature(OAuthRequest $request, OAuthConsumer $consumer, OAuthToken $token): string {
         $key_parts = array(
           $consumer->secret,
           ($token) ? $token->secret : ""

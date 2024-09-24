@@ -17,21 +17,19 @@ abstract class IPPCredential
 	 *
 	 * @return void
 	 */
-	public function setThirdPartyAuthorization($thirdPartyAuthorization)
-    {
+	public function setThirdPartyAuthorization($thirdPartyAuthorization): void {
         $this->thirdPartyAuthorization = $thirdPartyAuthorization;
     }
 	
 	/**
 	 * @return IPPThirdPartyAuthorization
 	 */
-	public function getThirdPartyAuthorization()
-    {
+	public function getThirdPartyAuthorization(): IPPThirdPartyAuthorization {
         return $this->thirdPartyAuthorization;
     }
 	
 	/**
 	 * @return mixed
 	 */
-	abstract public function validate();
+	abstract public function validate(): mixed;
 }

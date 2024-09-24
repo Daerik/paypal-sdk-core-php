@@ -11,8 +11,7 @@ class AuthSignature
 	/**
 	 * @throws OAuthException
 	 */
-	public function genSign($key, $secret, $token, $tokenSecret, $httpMethod, $endpoint)
-    {
+	public function genSign($key, $secret, $token, $tokenSecret, $httpMethod, $endpoint): array {
 
         $authServer  = new OAuthServer(new MockOAuthDataStore());
         $hmac_method = new OAuthSignatureMethodHmacSha1();
@@ -43,8 +42,7 @@ class AuthSignature
 	 * @return string
 	 * @throws OAuthException
 	 */
-	public static function generateFullAuthString($key, $secret, $token, $tokenSecret, $httpMethod, $endpoint)
-    {
+	public static function generateFullAuthString($key, $secret, $token, $tokenSecret, $httpMethod, $endpoint): string {
         $authSignature = new AuthSignature();
         $response      = $authSignature->genSign($key, $secret, $token, $tokenSecret, $httpMethod, $endpoint);
         return "token=" . $token .

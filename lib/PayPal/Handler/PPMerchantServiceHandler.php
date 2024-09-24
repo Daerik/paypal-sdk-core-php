@@ -46,8 +46,7 @@ class PPMerchantServiceHandler
 	 * @throws OAuthException
 	 * @throws PPMissingCredentialException
 	 */
-	public function handle(PPHttpConfig $httpConfig, PPRequest $request, $options)
-    {
+	public function handle(PPHttpConfig $httpConfig, PPRequest $request, $options): void {
         parent::handle($httpConfig, $request, $options);
         $config = $options['config'];
 

@@ -66,8 +66,7 @@ class PPIPNMessage
      *
      * @return array
      */
-    public function getRawData()
-    {
+    public function getRawData(): array {
         return $this->ipnData;
     }
 	
@@ -78,8 +77,7 @@ class PPIPNMessage
 	 * @throws PPConfigurationException
 	 * @throws PPConnectionException
 	 */
-    public function validate()
-    {
+    public function validate(): bool {
         if (isset($this->isIpnVerified)) {
             return $this->isIpnVerified;
         } else {
@@ -119,8 +117,7 @@ class PPIPNMessage
      *
      * @return string
      */
-    public function getTransactionId()
-    {
+    public function getTransactionId(): string {
         if (isset($this->ipnData['txn_id'])) {
             return $this->ipnData['txn_id'];
         } elseif (isset($this->ipnData['transaction[0].id'])) {
@@ -140,8 +137,7 @@ class PPIPNMessage
      *
      * @return string
      */
-    public function getTransactionType()
-    {
+    public function getTransactionType(): string {
         // Check if transaction_type present. Otherwise, use txn_type
         if (!isset($this->ipnData['transaction_type'])) {
             return $this->ipnData['txn_type'];

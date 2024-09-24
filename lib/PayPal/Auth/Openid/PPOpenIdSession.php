@@ -26,7 +26,7 @@ class PPOpenIdSession
 	                 $nonce = null,
 	                 $state = null,
 	    PPApiContext $apiContext = null
-    ) {
+    ): string {
 
         if (is_null($apiContext)) {
             $apiContext = new PPApiContext();
@@ -78,8 +78,7 @@ class PPOpenIdSession
      * @param string            $idToken     id_token from the TokenInfo object
      * @param null|PPApiContext $apiContext  Optional API Context
      */
-    public static function getLogoutUrl(string $redirectUri, string $idToken, PPApiContext $apiContext = null)
-    {
+    public static function getLogoutUrl(string $redirectUri, string $idToken, PPApiContext $apiContext = null): string {
 
         if (is_null($apiContext)) {
             $apiContext = new PPApiContext();
@@ -99,8 +98,7 @@ class PPOpenIdSession
 	 *
 	 * @return mixed|string
 	 */
-	private static function getBaseUrl($config)
-    {
+	private static function getBaseUrl($config): mixed {
 
         if (array_key_exists('openid.RedirectUri', $config)) {
             return $config['openid.RedirectUri'];

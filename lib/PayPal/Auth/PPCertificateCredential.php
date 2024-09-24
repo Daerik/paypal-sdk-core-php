@@ -66,8 +66,7 @@ class PPCertificateCredential
 	/**
 	 * @throws PPMissingCredentialException
 	 */
-	public function validate()
-    {
+	public function validate(): void {
 
         if (empty($this->userName)) {
             throw new PPMissingCredentialException("username cannot be empty");
@@ -83,24 +82,21 @@ class PPCertificateCredential
 	/**
 	 * @return string
 	 */
-	public function getUserName()
-    {
+	public function getUserName(): string {
         return $this->userName;
     }
 	
 	/**
 	 * @return string
 	 */
-	public function getPassword()
-    {
+	public function getPassword(): string {
         return $this->password;
     }
 	
 	/**
 	 * @return false|string
 	 */
-	public function getCertificatePath()
-    {
+	public function getCertificatePath(): false|string {
         if (realpath($this->certificatePath)) {
             return realpath($this->certificatePath);
         } elseif (defined('PP_CONFIG_PATH')) {
@@ -113,8 +109,7 @@ class PPCertificateCredential
 	/**
 	 * @return null|string
 	 */
-	public function getCertificatePassPhrase()
-    {
+	public function getCertificatePassPhrase(): ?string {
         return $this->certificatePassPhrase;
     }
 	
@@ -123,16 +118,14 @@ class PPCertificateCredential
 	 *
 	 * @return void
 	 */
-	public function setApplicationId($applicationId)
-    {
+	public function setApplicationId($applicationId): void {
         $this->applicationId = trim($applicationId);
     }
 	
 	/**
 	 * @return string
 	 */
-	public function getApplicationId()
-    {
+	public function getApplicationId(): string {
         return $this->applicationId;
     }
 

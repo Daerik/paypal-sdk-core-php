@@ -39,8 +39,7 @@ class PPAPIService
 	 *
 	 * @return void
 	 */
-	public function setServiceName($serviceName)
-    {
+	public function setServiceName($serviceName): void {
         $this->serviceName = $serviceName;
     }
 
@@ -50,8 +49,7 @@ class PPAPIService
      *
      * @param IPPHandler $handler
      */
-    public function addHandler(IPPHandler $handler)
-    {
+    public function addHandler(IPPHandler $handler): void {
         $this->handlers[] = $handler;
     }
 	
@@ -64,8 +62,7 @@ class PPAPIService
 	 * @return array containing request and response
 	 * @throws PPConnectionException
 	 */
-    public function makeRequest(string $apiMethod, $request)
-    {
+    public function makeRequest(string $apiMethod, $request): array {
 
         $this->apiMethod = $apiMethod;
 
@@ -94,8 +91,7 @@ class PPAPIService
 	 *
 	 * @return void
 	 */
-	private function runHandlers($httpConfig, $request)
-    {
+	private function runHandlers($httpConfig, $request): void {
 
         $options = $this->getOptions();
         foreach ($this->handlers as $handlerClass) {
@@ -106,8 +102,7 @@ class PPAPIService
 	/**
 	 * @return array
 	 */
-	private function getOptions()
-    {
+	private function getOptions(): array {
         return array(
           'port'           => $this->port,
           'serviceName'    => $this->serviceName,

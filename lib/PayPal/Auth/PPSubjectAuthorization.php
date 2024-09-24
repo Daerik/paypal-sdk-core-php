@@ -30,8 +30,7 @@ class PPSubjectAuthorization
 	/**
 	 * @return string
 	 */
-	public function getSubject()
-    {
+	public function getSubject(): string {
         return $this->subject;
     }
 }

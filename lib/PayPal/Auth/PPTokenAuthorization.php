@@ -38,16 +38,14 @@ class PPTokenAuthorization
 	/**
 	 * @return string
 	 */
-	public function getAccessToken()
-    {
+	public function getAccessToken(): string {
         return $this->accessToken;
     }
 	
 	/**
 	 * @return string
 	 */
-	public function getTokenSecret()
-    {
+	public function getTokenSecret(): string {
         return $this->tokenSecret;
     }
 }

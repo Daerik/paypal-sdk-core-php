@@ -9,8 +9,7 @@ class FormatterFactory
 	 *
 	 * @return PPNVPFormatter|PPSOAPFormatter
 	 */
-	public static function factory($bindingType)
-    {
+	public static function factory($bindingType): PPNVPFormatter|PPSOAPFormatter {
 	    return match ($bindingType) {
 		    'NV'    => new PPNVPFormatter(),
 		    'SOAP'  => new PPSOAPFormatter(),

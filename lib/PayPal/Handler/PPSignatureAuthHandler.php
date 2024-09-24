@@ -22,8 +22,7 @@ class PPSignatureAuthHandler
 	 *
 	 * @return void
 	 */
-	public function handle(PPHttpConfig $httpConfig, PPRequest $request, $options)
-    {
+	public function handle(PPHttpConfig $httpConfig, PPRequest $request, $options): void {
 
         $credential = $request->getCredential();
         if (!isset($credential)) {

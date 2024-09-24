@@ -38,8 +38,7 @@ class PPRestCall
 	 * @throws PPConfigurationException
 	 * @throws PPConnectionException
 	 */
-    public function execute(array $handlers, string $path, string $method, string $data = '', array $headers = array())
-    {
+    public function execute(array $handlers, string $path, string $method, string $data = '', array $headers = array()): bool|string {
 
         $config     = $this->apiContext->getConfig();
         $httpConfig = new PPHttpConfig(null, $method);

@@ -57,8 +57,7 @@ class PPModel
 	 *
 	 * @return array
 	 */
-	private function _convertToArray($param)
-    {
+	private function _convertToArray($param): array {
         $ret = array();
         foreach ($param as $k => $v) {
             if ($v instanceof PPModel) {
@@ -79,8 +78,7 @@ class PPModel
 	 * @throws \ReflectionException
 	 * @throws \ReflectionException
 	 */
-	public function fromArray($arr)
-    {
+	public function fromArray($arr): void {
 
         foreach ($arr as $k => $v) {
             if (is_array($v)) {
@@ -116,24 +114,21 @@ class PPModel
 	 * @throws \ReflectionException
 	 * @throws \ReflectionException
 	 */
-	public function fromJson($json)
-    {
+	public function fromJson($json): void {
         $this->fromArray(json_decode($json, true));
     }
 	
 	/**
 	 * @return array
 	 */
-	public function toArray()
-    {
+	public function toArray(): array {
         return $this->_convertToArray($this->_propMap);
     }
 	
 	/**
 	 * @return false|string
 	 */
-	public function toJSON()
-    {
+	public function toJSON(): false|string {
         return json_encode($this->toArray());
     }
 }

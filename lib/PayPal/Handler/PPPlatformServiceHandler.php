@@ -44,8 +44,7 @@ class PPPlatformServiceHandler
 	 * @throws PPMissingCredentialException
 	 * @throws OAuthException
 	 */
-	public function handle(PPHttpConfig $httpConfig, PPRequest $request, $options)
-    {
+	public function handle(PPHttpConfig $httpConfig, PPRequest $request, $options): void {
 
         parent::handle($httpConfig, $request, $options);
 

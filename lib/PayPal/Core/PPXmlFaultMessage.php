@@ -18,8 +18,7 @@ abstract class PPXmlFaultMessage
 	 *
 	 * @throws \ReflectionException
 	 */
-    public function init(array $data = array())
-    {
+    public function init(array $data = array()): void {
 
         foreach ($data[0]['children'] as $c) {
             if ($c['name'] == 'detail') {
@@ -87,8 +86,7 @@ abstract class PPXmlFaultMessage
 	 * @throws \ReflectionException
 	 * @throws \ReflectionException
 	 */
-    private function fillRelation(string $property, array $element)
-    {
+    private function fillRelation(string $property, array $element): void {
         if (!class_exists($type = PPUtils::propertyType($this, $property))) {
             trigger_error("Class $type not found.");
             return; // just ignore

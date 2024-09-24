@@ -18,8 +18,7 @@ class PPMissingCredentialException
 	/**
 	 * @return string
 	 */
-	public function errorMessage()
-    {
+	public function errorMessage(): string {
 	    return 'Error on line ' . $this->getLine() . ' in ' . $this->getFile()
 		       . ': <b>' . $this->getMessage() . '</b>';
     }

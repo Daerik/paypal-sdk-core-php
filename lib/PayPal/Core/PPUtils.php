@@ -18,8 +18,7 @@ class PPUtils
      *
      * @return array
      */
-    public static function nvpToMap(string $nvpString)
-    {
+    public static function nvpToMap(string $nvpString): array {
         $ret    = array();
         $params = explode("&", $nvpString);
         foreach ($params as $p) {
@@ -37,8 +36,7 @@ class PPUtils
      *
      * @return bool
      */
-    public static function array_match_key(array $map, string $key)
-    {
+    public static function array_match_key(array $map, string $key): bool {
         $replace = str_replace(array(
           '(',
           ')',
@@ -84,8 +82,7 @@ class PPUtils
      *
      * @return bool
      */
-    public static function isIPv4($ip)
-    {
+    public static function isIPv4($ip): bool {
         return filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4);
     }
 	
@@ -98,8 +95,7 @@ class PPUtils
 	 * @return array
 	 * @throws Exception
 	 */
-    public static function xmlToArray(string $xmlInput)
-    {
+    public static function xmlToArray(string $xmlInput): array {
         $doc                     = new DOMDocument();
         $doc->preserveWhiteSpace = false;
         $doc->loadXML($xmlInput);
@@ -119,8 +115,7 @@ class PPUtils
      *
      * @param DOMNode $node DOM node to convert
      */
-    private static function xmlNodeToArray(DOMNode $node)
-    {
+    private static function xmlNodeToArray(DOMNode $node): array {
         $result = array();
 
         $children = $node->childNodes;
@@ -165,8 +160,7 @@ class PPUtils
      *
      * @return string
      */
-    public static function escapeInvalidXmlCharsRegex($textContent)
-    {
+    public static function escapeInvalidXmlCharsRegex($textContent): string {
         return htmlspecialchars($textContent, (1 | 2), 'UTF-8', false);
     }
 
@@ -178,8 +172,7 @@ class PPUtils
      *
      * @return array
      */
-    public static function filterKeyPrefix(array $map, string $keyPrefix)
-    {
+    public static function filterKeyPrefix(array $map, string $keyPrefix): array {
         $filtered = array();
         foreach ($map as $key => $val) {
             if (($pos = stripos($key, $keyPrefix)) !== 0) {
@@ -211,8 +204,7 @@ class PPUtils
 	 * @return string
 	 * @throws \ReflectionException
 	 */
-    public static function propertyAnnotations(string $class, string $propertyName)
-    {
+    public static function propertyAnnotations(string $class, string $propertyName): ?string {
         $class = is_object($class) ? get_class($class) : $class;
         if (!class_exists('ReflectionProperty')) {
             throw new RuntimeException("Property type of " . $class . "::$propertyName cannot be resolved");
@@ -249,8 +241,7 @@ class PPUtils
 	 * @return string
 	 * @throws \ReflectionException
 	 */
-    public static function isAttributeProperty(string $class, string $propertyName)
-    {
+    public static function isAttributeProperty(string $class, string $propertyName): false|string {
         if (($annotations = self::propertyAnnotations($class, $propertyName))) {
             return array_key_exists('attribute', $annotations);
         }
@@ -267,8 +258,7 @@ class PPUtils
 	 * @return string
 	 * @throws \ReflectionException
 	 */
-    public static function isPropertyArray(string $class, string $propertyName)
-    {
+    public static function isPropertyArray(string $class, string $propertyName): bool|string {
         if (($annotations = self::propertyAnnotations($class, $propertyName))) {
             if (isset($annotations['var']) && str_ends_with($annotations['var'], '[]')) {
                 return true;
@@ -289,8 +279,7 @@ class PPUtils
 	 * @return string
 	 * @throws \ReflectionException
 	 */
-    public static function propertyType(string $class, string $propertyName)
-    {
+    public static function propertyType(string $class, string $propertyName): string {
         if (($annotations = self::propertyAnnotations($class, $propertyName)) && isset($annotations['var'])) {
             if (str_ends_with($annotations['var'], '[]')) {
                 return substr($annotations['var'], 0, -2);
@@ -309,8 +298,7 @@ class PPUtils
 	 * @return array
 	 * @throws \ReflectionException
 	 */
-    public static function objectProperties(object $object)
-    {
+    public static function objectProperties(object $object): array {
         $props = array();
         foreach (get_object_vars($object) as $property => $default) {
             $annotations = self::propertyAnnotations($object, $property);
@@ -331,8 +319,7 @@ class PPUtils
      *
      * @return array
      */
-    public static function lowerKeys(array $array)
-    {
+    public static function lowerKeys(array $array): array {
         $ret = array();
         foreach ($array as $key => $value) {
             $ret[strtolower($key)] = $value;

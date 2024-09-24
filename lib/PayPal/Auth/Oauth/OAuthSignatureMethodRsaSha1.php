@@ -15,8 +15,7 @@ abstract class OAuthSignatureMethodRsaSha1
 	/**
 	 * @return string
 	 */
-	public function get_name()
-    {
+	public function get_name(): string {
         return "RSA-SHA1";
     }
 
@@ -31,7 +30,7 @@ abstract class OAuthSignatureMethodRsaSha1
 	 *
 	 * @return mixed
 	 */
-	abstract protected function fetch_public_cert(&$request);
+	abstract protected function fetch_public_cert(&$request): mixed;
 
     // Up to the SP to implement this lookup of keys. Possible ideas are:
     // (1) do a lookup in a table of trusted certs keyed off of consumer
@@ -42,7 +41,7 @@ abstract class OAuthSignatureMethodRsaSha1
 	 *
 	 * @return mixed
 	 */
-	abstract protected function fetch_private_cert(&$request);
+	abstract protected function fetch_private_cert(&$request): mixed;
 	
 	/**
 	 * @param OAuthRequest  $request
@@ -51,8 +50,7 @@ abstract class OAuthSignatureMethodRsaSha1
 	 *
 	 * @return string
 	 */
-	public function build_signature(OAuthRequest $request, OAuthConsumer $consumer, OAuthToken $token)
-    {
+	public function build_signature(OAuthRequest $request, OAuthConsumer $consumer, OAuthToken $token): string {
         $base_string          = $request->get_signature_base_string();
         $request->base_string = $base_string;
 
@@ -79,8 +77,7 @@ abstract class OAuthSignatureMethodRsaSha1
 	 *
 	 * @return bool
 	 */
-	public function check_signature(OAuthRequest $request, OAuthConsumer $consumer, OAuthToken $token, string $signature)
-    {
+	public function check_signature(OAuthRequest $request, OAuthConsumer $consumer, OAuthToken $token, string $signature): bool {
         $decoded_sig = base64_decode($signature);
 
         $base_string = $request->get_signature_base_string();

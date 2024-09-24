@@ -13,8 +13,7 @@ class PPNVPFormatter
 	 *
 	 * @return mixed
 	 */
-	public function toString(PPRequest $request, array $options = array())
-    {
+	public function toString(PPRequest $request, array $options = array()): mixed {
         return $request->getRequestObject()->toNVPString();
     }
 	
@@ -24,8 +23,7 @@ class PPNVPFormatter
 	 *
 	 * @return mixed
 	 */
-	public function toObject($string, array $options = array())
-    {
+	public function toObject($string, array $options = array()): mixed {
         throw new BadMethodCallException("Unimplemented");
     }
 }
