@@ -1,6 +1,7 @@
 <?php
 namespace PayPal\Common;
 
+use ReflectionException;
 use ReflectionMethod;
 use RuntimeException;
 class PPReflectionUtil
@@ -22,7 +23,7 @@ class PPReflectionUtil
 	 * @param string $propertyName
 	 *
 	 * @return mixed|string
-	 * @throws \ReflectionException
+	 * @throws ReflectionException
 	 */
     public static function getPropertyClass(string $class, string $propertyName): mixed {
 
@@ -46,7 +47,7 @@ class PPReflectionUtil
 	 * @param string $propertyName
 	 *
 	 * @return string
-	 * @throws \ReflectionException
+	 * @throws ReflectionException
 	 */
     public static function propertyAnnotations(string $class, string $propertyName): ?string {
         $class = is_object($class) ? get_class($class) : $class;

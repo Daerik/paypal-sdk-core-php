@@ -2,6 +2,7 @@
 namespace PayPal\Core;
 
 use PayPal\Exception\PPTransformerException;
+use ReflectionException;
 
 /**
  * @author
@@ -11,8 +12,8 @@ abstract class PPXmlMessage
 	
 	/**
 	 * @return string
-	 * @throws \ReflectionException
-	 * @throws \ReflectionException
+	 * @throws ReflectionException
+	 * @throws ReflectionException
 	 */
     public function toSOAP(): string {
         return $this->toXMLString();
@@ -20,7 +21,7 @@ abstract class PPXmlMessage
 	
 	/**
 	 * @return string
-	 * @throws \ReflectionException
+	 * @throws ReflectionException
 	 */
     public function toXMLString(): string {
         $attributes = array();
@@ -71,7 +72,7 @@ abstract class PPXmlMessage
 	 * @param string              $namespace
 	 *
 	 * @return string
-	 * @throws \ReflectionException
+	 * @throws ReflectionException
 	 */
     private function buildProperty(string $property, string|PPXmlMessage $value, string $namespace = 'ebl'): string {
         $annotations = PPUtils::propertyAnnotations($this, $property);
@@ -106,7 +107,7 @@ abstract class PPXmlMessage
 	 * @param bool  $isRoot true if this is a root class for SOAP deserialization
 	 *
 	 * @throws PPTransformerException
-	 * @throws \ReflectionException
+	 * @throws ReflectionException
 	 */
     public function init(array $map = array(), bool $isRoot = true): void {
         if ($isRoot) {
@@ -177,8 +178,8 @@ abstract class PPXmlMessage
 	 * @param string $property
 	 * @param array  $element
 	 *
-	 * @throws \ReflectionException
-	 * @throws \ReflectionException
+	 * @throws ReflectionException
+	 * @throws ReflectionException
 	 */
     private function fillRelation(string $property, array $element): void {
         if (!class_exists($type = PPUtils::propertyType($this, $property))) {

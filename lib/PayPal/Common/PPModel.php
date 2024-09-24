@@ -1,6 +1,7 @@
 <?php
 namespace PayPal\Common;
 
+use ReflectionException;
 /**
  * Generic Model class that all API domain classes extend
  * Stores all member data in a hashmap that enables easy
@@ -75,8 +76,8 @@ class PPModel
 	 * @param $arr
 	 *
 	 * @return void
-	 * @throws \ReflectionException
-	 * @throws \ReflectionException
+	 * @throws ReflectionException
+	 * @throws ReflectionException
 	 */
 	public function fromArray($arr): void {
 
@@ -111,8 +112,8 @@ class PPModel
 	 * @param $json
 	 *
 	 * @return void
-	 * @throws \ReflectionException
-	 * @throws \ReflectionException
+	 * @throws ReflectionException
+	 * @throws ReflectionException
 	 */
 	public function fromJson($json): void {
         $this->fromArray(json_decode($json, true));

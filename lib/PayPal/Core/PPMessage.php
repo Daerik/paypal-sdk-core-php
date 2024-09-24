@@ -1,6 +1,7 @@
 <?php
 namespace PayPal\Core;
 
+use ReflectionException;
 /**
  * @author
  */
@@ -11,7 +12,7 @@ abstract class PPMessage
 	 * @param string $prefix
 	 *
 	 * @return string
-	 * @throws \ReflectionException
+	 * @throws ReflectionException
 	 */
     public function toNVPString(string $prefix = ''): string {
         $nvp = array();
@@ -52,8 +53,8 @@ abstract class PPMessage
 	 * @param array  $map
 	 * @param string $prefix
 	 *
-	 * @throws \ReflectionException
-	 * @throws \ReflectionException
+	 * @throws ReflectionException
+	 * @throws ReflectionException
 	 */
     public function init(array $map = array(), string $prefix = ''): void {
         if (empty($map)) {

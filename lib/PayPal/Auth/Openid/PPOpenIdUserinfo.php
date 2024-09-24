@@ -7,6 +7,7 @@ use PayPal\Exception\PPConfigurationException;
 use PayPal\Exception\PPConnectionException;
 use PayPal\Handler\PPOpenIdHandler;
 use PayPal\Transport\PPRestCall;
+use ReflectionException;
 
 /**
  * OpenIdConnect UserInfo Resource
@@ -470,7 +471,7 @@ class PPOpenIdUserinfo
 	 * @return PPOpenIdUserinfo
 	 * @throws PPConfigurationException
 	 * @throws PPConnectionException
-	 * @throws \ReflectionException
+	 * @throws ReflectionException
 	 */
     public static function getUserinfo(array $params, $apiContext = null): PPOpenIdUserinfo {
         static $allowedParams = array('schema' => 1);

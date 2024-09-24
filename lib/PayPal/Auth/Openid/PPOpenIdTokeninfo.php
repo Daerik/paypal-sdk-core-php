@@ -7,6 +7,7 @@ use PayPal\Exception\PPConfigurationException;
 use PayPal\Exception\PPConnectionException;
 use PayPal\Handler\PPOpenIdHandler;
 use PayPal\Transport\PPRestCall;
+use ReflectionException;
 
 /**
  * Token grant resource
@@ -161,7 +162,7 @@ class PPOpenIdTokeninfo
 	 * @return PPOpenIdTokeninfo
 	 * @throws PPConfigurationException
 	 * @throws PPConnectionException
-	 * @throws \ReflectionException
+	 * @throws ReflectionException
 	 */
     public static function createFromAuthorizationCode(array $params, $clientId, $clientSecret, $apiContext = null): PPOpenIdTokeninfo {
         static $allowedParams = array('grant_type' => 1, 'code' => 1, 'redirect_uri' => 1);
@@ -213,7 +214,7 @@ class PPOpenIdTokeninfo
 	 * @return PPOpenIdTokeninfo
 	 * @throws PPConfigurationException
 	 * @throws PPConnectionException
-	 * @throws \ReflectionException
+	 * @throws ReflectionException
 	 */
     public function createFromRefreshToken(array $params, $apiContext = null): static {
 

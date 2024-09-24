@@ -2,8 +2,12 @@
 namespace PayPal\Core;
 
 use DOMDocument;
+use DOMElement;
+use DOMNameSpaceNode;
+use DOMNode;
 use DOMText;
 use Exception;
+use ReflectionException;
 use ReflectionProperty;
 use RuntimeException;
 class PPUtils
@@ -113,9 +117,9 @@ class PPUtils
      * Convert a DOM node to an intermediate nested array
      * representation that can be iterated
      *
-     * @param \DOMElement|\DOMNameSpaceNode|\DOMNode|null $node DOM node to convert
+     * @param DOMElement|DOMNameSpaceNode|DOMNode|null $node DOM node to convert
      */
-    private static function xmlNodeToArray(\DOMElement|\DOMNameSpaceNode|\DOMNode|null $node): array {
+    private static function xmlNodeToArray(DOMElement|DOMNameSpaceNode|DOMNode|null $node): array {
         $result = array();
 
         $children = $node->childNodes;
@@ -202,7 +206,7 @@ class PPUtils
 	 * @param string $propertyName
 	 *
 	 * @return mixed
-	 * @throws \ReflectionException
+	 * @throws ReflectionException
 	 */
     public static function propertyAnnotations(object|string $class, string $propertyName): mixed {
         $class = is_object($class) ? get_class($class) : $class;
@@ -239,7 +243,7 @@ class PPUtils
 	 * @param string $propertyName
 	 *
 	 * @return string
-	 * @throws \ReflectionException
+	 * @throws ReflectionException
 	 */
     public static function isAttributeProperty(string $class, string $propertyName): false|string {
         if (($annotations = self::propertyAnnotations($class, $propertyName))) {
@@ -256,7 +260,7 @@ class PPUtils
 	 * @param string $propertyName
 	 *
 	 * @return bool
-	 * @throws \ReflectionException
+	 * @throws ReflectionException
 	 */
     public static function isPropertyArray(object|string $class, string $propertyName): bool {
         if (($annotations = self::propertyAnnotations($class, $propertyName))) {
@@ -277,7 +281,7 @@ class PPUtils
 	 * @param string $propertyName
 	 *
 	 * @return string
-	 * @throws \ReflectionException
+	 * @throws ReflectionException
 	 */
     public static function propertyType(object|string $class, string $propertyName): string {
         if (($annotations = self::propertyAnnotations($class, $propertyName)) && isset($annotations['var'])) {
@@ -296,7 +300,7 @@ class PPUtils
 	 * @param object $object
 	 *
 	 * @return array
-	 * @throws \ReflectionException
+	 * @throws ReflectionException
 	 */
     public static function objectProperties(object $object): array {
         $props = array();

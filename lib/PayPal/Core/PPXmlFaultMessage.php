@@ -2,6 +2,7 @@
 namespace PayPal\Core;
 
 use Exception;
+use ReflectionException;
 /**
  * Base class for SOAP Fault message
  * Contains redundant code from PPXmlMessage in order
@@ -16,7 +17,7 @@ abstract class PPXmlFaultMessage
 	/**
 	 * @param array $data
 	 *
-	 * @throws \ReflectionException
+	 * @throws ReflectionException
 	 */
     public function init(array $data = array()): void {
 
@@ -83,8 +84,8 @@ abstract class PPXmlFaultMessage
 	 * @param string $property
 	 * @param array  $element
 	 *
-	 * @throws \ReflectionException
-	 * @throws \ReflectionException
+	 * @throws ReflectionException
+	 * @throws ReflectionException
 	 */
     private function fillRelation(string $property, array $element): void {
         if (!class_exists($type = PPUtils::propertyType($this, $property))) {
