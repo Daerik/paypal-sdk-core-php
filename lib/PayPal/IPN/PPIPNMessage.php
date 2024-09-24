@@ -145,8 +145,11 @@ class PPIPNMessage
         }
         return $this->ipnData['transaction_type'];
     }
-
-    private function setEndpoint()
+	
+	/**
+	 * @throws PPConfigurationException
+	 */
+	private function setEndpoint()
     {
         if (isset($this->config['service.EndPoint.IPN'])) {
             $url = $this->config['service.EndPoint.IPN'];

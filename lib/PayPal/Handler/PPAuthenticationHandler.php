@@ -18,8 +18,11 @@ use PayPal\Exception\PPInvalidCredentialException;
 class PPAuthenticationHandler
   implements IPPHandler
 {
-
-    public function handle($httpConfig, $request, $options)
+	
+	/**
+	 * @throws PPInvalidCredentialException
+	 */
+	public function handle($httpConfig, $request, $options)
     {
         $credential = $request->getCredential();
         if (isset($credential)) {

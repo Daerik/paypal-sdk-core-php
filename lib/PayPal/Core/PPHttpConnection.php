@@ -22,8 +22,11 @@ class PPHttpConnection
     private static $retryCodes = array('408', '502', '503', '504',);
 
     private $logger;
-
-    public function __construct($httpConfig, $config)
+	
+	/**
+	 * @throws PPConfigurationException
+	 */
+	public function __construct($httpConfig, $config)
     {
         if (!function_exists("curl_init")) {
             throw new PPConfigurationException("Curl module is not available on this system");

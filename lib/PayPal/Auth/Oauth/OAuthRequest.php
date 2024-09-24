@@ -241,6 +241,9 @@ class OAuthRequest {
 		return $this->to_url();
 	}
 	
+	/**
+	 * @throws OAuthException
+	 */
 	public function sign_request($signature_method, $consumer, $token) {
 		
 		$empty = FALSE;

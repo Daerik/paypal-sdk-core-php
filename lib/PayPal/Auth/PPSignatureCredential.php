@@ -35,16 +35,22 @@ class PPSignatureCredential
      * @var string
      */
     protected $applicationId;
-
-    public function __construct($userName, $password, $signature)
+	
+	/**
+	 * @throws PPMissingCredentialException
+	 */
+	public function __construct($userName, $password, $signature)
     {
         $this->userName  = trim($userName);
         $this->password  = trim($password);
         $this->signature = trim($signature);
         $this->validate();
     }
-
-    public function validate()
+	
+	/**
+	 * @throws PPMissingCredentialException
+	 */
+	public function validate()
     {
 
         if (empty($this->userName)) {

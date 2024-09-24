@@ -6,6 +6,7 @@ use PayPal\Auth\PPSignatureCredential;
 use PayPal\Core\PPConstants;
 use PayPal\Core\PPCredentialManager;
 use PayPal\Exception\PPConfigurationException;
+use PayPal\Exception\PPInvalidCredentialException;
 
 /**
  *
@@ -25,8 +26,12 @@ class PPMerchantServiceHandler
         parent::__construct($sdkName, $sdkVersion);
         $this->apiUsername = $apiUsername;
     }
-
-    public function handle($httpConfig, $request, $options)
+	
+	/**
+	 * @throws PPConfigurationException
+	 * @throws PPInvalidCredentialException
+	 */
+	public function handle($httpConfig, $request, $options)
     {
         parent::handle($httpConfig, $request, $options);
         $config = $options['config'];

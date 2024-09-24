@@ -4,10 +4,14 @@ namespace PayPal\Auth\Oauth;
 //PayPal specific modification
 //Method to be called for generating signature
 
+use PayPal\Exception\OAuthException;
 class AuthSignature
 {
-
-    public function genSign($key, $secret, $token, $tokenSecret, $httpMethod, $endpoint)
+	
+	/**
+	 * @throws OAuthException
+	 */
+	public function genSign($key, $secret, $token, $tokenSecret, $httpMethod, $endpoint)
     {
 
         $authServer  = new OAuthServer(new MockOAuthDataStore());

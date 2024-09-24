@@ -4,6 +4,7 @@ namespace PayPal\Handler;
 use PayPal\Core\PPConstants;
 use PayPal\Core\PPCredentialManager;
 use PayPal\Exception\PPConfigurationException;
+use PayPal\Exception\PPInvalidCredentialException;
 
 /**
  *
@@ -23,8 +24,12 @@ class PPPlatformServiceHandler
         parent::__construct($sdkName, $sdkVersion);
         $this->apiUsername = $apiUsername;
     }
-
-    public function handle($httpConfig, $request, $options)
+	
+	/**
+	 * @throws PPInvalidCredentialException
+	 * @throws PPConfigurationException
+	 */
+	public function handle($httpConfig, $request, $options)
     {
 
         parent::handle($httpConfig, $request, $options);

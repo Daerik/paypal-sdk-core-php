@@ -11,8 +11,11 @@ class PPOpenIdHandler
 
     private static $sdkName = "openid-sdk-php";
     private static $sdkVersion = "2.5.0";
-
-    public function handle($httpConfig, $request, $options)
+	
+	/**
+	 * @throws PPConfigurationException
+	 */
+	public function handle($httpConfig, $request, $options)
     {
         $apiContext = $options['apiContext'];
         $config     = $apiContext->getConfig();
@@ -29,8 +32,11 @@ class PPOpenIdHandler
             $httpConfig->addHeader("User-Agent", PPUserAgent::getValue(self::$sdkName, self::$sdkVersion));
         }
     }
-
-    private function _getEndpoint($config)
+	
+	/**
+	 * @throws PPConfigurationException
+	 */
+	private function _getEndpoint($config)
     {
         if (isset($config['openid.EndPoint'])) {
             return $config['openid.EndPoint'];

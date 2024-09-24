@@ -24,7 +24,10 @@ class PPCredentialManager
     /*
      * Constructor initialize credential for multiple accounts specified in property file.
      */
-    private function __construct($config)
+	/**
+	 * @throws PPMissingCredentialException
+	 */
+	private function __construct($config)
     {
         try {
             $this->initCredential($config);
@@ -46,7 +49,10 @@ class PPCredentialManager
     /*
      * Load credentials for multiple accounts, with priority given to Signature credential.
      */
-    private function initCredential($config)
+	/**
+	 * @throws PPMissingCredentialException
+	 */
+	private function initCredential($config)
     {
         $suffix = 1;
         $prefix = "acct";
@@ -136,7 +142,10 @@ class PPCredentialManager
     /*
      * Obtain Credential Object based on UserId provided.
      */
-    public function getCredentialObject($userId = null)
+	/**
+	 * @throws PPInvalidCredentialException
+	 */
+	public function getCredentialObject($userId = null)
     {
 
         if ($userId == null) {

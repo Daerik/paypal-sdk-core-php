@@ -60,8 +60,11 @@ class PPCertificateCredential
         $this->certificatePassPhrase = $certificatePassPhrase;
         $this->validate();
     }
-
-    public function validate()
+	
+	/**
+	 * @throws PPMissingCredentialException
+	 */
+	public function validate()
     {
 
         if (empty($this->userName)) {
