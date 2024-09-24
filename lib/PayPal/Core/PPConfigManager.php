@@ -105,9 +105,7 @@ class PPConfigManager
         } else {
             $iniPrefix = array_search($userId, $this->config);
             $pos       = strpos($iniPrefix, '.');
-            $acct      = substr($iniPrefix, 0, $pos);
-
-            return $acct;
+	        return substr($iniPrefix, 0, $pos);
         }
     }
 

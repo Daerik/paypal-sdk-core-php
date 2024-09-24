@@ -12,8 +12,7 @@ class OAuthUtil
             $tmp2 = str_replace(".", "%2E", $tmp1);
             $tmp3 = str_replace("*", "%2A", $tmp2);
             $tmp4 = str_replace('+', ' ', $tmp3);
-            $tmp  = str_replace("-", "%2D", $tmp4);
-            return $tmp;
+	        return str_replace("-", "%2D", $tmp4);
             /*$tmp1=str_replace('%7E', '~', rawurlencode($input));
              $tmp2= str_replace(".","%2E",$tmp1);
                

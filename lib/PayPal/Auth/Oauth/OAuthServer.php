@@ -39,9 +39,7 @@ class OAuthServer
 
         // Rev A change
         $callback  = $request->get_parameter('oauth_callback');
-        $new_token = $this->data_store->new_request_token($consumer, $callback);
-
-        return $new_token;
+	    return $this->data_store->new_request_token($consumer, $callback);
     }
 
     /**
@@ -61,9 +59,7 @@ class OAuthServer
 
         // Rev A change
         $verifier  = $request->get_parameter('oauth_verifier');
-        $new_token = $this->data_store->new_access_token($token, $consumer, $verifier);
-
-        return $new_token;
+	    return $this->data_store->new_access_token($token, $consumer, $verifier);
     }
 
     /**
