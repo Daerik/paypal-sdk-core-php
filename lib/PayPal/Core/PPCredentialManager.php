@@ -12,20 +12,9 @@
 	
 	class PPCredentialManager {
 		private static PPCredentialManager $instance;
-		//hashmap to contain credentials for accounts.
-		private array $credentialHashmap = array();
-		/**
-		 * Contains the API username of the default account to use
-		 * when authenticating API calls.
-		 *
-		 * @var string
-		 */
-		private string $defaultAccountName;
-		
-		/*
-		 * Constructor initialize credential for multiple accounts specified in property file.
-		 */
-		private array $config;
+		private array                      $credentialHashmap  = array();
+		private ?string                    $defaultAccountName = NULL;
+		private array                      $config             = array();
 		
 		/**
 		 * @throws PPMissingCredentialException
@@ -42,7 +31,7 @@
 		/*
 		 * Create singleton instance for this class.
 		 */
-
+		
 		/**
 		 * @throws PPMissingCredentialException
 		 */
@@ -135,7 +124,7 @@
 		/*
 		 * Load credentials for multiple accounts, with priority given to Signature credential.
 		 */
-
+		
 		/**
 		 * @param $config
 		 *
@@ -150,7 +139,7 @@
 		/*
 		 * Obtain Credential Object based on UserId provided.
 		 */
-
+		
 		/**
 		 * @throws PPInvalidCredentialException
 		 */
