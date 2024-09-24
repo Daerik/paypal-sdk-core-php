@@ -73,7 +73,7 @@
 				} elseif(!$filtered = PPUtils::filterKeyPrefix($map, $propKey)) {
 					continue; // NULL
 				}
-				
+				error_log($property);
 				$type = PPUtils::propertyType($this, $property);
 				if(!$this->isBuiltInType($type) && !class_exists($type)) {
 					trigger_error("Class $type not found.");
